@@ -1,11 +1,11 @@
 #!/bin/bash
 # Fundraising Skill Installer for Claude Code
-# Usage: curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/fundraising-skill/main/install.sh | bash
+# Usage: curl -sL https://raw.githubusercontent.com/lowesyang/fundraising-skill/main/install.sh | bash
 
 set -e
 
 SKILL_NAME="fundraising"
-REPO_URL="https://github.com/YOUR_USERNAME/fundraising-skill"
+REPO_URL="https://github.com/lowesyang/fundraising-skill"
 SKILL_DIR=""
 
 # Colors

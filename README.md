@@ -2,7 +2,7 @@
 
 # fundraising.skill
 
-> *"The best fundraising advice is personalized, practice-based, and brutally honest. This skill delivers all three."*
+> _"The best fundraising advice is personalized, practice-based, and brutally honest. This skill delivers all three."_
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Skill-blueviolet)](https://claude.ai/code)
@@ -53,13 +53,13 @@ We built this for **founders who'd rather be building** — indie hackers, solo 
 ### One-line install (recommended)
 
 ```bash
-curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/fundraising-skill/main/install.sh | bash
+curl -sL https://raw.githubusercontent.com/lowesyang/fundraising-skill/main/install.sh | bash
 ```
 
 ### Install globally (available in all projects)
 
 ```bash
-curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/fundraising-skill/main/install.sh | bash -s -- --global
+curl -sL https://raw.githubusercontent.com/lowesyang/fundraising-skill/main/install.sh | bash -s -- --global
 ```
 
 ### Manual install
@@ -67,12 +67,12 @@ curl -sL https://raw.githubusercontent.com/YOUR_USERNAME/fundraising-skill/main/
 ```bash
 # Install to current project (run at git repo root)
 mkdir -p .claude/skills
-git clone https://github.com/YOUR_USERNAME/fundraising-skill /tmp/fundraising-skill
+git clone https://github.com/lowesyang/fundraising-skill /tmp/fundraising-skill
 cp -r /tmp/fundraising-skill/fundraising .claude/skills/fundraising
 rm -rf /tmp/fundraising-skill
 
 # Or install globally
-git clone https://github.com/YOUR_USERNAME/fundraising-skill /tmp/fundraising-skill
+git clone https://github.com/lowesyang/fundraising-skill /tmp/fundraising-skill
 cp -r /tmp/fundraising-skill/fundraising ~/.claude/skills/fundraising
 rm -rf /tmp/fundraising-skill
 ```
@@ -91,14 +91,14 @@ If the skill loads, you'll see the onboarding table with all 6 commands.
 
 ## Commands
 
-| Step | Command | What it does |
-|------|---------|-------------|
-| 0 | `/before-fundraising` | Assess if you're ready to raise — honest verdict with hard gates |
-| 1 | `/product-metrics` | Review traction data with RED/YELLOW/GREEN grading by domain |
-| 2 | `/fundraising-strategy` | Plan how much to raise, spending allocation, round structure |
-| 3 | `/fundraising-stage` | Create actionable execution plan with investor targeting (optional) |
-| 4 | `/pitch-deck` | Build slide-by-slide deck outline tailored to your target VC |
-| 5 | `/pitch` | Practice pitching with a simulated VC partner — full debrief after |
+| Step | Command                 | What it does                                                        |
+| ---- | ----------------------- | ------------------------------------------------------------------- |
+| 0    | `/before-fundraising`   | Assess if you're ready to raise — honest verdict with hard gates    |
+| 1    | `/product-metrics`      | Review traction data with RED/YELLOW/GREEN grading by domain        |
+| 2    | `/fundraising-strategy` | Plan how much to raise, spending allocation, round structure        |
+| 3    | `/fundraising-stage`    | Create actionable execution plan with investor targeting (optional) |
+| 4    | `/pitch-deck`           | Build slide-by-slide deck outline tailored to your target VC        |
+| 5    | `/pitch`                | Practice pitching with a simulated VC partner — full debrief after  |
 
 ---
 
@@ -137,18 +137,18 @@ Start today, come back tomorrow — the skill picks up where you left off.
 
 8 firms modeled with detailed behavioral profiles for the `/pitch` simulator:
 
-| Firm | Tier | Known For |
-|------|------|-----------|
-| Y Combinator (YC) | Seed | "Do things that don't scale", user growth obsession |
-| First Round Capital | Seed | Operator-friendly, community-driven, platform model |
-| Andreessen Horowitz (a16z) | Series A/B | Network effects, "what's the 10x version?" |
-| Sequoia Capital | Series A/B | "Why now?", market timing, arc narrative |
-| Benchmark | Series A/B | Terse, product-obsessed, lets silence hang |
-| Accel | Series A/B | Data-driven, pattern-matching, fintech/SaaS |
-| Lightspeed Venture Partners | Series A/B | "Earned insight", enterprise SaaS |
-| Tiger Global | Growth | Speed of decision, growth metrics, no board seats |
+| Firm                        | Tier       | Known For                                           |
+| --------------------------- | ---------- | --------------------------------------------------- |
+| Y Combinator (YC)           | Seed       | "Do things that don't scale", user growth obsession |
+| First Round Capital         | Seed       | Operator-friendly, community-driven, platform model |
+| Andreessen Horowitz (a16z)  | Series A/B | Network effects, "what's the 10x version?"          |
+| Sequoia Capital             | Series A/B | "Why now?", market timing, arc narrative            |
+| Benchmark                   | Series A/B | Terse, product-obsessed, lets silence hang          |
+| Accel                       | Series A/B | Data-driven, pattern-matching, fintech/SaaS         |
+| Lightspeed Venture Partners | Series A/B | "Earned insight", enterprise SaaS                   |
+| Tiger Global                | Growth     | Speed of decision, growth metrics, no board seats   |
 
-Each VC asks different questions, pushes back differently, and evaluates through their own lens. The debrief tells you what they were *actually* thinking.
+Each VC asks different questions, pushes back differently, and evaluates through their own lens. The debrief tells you what they were _actually_ thinking.
 
 ---
 
@@ -157,6 +157,7 @@ Each VC asks different questions, pushes back differently, and evaluates through
 ### Stage-Aware Intelligence
 
 The skill covers 4 stages (pre-seed through Series B), each with:
+
 - **Readiness benchmarks** — explicit thresholds that power the `/before-fundraising` diagnostic
 - **Metrics grading** — RED/YELLOW/GREEN by domain (SaaS, Consumer, AI/ML)
 - **Deck templates** — YC Demo Day format and General Series A format
@@ -169,6 +170,7 @@ If your product isn't launched and you don't have exceptional team credentials (
 ### Pitch Simulation Debrief
 
 After each simulated pitch, you get:
+
 - **5-dimension scoring** (1-10): Problem clarity, Market conviction, Team strength, Traction evidence, Ask specificity
 - **Verdict**: PASS / FOLLOW-UP MEETING / TERM SHEET
 - **Structured investor feedback**: specific reasons, what to change, timeline for follow-up
@@ -178,11 +180,11 @@ After each simulated pitch, you get:
 
 ## Domains Supported
 
-| Domain | Metrics Covered |
-|--------|----------------|
-| **SaaS** | ARR, MRR growth, NDR, churn, LTV/CAC, payback period, gross margin, magic number, burn multiple |
-| **Consumer** | DAU/MAU, D1/D7/D30 retention, viral coefficient, session length, ARPU, organic vs paid |
-| **AI/ML** | Model accuracy, inference latency/cost, data moat, training cost trajectory, API usage growth |
+| Domain       | Metrics Covered                                                                                 |
+| ------------ | ----------------------------------------------------------------------------------------------- |
+| **SaaS**     | ARR, MRR growth, NDR, churn, LTV/CAC, payback period, gross margin, magic number, burn multiple |
+| **Consumer** | DAU/MAU, D1/D7/D30 retention, viral coefficient, session length, ARPU, organic vs paid          |
+| **AI/ML**    | Model accuracy, inference latency/cost, data moat, training cost trajectory, API usage growth   |
 
 More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 
@@ -191,6 +193,7 @@ More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 ## Roadmap
 
 ### v1 (current)
+
 - [x] 6 slash commands with guided workflow
 - [x] 8 VC profiles across 3 tiers
 - [x] 4 stage playbooks (pre-seed → Series B)
@@ -199,6 +202,7 @@ More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 - [x] Investor feedback loop
 
 ### v2 (planned)
+
 - [ ] Asia VC tier (HongShan, GGV, ZhenFund, Hillhouse)
 - [ ] Growth/Late/IPO stage playbooks
 - [ ] More domains (Fintech, Marketplace, Hardware, Biotech)
@@ -245,11 +249,3 @@ VC simulations are for practice purposes only and do not represent actual firm v
 ## License
 
 MIT
-
----
-
-<div align="center">
-
-**Built with Claude Code. For founders, by builders.**
-
-</div>
