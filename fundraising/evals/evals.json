@@ -1,0 +1,23 @@
+{
+  "skill_name": "fundraising",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building an AI code review tool that uses LLMs to find bugs in pull requests. We have 15 paying customers doing $8K MRR, growing 20% month over month. Team of 3 engineers. I want to practice pitching to Sequoia for a Series A. Let's do /pitch.",
+      "expected_output": "A realistic VC simulation where Sequoia's partner asks 'why now?' early, probes market timing around AI/LLM adoption, challenges on competitive moat vs GitHub Copilot and similar tools, and delivers a verdict with a detailed 5-dimension debrief.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "We're a 2-person team with a working prototype of a consumer social app for sharing book highlights. We have 500 users on a waitlist but haven't launched yet. No revenue. Should we raise? Run /diagnose for me.",
+      "expected_output": "A diagnostic that asks stage-appropriate questions, maps to pre-seed or seed stage, and likely gives a NOT YET or MAYBE verdict since there's no launched product or revenue — with specific advice on what to achieve before raising.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need help building my pitch deck. We're a SaaS company doing $2M ARR, 150% net dollar retention, selling to enterprise DevOps teams. We want to raise a Series A and our top target is a16z. Run /deck for me.",
+      "expected_output": "A slide-by-slide deck outline tailored to a16z's preferences (emphasizing TAM/SAM/SOM, network effects, platform potential). Should use the general-series-a template but customize for a16z style. Should call out strong points (NDR, enterprise focus) and gaps.",
+      "files": []
+    }
+  ]
+}

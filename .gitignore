@@ -1,0 +1,23 @@
+# Workspace (eval results, test outputs)
+fundraising-workspace/
+
+# Fundraising session data (generated per-project)
+.fundraising/
+
+# gstack
+.gstack/
+
+# Claude plans
+.claude/plans/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node
+node_modules/
+
+# Python
+__pycache__/
+*.pyc
+.env
