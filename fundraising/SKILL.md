@@ -55,6 +55,19 @@ When a user first triggers any fundraising command, show this orientation before
 
 Then proceed to the requested command.
 
+## Version Check
+
+Before starting any command, silently run the update check:
+
+```bash
+_UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check 2>/dev/null || echo "" )
+```
+
+- If output contains `UPGRADE_AVAILABLE`: mention once at the end of your response:
+  "A new version of fundraising-skill is available. Run `/fundraising-upgrade` to update."
+- If output contains `JUST_UPGRADED`: show the "What's New" summary from CHANGELOG.md.
+- If empty or error: skip silently. Never block the user's command for an update check.
+
 ## Stage Taxonomy
 
 All commands use this single taxonomy:

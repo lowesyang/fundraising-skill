@@ -8,7 +8,7 @@ REPO_URL="https://github.com/lowesyang/fundraising-skill"
 SKILLS_DIR=""
 
 # All skill directories to install
-SKILL_DIRS="fundraising before-fundraising product-metrics fundraising-strategy fundraising-stage pitch-deck pitch deal-room"
+SKILL_DIRS="fundraising before-fundraising product-metrics fundraising-strategy fundraising-stage pitch-deck pitch due-diligence deal-room fundraising-upgrade"
 
 # Colors
 GREEN='\033[0;32m'
@@ -63,8 +63,21 @@ for dir in $SKILL_DIRS; do
     fi
 done
 
+# Copy shared files (VERSION, CHANGELOG, bin)
+for f in VERSION CHANGELOG.md; do
+    [ -f "$TMP_DIR/repo/$f" ] && cp "$TMP_DIR/repo/$f" "$SKILLS_DIR/fundraising/$f"
+done
+if [ -d "$TMP_DIR/repo/bin" ]; then
+    mkdir -p "$SKILLS_DIR/fundraising/bin"
+    cp -r "$TMP_DIR/repo/bin/"* "$SKILLS_DIR/fundraising/bin/"
+    chmod +x "$SKILLS_DIR/fundraising/bin/"* 2>/dev/null
+fi
+
 # Clean up
 rm -rf "$TMP_DIR"
+
+# Show version
+INSTALLED_VER=$(cat "$SKILLS_DIR/fundraising/VERSION" 2>/dev/null | tr -d '[:space:]')
 
 # Verify installation
 INSTALLED=0
@@ -72,26 +85,29 @@ for dir in $SKILL_DIRS; do
     [ -f "$SKILLS_DIR/$dir/SKILL.md" ] && INSTALLED=$((INSTALLED + 1))
 done
 
-if [ "$INSTALLED" -eq 8 ]; then
+EXPECTED=10
+if [ "$INSTALLED" -ge "$((EXPECTED - 1))" ]; then
     echo ""
-    echo -e "${GREEN}✅ Installation successful! ($INSTALLED skills installed)${NC}"
+    echo -e "${GREEN}✅ Installation successful! v${INSTALLED_VER} ($INSTALLED skills installed)${NC}"
     echo ""
     echo -e "Installed to: ${CYAN}$SKILLS_DIR${NC}"
     echo ""
     echo -e "${GREEN}Available commands:${NC}"
-    echo "  /before-fundraising   — Assess fundraising readiness"
-    echo "  /product-metrics      — Review traction & key numbers"
-    echo "  /fundraising-strategy — Plan how much to raise & how"
-    echo "  /fundraising-stage    — Create execution plan"
-    echo "  /pitch-deck           — Build your pitch deck outline"
-    echo "  /pitch                — Practice pitching to simulated VCs"
-    echo "  /deal-room            — Multi-VC fundraising process simulation"
+    echo "  /before-fundraising    — Assess fundraising readiness"
+    echo "  /product-metrics       — Review traction & key numbers"
+    echo "  /fundraising-strategy  — Plan how much to raise & how"
+    echo "  /fundraising-stage     — Create execution plan"
+    echo "  /pitch-deck            — Build your pitch deck outline"
+    echo "  /pitch                 — Practice pitching to simulated VCs"
+    echo "  /due-diligence         — Prepare for investor DD"
+    echo "  /deal-room             — Multi-VC fundraising process simulation"
+    echo "  /fundraising-upgrade   — Check for updates"
     echo ""
     echo -e "${YELLOW}Get started:${NC} Open Claude Code and type ${CYAN}/before-fundraising${NC}"
     echo ""
 else
     echo ""
-    echo -e "${YELLOW}⚠️  Partial installation: $INSTALLED/8 skills installed.${NC}"
+    echo -e "${YELLOW}⚠️  Partial installation: $INSTALLED/$EXPECTED skills installed.${NC}"
     echo "Try manual installation:"
     echo "   git clone $REPO_URL /tmp/fundraising-skill"
     echo "   cp -r /tmp/fundraising-skill/{fundraising,before-fundraising,product-metrics,fundraising-strategy,fundraising-stage,pitch-deck,pitch,deal-room} $SKILLS_DIR/"

@@ -1,0 +1,85 @@
+#!/bin/bash
+# fundraising-skill update checker
+# Compares local VERSION against remote VERSION on GitHub
+# Returns: UPGRADE_AVAILABLE <old> <new> | JUST_UPGRADED <old> <new> | (nothing)
+
+set -e
+
+REPO_RAW="https://raw.githubusercontent.com/lowesyang/fundraising-skill/main/VERSION"
+STATE_DIR="$HOME/.fundraising-skill"
+CACHE_FILE="$STATE_DIR/last-update-check"
+UPGRADED_FILE="$STATE_DIR/just-upgraded-from"
+CACHE_TTL_MINUTES=60
+
+# Find install directory (where this script lives)
+SCRIPT_DIR="$(cd "$(dirname "$0")/.." && pwd)"
+LOCAL_VERSION_FILE="$SCRIPT_DIR/VERSION"
+
+# Ensure state directory exists
+mkdir -p "$STATE_DIR"
+
+# Check for just-upgraded marker
+if [ -f "$UPGRADED_FILE" ]; then
+    OLD_VER=$(cat "$UPGRADED_FILE")
+    NEW_VER=$(cat "$LOCAL_VERSION_FILE" 2>/dev/null | tr -d '[:space:]')
+    echo "JUST_UPGRADED $OLD_VER $NEW_VER"
+    rm -f "$UPGRADED_FILE"
+    exit 0
+fi
+
+# Read local version
+LOCAL_VER=$(cat "$LOCAL_VERSION_FILE" 2>/dev/null | tr -d '[:space:]')
+if [ -z "$LOCAL_VER" ]; then
+    exit 0  # No VERSION file, skip silently
+fi
+
+# Check cache
+if [ -f "$CACHE_FILE" ]; then
+    CACHE_AGE=$(( ($(date +%s) - $(stat -f %m "$CACHE_FILE" 2>/dev/null || stat -c %Y "$CACHE_FILE" 2>/dev/null || echo 0)) / 60 ))
+    if [ "$CACHE_AGE" -lt "$CACHE_TTL_MINUTES" ]; then
+        # Cache is fresh, return cached result
+        CACHED=$(cat "$CACHE_FILE")
+        if [ "$CACHED" != "UP_TO_DATE" ]; then
+            echo "$CACHED"
+        fi
+        exit 0
+    fi
+fi
+
+# Fetch remote version (timeout 5s, fail silently)
+REMOTE_VER=$(curl -sL --max-time 5 "$REPO_RAW" 2>/dev/null | tr -d '[:space:]')
+if [ -z "$REMOTE_VER" ]; then
+    exit 0  # Network error, skip silently
+fi
+
+# Compare versions
+if [ "$LOCAL_VER" = "$REMOTE_VER" ]; then
+    echo "UP_TO_DATE" > "$CACHE_FILE"
+    exit 0
+fi
+
+# Simple version comparison (works for semver without pre-release)
+LOCAL_PARTS=$(echo "$LOCAL_VER" | tr '.' ' ')
+REMOTE_PARTS=$(echo "$REMOTE_VER" | tr '.' ' ')
+
+NEEDS_UPGRADE=false
+set -- $LOCAL_PARTS
+L1=${1:-0}; L2=${2:-0}; L3=${3:-0}
+set -- $REMOTE_PARTS
+R1=${1:-0}; R2=${2:-0}; R3=${3:-0}
+
+if [ "$R1" -gt "$L1" ] 2>/dev/null; then
+    NEEDS_UPGRADE=true
+elif [ "$R1" -eq "$L1" ] && [ "$R2" -gt "$L2" ] 2>/dev/null; then
+    NEEDS_UPGRADE=true
+elif [ "$R1" -eq "$L1" ] && [ "$R2" -eq "$L2" ] && [ "$R3" -gt "$L3" ] 2>/dev/null; then
+    NEEDS_UPGRADE=true
+fi
+
+if [ "$NEEDS_UPGRADE" = true ]; then
+    RESULT="UPGRADE_AVAILABLE $LOCAL_VER $REMOTE_VER"
+    echo "$RESULT" > "$CACHE_FILE"
+    echo "$RESULT"
+else
+    echo "UP_TO_DATE" > "$CACHE_FILE"
+fi

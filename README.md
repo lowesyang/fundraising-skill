@@ -343,7 +343,7 @@ deal-room/SKILL.md                       # Step 7: Multi-VC process simulation
 
 ## Contributing
 
-This project is built for community contributions. Open Claude Code in your fork, tell it what you want to add — it reads `CONTRIBUTING.md` and generates properly formatted content.
+This project is built for community contributions. Open Claude Code in your fork, tell it what you want to add — it reads the relevant contributing guide and generates properly formatted content.
 
 ```bash
 git clone https://github.com/lowesyang/fundraising-skill && cd fundraising-skill
@@ -357,12 +357,10 @@ git clone https://github.com/lowesyang/fundraising-skill && cd fundraising-skill
 
 | Contribution | Example | Guide |
 |-------------|---------|-------|
-| **New VC profile** | "Add Founders Fund" | [CONTRIBUTING.md #1](CONTRIBUTING.md#1-vc-profiles) |
-| **New domain** | "Add an EdTech domain" | [CONTRIBUTING.md #2a](CONTRIBUTING.md#2a-add-a-new-domain) |
-| **New sub-domain** | "Add RegTech to Fintech" | [CONTRIBUTING.md #2b](CONTRIBUTING.md#2b-add-a-sub-domain-to-an-existing-domain) |
-| **New metric** | "Add NPS to SaaS metrics" | [CONTRIBUTING.md #2c](CONTRIBUTING.md#2c-add-a-new-metric-to-an-existing-domain) |
-| **Stage playbook** | "Improve Series A playbook" | [CONTRIBUTING.md #3](CONTRIBUTING.md#3-stage-playbooks) |
-| **Deck template** | "Add a Seed round template" | [CONTRIBUTING.md #4](CONTRIBUTING.md#4-deck-templates) |
+| **New VC profile** | "Add Founders Fund" | [CONTRIBUTING-vc-profiles.md](CONTRIBUTING-vc-profiles.md) |
+| **New domain / sub-domain / metric** | "Add RegTech to Fintech" | [CONTRIBUTING-domain-metrics.md](CONTRIBUTING-domain-metrics.md) |
+| **Stage playbook** | "Improve Series A playbook" | [CONTRIBUTING-stage-playbooks.md](CONTRIBUTING-stage-playbooks.md) |
+| **Deck template** | "Add a Seed round template" | [CONTRIBUTING-deck-templates.md](CONTRIBUTING-deck-templates.md) |
 
 ---
 

@@ -50,8 +50,12 @@ represent actual firm views or investment decisions."
 
 5. **Run the simulation:**
    - Assume the VC partner's persona completely — their speech patterns, their priorities, their quirks
-   - Run 8-12 exchanges (one exchange = one founder message + one VC response)
-   - The first 2-3 exchanges are the founder's pitch; remaining are VC Q&A
+   - **If YC is selected:** Follow the YC-Specific Simulation Rules in `yc.md` — 5-7 exchanges
+     (not 8-12), no pitch phase (questions from the start), rapid-fire format, demo request,
+     YC-specific verdicts (ACCEPTED / WAITLISTED / REJECTED WITH FEEDBACK), and Velocity
+     dimension replacing Ask Specificity. This simulates a YC batch interview, not a funding pitch.
+   - **For all other investors:** Run 8-12 exchanges (one exchange = one founder message + one VC response).
+     The first 2-3 exchanges are the founder's pitch; remaining are VC Q&A.
    - Ask questions consistent with the VC's known style (loaded from profile)
    - Reference the VC's actual portfolio where relevant
    - Use the VC's push-back patterns and closing signals from the profile
