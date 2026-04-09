@@ -192,19 +192,12 @@ More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 
 ## Roadmap
 
-### v1 (current)
-
 - [x] 6 slash commands with guided workflow
-- [x] 8 VC profiles across 3 tiers
+- [x] 8 VC profiles with community-friendly individual files
 - [x] 4 stage playbooks (pre-seed → Series B)
 - [x] 3 domain metrics (SaaS, Consumer, AI/ML)
 - [x] Document persistence to `.fundraising/`
 - [x] Investor feedback loop
-
-### v2 (planned)
-
-- [x] **Community-contributed VC profiles** — one file per VC, add new VCs via PR
-- [x] Individual VC profile files with YAML frontmatter
 - [ ] Growth/Late/IPO stage playbooks
 - [ ] More domains (Fintech, Marketplace, Hardware, Biotech)
 - [ ] "Deal Room" multi-meeting simulation
