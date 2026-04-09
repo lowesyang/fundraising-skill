@@ -142,6 +142,86 @@ Where does custody change hands? What legal entity holds what?
 **Applies to:** Fintech (critical), Marketplace (escrow), SaaS (data custody), any company
 handling user assets.
 
+### 15. Compliance & Regulatory Readiness
+**Surface question:** "What licenses do you have? What's your regulatory status? Who's your legal counsel?"
+**Investor intent:** Regulatory risk can kill a company overnight — or block an exit entirely. Investors
+need to know: (1) Is this business legal in its operating jurisdictions? (2) Is there pending regulation
+that could fundamentally change the business model? (3) Has the team been proactive or reactive on
+compliance? A startup that says "we'll deal with regulation later" is a red flag.
+**Universal probes by domain:**
+
+**Fintech / Crypto:**
+- What money transmission licenses do you hold (MSB, MTL, EMI, etc.)? In which jurisdictions?
+- How do you handle KYC/AML? What provider? What % of users pass vs fail?
+- Are you registered with FinCEN, MAS, FCA, or equivalent?
+- How does your product work in restricted jurisdictions (US, EU, Japan, etc.)?
+- What happens to user funds if the company fails? Is there segregation of client assets?
+- Do you have a compliance officer? When were they hired (before or after launch)?
+
+**AI / ML:**
+- How do you handle data privacy (GDPR, CCPA, PIPL)? What data do you collect, store, process?
+- Do you use user data to train models? With what consent mechanism?
+- How do you address AI output liability? (e.g., if your AI gives bad financial/medical advice)
+- Are you subject to the EU AI Act? What risk category is your product in?
+- Do you have an AI ethics policy or responsible AI framework?
+- How do you handle bias, hallucination, and content moderation?
+
+**Healthcare / Biotech:**
+- What FDA/EMA/NMPA classification does your product have? (510(k), PMA, De Novo, CE marking)
+- IRB/ethics committee approval for clinical studies?
+- HIPAA compliance status? BAA agreements with cloud providers?
+- GMP certification for manufacturing? Which facilities?
+- Clinical trial registration (ClinicalTrials.gov)?
+
+**SaaS / Data:**
+- SOC 2 Type I or Type II certification? Timeline if not yet?
+- GDPR compliance — DPA agreements, data residency, right to deletion?
+- Do you process PII? What's the encryption and access control posture?
+- Cyber insurance coverage?
+
+**Hardware:**
+- FCC, CE, UL certifications? Which markets are certified?
+- Product liability insurance?
+- Environmental compliance (RoHS, WEEE, REACH)?
+- Safety certifications for industry-specific applications?
+
+**Marketplace / Consumer:**
+- Content moderation policy and enforcement?
+- Background checks for service providers (if applicable)?
+- Consumer protection compliance (return policies, dispute resolution)?
+- Privacy policy and terms of service — when last reviewed by counsel?
+
+**Cross-domain (ALL companies at Series A+):**
+- Corporate structure — are all entities properly incorporated? Where?
+- IP assignment — have all founders and employees signed IP assignment agreements?
+- Employment compliance — are workers properly classified (employee vs contractor)?
+- Cap table hygiene — any unresolved equity disputes, missing option grants, or messy SAFEs?
+- Litigation — any pending or threatened lawsuits?
+- Tax compliance — are all filings current? Any nexus issues?
+- Insurance — D&O, E&O, cyber, general liability?
+
+**Applies to:** ALL — but severity varies dramatically. Fintech and Biotech are "compliance-first"
+industries where missing a license can shut you down. SaaS and Consumer are "compliance-later"
+but GDPR/CCPA violations carry real fines. AI is the emerging frontier where regulation is
+evolving rapidly.
+
+### 16. IP & Technology Ownership
+**Surface question:** "Who owns the IP? Are there any encumbrances? Open-source dependencies?"
+**Investor intent:** If the company gets acquired or goes public, does it actually own what it's
+selling? Common landmines: (1) IP created during prior employment, (2) open-source licenses that
+infect commercial code (GPL copyleft), (3) university or government grant IP claims, (4) no proper
+assignment agreements from contractors.
+**Universal probe:**
+- Has every contributor (founders, employees, contractors) signed an IP assignment agreement?
+- Are there any open-source components with copyleft licenses (GPL, AGPL)?
+- Was any core IP developed at a previous employer, university, or under government funding?
+- Patent status — filed, granted, pending? Any freedom-to-operate analysis done?
+- Trade secret protection — NDAs, access controls, documentation?
+**Applies to:** ALL — but especially AI (training data licensing, model weights ownership),
+Biotech (patent portfolio is often the primary asset), Hardware (design patents, trade secrets).
+
+---
+
 ## How to Use This in the Skill
 
 ### In `/before-fundraising`:

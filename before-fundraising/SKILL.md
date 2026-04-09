@@ -111,6 +111,13 @@ This command is **Step 0** of the fundraising workflow:
      - What happens to your product under adverse conditions? (market downturn, churn spike, etc.)
      - What are your risk guardrails? (what automatically stops when things go wrong)
      - What's your cost structure? (people vs tech vs marketing — investors will ask for breakdown)
+   - **Compliance readiness** (domain-specific, from `investor-dd-patterns.md` #15-16):
+     - Fintech/Crypto: Do you have required licenses (MSB, MTL)? KYC/AML provider? Client fund segregation?
+     - AI: GDPR/CCPA compliance? AI output liability? EU AI Act risk category?
+     - Biotech: FDA/EMA status? IRB approval? GMP certification?
+     - SaaS: SOC 2? GDPR DPA agreements? PII handling?
+     - Hardware: FCC/CE/UL certifications? Product liability insurance?
+     - ALL at Series A+: IP assignment agreements? Cap table hygiene? D&O insurance? Employment classification?
    - Flag any DD gaps in the assessment: "You'll need to prepare [X] before investors ask for it."
 
 6. **Read the appropriate stage playbook** from `../fundraising/references/stage-playbooks/`

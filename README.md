@@ -132,26 +132,7 @@ Each command guides you to the next. After `/pitch`, loop back to refine your de
 
 ### Document Persistence
 
-Every command saves its output to `.fundraising/` in your project:
-
-```
-.fundraising/
-├── readiness-assessment-2026-04-09.md
-├── product-metrics-2026-04-09.md
-├── fundraising-strategy-2026-04-09.md
-├── execution-plan-2026-04-09.md
-├── pitch-deck-outline-2026-04-09.md
-├── pitch-simulations/
-│   ├── pitch-sequoia-2026-04-09.md
-│   └── pitch-a16z-2026-04-10.md
-├── deal-room/
-│   ├── meeting-sequoia-1-2026-04-09.md
-│   ├── meeting-a16z-1-2026-04-10.md
-│   └── final-report-2026-04-12.md
-└── timeline.jsonl
-```
-
-Start today, come back tomorrow — the skill picks up where you left off.
+Every command saves its output to `.fundraising/` in your project. Start today, come back tomorrow — the skill picks up where you left off.
 
 ---
 
