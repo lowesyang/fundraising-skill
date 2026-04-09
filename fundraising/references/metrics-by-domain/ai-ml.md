@@ -1,10 +1,50 @@
 # AI/ML Metrics — Stage-Specific Benchmarks
 
-> Used by the `/metrics` command to grade an AI/ML founder's numbers with RED/YELLOW/GREEN thresholds.
+> Used by the `/product-metrics` command to grade an AI/ML founder's numbers with RED/YELLOW/GREEN thresholds.
+
+## Product Type Classification
+
+Before evaluating metrics, first ask the founder which type of AI/ML company they are building.
+The metrics that matter vary dramatically by product type:
+
+| Type | Description | Examples | Key Differentiator |
+|------|-------------|---------|-------------------|
+| **Model Company** | Training proprietary foundation or specialized models | OpenAI, Anthropic, Mistral, Cohere | Model performance vs SOTA |
+| **AI Application** | Building products on top of existing models (API-based) | Jasper, Copy.ai, Harvey, Cursor | UX, workflow integration, domain data |
+| **AI Infrastructure / Tooling** | Building tools for AI developers or deployment | Weights & Biases, Modal, Replicate | Developer adoption, API usage |
+| **AI-Enhanced Product** | Traditional product with AI features (not AI-first) | Notion AI, Canva Magic, Figma AI | Feature adoption within existing product |
+
+### Metrics by Product Type
+
+**Model Company** — use ALL metrics below (model accuracy, inference cost, training cost, data moat are critical)
+
+**AI Application** — focus on:
+- Data moat / proprietary dataset (if applicable)
+- Inference cost per query (as a cost of goods, even if using third-party APIs)
+- API usage growth → reframe as "usage growth" (queries, sessions, tasks completed)
+- Revenue per API call → reframe as "revenue per task" or "revenue per user action"
+- Customer concentration
+- SKIP: Model accuracy benchmarks (you're using someone else's model), Training cost trajectory (not applicable)
+- ADD: Gross margin (critical — third-party API costs eat into margin), Workflow completion rate, Time saved per task
+
+**AI Infrastructure / Tooling** — focus on:
+- API usage growth (core metric)
+- Revenue per API call
+- Inference latency (if serving models)
+- Customer concentration
+- ADD: Developer adoption (GitHub stars, npm downloads), Integration depth (API calls per customer)
+
+**AI-Enhanced Product** — focus on:
+- ADD: AI feature adoption rate (% of users using AI features)
+- ADD: Incremental revenue from AI features
+- ADD: AI cost as % of revenue (margin impact)
+- Use SaaS or Consumer metrics as the primary framework, AI metrics as supplementary
 
 ---
 
 ### Model Accuracy / Performance Benchmarks
+
+> **Applies to: Model Company.** For AI Applications, skip this metric — your differentiation is in UX and workflow, not model performance. For AI-Enhanced Products, this is not relevant.
 **What it is:** Quantitative measure of model quality on relevant tasks — accuracy, F1 score, BLEU, ROUGE, AUC-ROC, or domain-specific benchmarks depending on the application.
 **Why investors care:** Model performance is the core technical moat. Superior accuracy justifies premium pricing, drives adoption, and creates switching costs. Investors want to see performance relative to public baselines and competitors, not just absolute numbers.
 **How to calculate:** Run standardized evaluation on held-out test sets or public benchmarks relevant to the domain. Report the metric most meaningful for the use case (e.g., precision/recall for search, accuracy for classification, BLEU for translation). Always include the benchmark name and comparison to state-of-the-art.
@@ -22,6 +62,9 @@
 ---
 
 ### Inference Latency
+
+> **Applies to: Model Company, AI Infrastructure.** For AI Applications using third-party APIs, reframe as "end-to-end response time" including API call overhead.
+
 **What it is:** Time elapsed from when a user query is submitted to when the model returns a complete response (P50 and P99).
 **Why investors care:** Latency directly impacts user experience, adoption, and which use cases the product can serve. Sub-100ms enables real-time applications (search, autocomplete). Sub-1s enables interactive applications. Multi-second latency limits the product to batch/async workflows.
 **How to calculate:** Measure end-to-end from API request receipt to response completion. Report P50 (median) and P99 (tail) latency. Exclude network transit time — measure server-side only for consistency.
@@ -39,6 +82,9 @@
 ---
 
 ### Inference Cost per Query
+
+> **Applies to: ALL types.** For AI Applications, this includes third-party API costs (OpenAI, Anthropic, etc.) — often the largest COGS line item. Critical for gross margin analysis.
+
 **What it is:** Fully loaded cost to serve one inference request, including compute (GPU/TPU), memory, networking, and amortized infrastructure overhead.
 **Why investors care:** Inference cost determines gross margin. Many AI companies have impressive revenue but thin margins because serving costs are high. Cost trajectory matters as much as current cost — investors want to see a clear path to cost reduction through optimization, quantization, or custom hardware.
 **How to calculate:** Total monthly inference infrastructure cost / Total monthly queries served. Include GPU instance costs, model serving framework overhead, and any third-party API costs.
@@ -56,6 +102,9 @@
 ---
 
 ### Data Moat Size
+
+> **Applies to: Model Company, AI Application.** For AI Applications, the "data moat" is often user-generated data, domain-specific datasets, or fine-tuning data — not just training data. For AI-Enhanced Products, less relevant unless AI features generate proprietary data loops.
+
 **What it is:** Volume and uniqueness of proprietary training/fine-tuning data that competitors cannot easily replicate. Measured in unique data points, labeled examples, or proprietary data relationships.
 **Why investors care:** In the age of open-source foundation models, data is the primary defensibility layer. Proprietary data that improves with usage creates a compounding flywheel — more users generate more data, which improves the model, which attracts more users.
 **How to calculate:** Quantify along three dimensions: (1) Volume — total unique data points/examples, (2) Exclusivity — percentage of data that is proprietary and not publicly available, (3) Velocity — rate of new data generation from product usage.
@@ -73,6 +122,9 @@
 ---
 
 ### Training Cost Trajectory
+
+> **Applies to: Model Company only.** AI Applications using third-party APIs should skip this metric entirely. If you're fine-tuning models, report fine-tuning costs instead (typically 10-100x cheaper than training from scratch).
+
 **What it is:** Total cost to train or fine-tune a new model version, tracked over successive versions to show the trend.
 **Why investors care:** Training costs indicate R&D capital intensity and pace of improvement. Investors want to see costs decreasing per unit of performance gain, showing the team can iterate efficiently. Runaway training costs signal unsustainable R&D burn.
 **How to calculate:** Total GPU/TPU hours x cost per hour for each training run. Include data preparation, experimentation (failed runs), and hyperparameter tuning. Report cost per model version and cost per percentage point of performance improvement.
@@ -90,6 +142,9 @@
 ---
 
 ### API Usage Growth
+
+> **Applies to: ALL types.** For AI Applications, reframe as "usage growth" — tasks completed, sessions, queries. For AI-Enhanced Products, measure AI feature usage growth specifically.
+
 **What it is:** Growth rate of API calls, tokens processed, or queries served over time. The core usage metric for AI companies with API-based business models.
 **Why investors care:** API usage growth is the leading indicator of revenue growth for AI infrastructure companies. It reflects developer adoption, integration depth, and expanding use cases. Compounding usage growth from existing customers is especially powerful.
 **How to calculate:** Total API calls (or tokens/queries) per month. Report MoM growth rate and breakdown by: new customers vs existing customer expansion. Track trailing 3-month average growth.
@@ -107,6 +162,9 @@
 ---
 
 ### Revenue per API Call
+
+> **Applies to: Model Company, AI Infrastructure.** For AI Applications, reframe as "revenue per task completed" or "revenue per user session." For AI-Enhanced Products, measure incremental revenue attributable to AI features.
+
 **What it is:** Average revenue generated per API call or inference request. This is the monetization efficiency metric for AI platforms.
 **Why investors care:** Combined with inference cost, it determines per-unit gross margin. Growing revenue per call (through value-based pricing, premium tiers, or increasing complexity of queries handled) is a strong signal.
 **How to calculate:** Total API revenue / Total API calls for the period. Segment by tier (free, standard, premium) and by use case if pricing varies.
@@ -124,6 +182,9 @@
 ---
 
 ### Customer Concentration
+
+> **Applies to: ALL types.**
+
 **What it is:** Percentage of total revenue derived from the top 1, 3, and 10 customers.
 **Why investors care:** High customer concentration is one of the most common deal-killers for AI companies. Losing a single customer can crater revenue. It also signals the product may be a bespoke solution rather than a scalable platform.
 **How to calculate:** Revenue from top N customers / Total revenue x 100. Report top 1, top 3, and top 10 customer revenue share.
