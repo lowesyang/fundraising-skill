@@ -61,23 +61,35 @@ The metrics that matter vary dramatically by product type:
 
 ---
 
-### Inference Latency
+### Response Time
 
 > **Applies to: Model Company, AI Infrastructure.** For AI Applications using third-party APIs, reframe as "end-to-end response time" including API call overhead.
 
-**What it is:** Time elapsed from when a user query is submitted to when the model returns a complete response (P50 and P99).
-**Why investors care:** Latency directly impacts user experience, adoption, and which use cases the product can serve. Sub-100ms enables real-time applications (search, autocomplete). Sub-1s enables interactive applications. Multi-second latency limits the product to batch/async workflows.
-**How to calculate:** Measure end-to-end from API request receipt to response completion. Report P50 (median) and P99 (tail) latency. Exclude network transit time — measure server-side only for consistency.
+**What it is:** How long users wait for a result. Measure from when the user hits "submit" to when they see a usable response. For streaming outputs (like LLM text generation), also measure time-to-first-token — when the user sees the response start appearing.
 
-**Benchmarks by stage:**
+**Why investors care:** Response time directly impacts user experience and determines which use cases the product can serve. Faster = more use cases = larger market.
+
+**How to calculate:** Track median (typical user experience) and 95th percentile (worst-case). For streaming outputs, track both time-to-first-token and total completion time separately.
+
+**Benchmarks vary by interaction type — ask the founder what their product does first:**
+
+| Interaction Type | Examples | Acceptable | Good | Excellent |
+|-----------------|---------|------------|------|-----------|
+| **Real-time / inline** | Search, autocomplete, code completion | <1s | <500ms | <200ms |
+| **Interactive generation** | Chatbot, Q&A, summarization | <5s (or streaming starts <1s) | <3s (or streaming <500ms) | <1s total |
+| **Complex generation** | Long-form writing, code generation, image generation | <30s | <15s | <5s |
+| **Batch / async** | Document processing, data analysis, video generation | <5 min | <1 min | <30s |
+
+**By stage** (applicable to the founder's interaction type):
+
 | Stage | RED | YELLOW | GREEN |
 |-------|-----|--------|-------|
-| Pre-seed | P50 >5s | P50 1-5s | P50 <1s |
-| Seed | P50 >3s | P50 500ms-3s | P50 <500ms |
-| Series A | P50 >2s, P99 >10s | P50 300ms-2s, P99 5-10s | P50 <300ms, P99 <5s |
-| Series B | P50 >1s, P99 >5s | P50 200ms-1s, P99 2-5s | P50 <200ms, P99 <2s |
+| Pre-seed | >3x slower than user expectation for the interaction type | Within user expectation | Noticeably fast for the category |
+| Seed | Users complain about speed | Speed is acceptable, not a differentiator | Speed is a positive in user feedback |
+| Series A | Slower than competitors | On par with competitors | Faster than competitors, enabling use cases they can't serve |
+| Series B | Speed regression or stagnation | Steady improvement | Industry-leading + consistent optimization trajectory |
 
-**Domain nuance:** Benchmarks vary dramatically by model type. Generative LLM responses (tokens/second) should be measured differently from classification (single inference). Streaming responses change the perceived latency equation — report time-to-first-token separately. Edge deployment can dramatically reduce latency for specific use cases.
+**Domain nuance:** The right benchmark depends entirely on what the product does. A 10-second response for image generation is excellent; for search autocomplete it's unusable. For LLM-based products, streaming output changes the equation — users perceive a 10-second generation as fast if tokens start appearing in 500ms. Always ask: "What does your user expect, and how does your speed compare to that expectation?"
 
 ---
 
