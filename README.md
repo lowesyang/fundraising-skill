@@ -252,24 +252,26 @@ pitch/SKILL.md                           # Step 5: VC simulation
 
 ## Contributing
 
-This project is built for community contributions. You can contribute with AI — just open Claude Code in your fork and tell it what you want to add. It will read `CONTRIBUTING.md` and follow the rules.
-
-| What to contribute | Where | Guide |
-|-------------------|-------|-------|
-| **New VC profile** | `fundraising/references/vc-profiles/{slug}.md` | [CONTRIBUTING.md](CONTRIBUTING.md#adding-a-vc-profile) |
-| **New domain metrics** | `fundraising/references/metrics-by-domain/{domain}.md` | [CONTRIBUTING.md](CONTRIBUTING.md#adding-a-domain-metrics-file) |
-| **Stage playbook improvements** | `fundraising/references/stage-playbooks/{stage}.md` | [CONTRIBUTING.md](CONTRIBUTING.md#modifying-stage-playbooks) |
-| **Deck template improvements** | `fundraising/references/deck-templates/{template}.md` | [CONTRIBUTING.md](CONTRIBUTING.md#modifying-deck-templates) |
-
-**Quick example — add a VC with AI:**
+This project is built for community contributions. Open Claude Code in your fork, tell it what you want to add — it reads `CONTRIBUTING.md` and generates properly formatted content.
 
 ```bash
 git clone https://github.com/lowesyang/fundraising-skill && cd fundraising-skill
 # Open Claude Code and say:
 # "Add a VC profile for Greylock Partners"
+# "Add a RegTech sub-domain to fintech metrics"
+# "Add a Customer Health Score metric to SaaS domain"
 ```
 
-Claude will read `CONTRIBUTING.md`, create a properly formatted profile, and you just submit a PR.
+### What you can contribute
+
+| Contribution | Example | Guide |
+|-------------|---------|-------|
+| **New VC profile** | "Add Founders Fund" | [CONTRIBUTING.md #1](CONTRIBUTING.md#1-vc-profiles) |
+| **New domain** | "Add an EdTech domain" | [CONTRIBUTING.md #2a](CONTRIBUTING.md#2a-add-a-new-domain) |
+| **New sub-domain** | "Add RegTech to Fintech" | [CONTRIBUTING.md #2b](CONTRIBUTING.md#2b-add-a-sub-domain-to-an-existing-domain) |
+| **New metric** | "Add NPS to SaaS metrics" | [CONTRIBUTING.md #2c](CONTRIBUTING.md#2c-add-a-new-metric-to-an-existing-domain) |
+| **Stage playbook** | "Improve Series A playbook" | [CONTRIBUTING.md #3](CONTRIBUTING.md#3-stage-playbooks) |
+| **Deck template** | "Add a Seed round template" | [CONTRIBUTING.md #4](CONTRIBUTING.md#4-deck-templates) |
 
 ---
 
