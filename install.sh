@@ -4,9 +4,11 @@
 
 set -e
 
-SKILL_NAME="fundraising"
 REPO_URL="https://github.com/lowesyang/fundraising-skill"
-SKILL_DIR=""
+SKILLS_DIR=""
+
+# All skill directories to install
+SKILL_DIRS="fundraising before-fundraising product-metrics fundraising-strategy fundraising-stage pitch-deck pitch"
 
 # Colors
 GREEN='\033[0;32m'
@@ -23,50 +25,58 @@ echo ""
 
 # Determine install location
 if [ "$1" = "--global" ] || [ "$1" = "-g" ]; then
-    SKILL_DIR="$HOME/.claude/skills/$SKILL_NAME"
-    echo -e "${YELLOW}Installing globally to $SKILL_DIR${NC}"
+    SKILLS_DIR="$HOME/.claude/skills"
+    echo -e "${YELLOW}Installing globally to $SKILLS_DIR${NC}"
 else
-    # Try to find git repo root
     GIT_ROOT=$(git rev-parse --show-toplevel 2>/dev/null || echo "")
     if [ -n "$GIT_ROOT" ]; then
-        SKILL_DIR="$GIT_ROOT/.claude/skills/$SKILL_NAME"
-        echo -e "${YELLOW}Installing to project: $SKILL_DIR${NC}"
+        SKILLS_DIR="$GIT_ROOT/.claude/skills"
+        echo -e "${YELLOW}Installing to project: $SKILLS_DIR${NC}"
     else
-        SKILL_DIR="$HOME/.claude/skills/$SKILL_NAME"
-        echo -e "${YELLOW}No git repo detected. Installing globally to $SKILL_DIR${NC}"
+        SKILLS_DIR="$HOME/.claude/skills"
+        echo -e "${YELLOW}No git repo detected. Installing globally to $SKILLS_DIR${NC}"
     fi
 fi
 
-# Check if already installed
-if [ -d "$SKILL_DIR" ]; then
-    echo -e "${YELLOW}Existing installation found. Updating...${NC}"
-    rm -rf "$SKILL_DIR"
-fi
+# Clean up existing installation
+for dir in $SKILL_DIRS; do
+    [ -d "$SKILLS_DIR/$dir" ] && rm -rf "$SKILLS_DIR/$dir"
+done
 
-# Create directory and clone
-mkdir -p "$(dirname "$SKILL_DIR")"
+# Clone repo to temp directory
+mkdir -p "$SKILLS_DIR"
+TMP_DIR=$(mktemp -d)
 
-# Try git clone first, fall back to curl
 if command -v git &> /dev/null; then
     echo "Cloning from $REPO_URL..."
-    git clone --depth 1 "$REPO_URL" /tmp/fundraising-skill-install 2>/dev/null
-    mkdir -p "$SKILL_DIR"
-    cp -r /tmp/fundraising-skill-install/fundraising/* "$SKILL_DIR/"
-    rm -rf /tmp/fundraising-skill-install
+    git clone --depth 1 "$REPO_URL" "$TMP_DIR/repo" 2>/dev/null
 else
-    echo "git not found, downloading via curl..."
-    curl -sL "$REPO_URL/archive/main.tar.gz" | tar xz -C /tmp
-    mkdir -p "$SKILL_DIR"
-    cp -r /tmp/fundraising-skill-main/fundraising/* "$SKILL_DIR/"
-    rm -rf /tmp/fundraising-skill-main
+    echo "Downloading via curl..."
+    curl -sL "$REPO_URL/archive/main.tar.gz" | tar xz -C "$TMP_DIR"
+    mv "$TMP_DIR/fundraising-skill-main" "$TMP_DIR/repo"
 fi
 
+# Copy each skill directory
+for dir in $SKILL_DIRS; do
+    if [ -d "$TMP_DIR/repo/$dir" ]; then
+        cp -r "$TMP_DIR/repo/$dir" "$SKILLS_DIR/$dir"
+    fi
+done
+
+# Clean up
+rm -rf "$TMP_DIR"
+
 # Verify installation
-if [ -f "$SKILL_DIR/SKILL.md" ]; then
+INSTALLED=0
+for dir in $SKILL_DIRS; do
+    [ -f "$SKILLS_DIR/$dir/SKILL.md" ] && INSTALLED=$((INSTALLED + 1))
+done
+
+if [ "$INSTALLED" -eq 7 ]; then
     echo ""
-    echo -e "${GREEN}✅ Installation successful!${NC}"
+    echo -e "${GREEN}✅ Installation successful! ($INSTALLED skills installed)${NC}"
     echo ""
-    echo -e "Installed to: ${CYAN}$SKILL_DIR${NC}"
+    echo -e "Installed to: ${CYAN}$SKILLS_DIR${NC}"
     echo ""
     echo -e "${GREEN}Available commands:${NC}"
     echo "  /before-fundraising   — Assess fundraising readiness"
@@ -80,7 +90,9 @@ if [ -f "$SKILL_DIR/SKILL.md" ]; then
     echo ""
 else
     echo ""
-    echo "❌ Installation failed. Please try manual installation:"
-    echo "   git clone $REPO_URL ~/.claude/skills/$SKILL_NAME"
+    echo -e "${YELLOW}⚠️  Partial installation: $INSTALLED/7 skills installed.${NC}"
+    echo "Try manual installation:"
+    echo "   git clone $REPO_URL /tmp/fundraising-skill"
+    echo "   cp -r /tmp/fundraising-skill/{fundraising,before-fundraising,product-metrics,fundraising-strategy,fundraising-stage,pitch-deck,pitch} $SKILLS_DIR/"
     exit 1
 fi

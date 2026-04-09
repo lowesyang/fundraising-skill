@@ -34,7 +34,7 @@ with **8 real VC firms** modeled from public data.
 
 You wouldn't walk into a Michelin-star kitchen without a recipe. So why walk into a VC meeting without preparation? This skill breaks fundraising down into 6 clear steps — like a recipe card. You don't need to be a "fundraising expert." You just need to follow the workflow and let your AI do the heavy lifting.
 
-Today, your AI helps you prepare. Tomorrow, your agent will go fundraise for you.
+**Today, your AI helps you prepare. Tomorrow, your agent will go fundraise for you.**
 
 We built this for **founders who'd rather be building** — indie hackers, solo devs, first-time founders, technical teams who know their product inside out but haven't memorized the VC playbook. You focus on building something people want. We'll handle the fundraising prep.
 
