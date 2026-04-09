@@ -63,8 +63,23 @@ Before starting any command, silently run the update check:
 _UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check 2>/dev/null || echo "" )
 ```
 
-- If output contains `UPGRADE_AVAILABLE`: mention once at the end of your response:
-  "A new version of fundraising-skill is available. Run `/fundraising-upgrade` to update."
+- If output contains `UPGRADE_AVAILABLE <old> <new>`:
+  Ask the user via AskUserQuestion before proceeding:
+  > fundraising-skill v{new} is available (you have v{old}).
+  >
+  > 1. **Upgrade now**
+  > 2. **Enable auto-upgrade** (always stay up to date, never ask again)
+  > 3. **Skip this time**
+
+  - Option 1: Run `/fundraising-upgrade` inline, then continue with the original command.
+  - Option 2: Write `auto_upgrade=true` to `~/.fundraising-skill/config`, run upgrade, continue.
+  - Option 3: Write a skip marker (`touch ~/.fundraising-skill/skip-session`), continue.
+    The script won't ask again for 4 hours.
+
+- If output contains `AUTO_UPGRADE <old> <new>`:
+  User previously chose "Enable auto-upgrade." Skip the prompt. Silently run the upgrade,
+  then continue with the original command.
+
 - If output contains `JUST_UPGRADED`: show the "What's New" summary from CHANGELOG.md.
 - If empty or error: skip silently. Never block the user's command for an update check.
 
