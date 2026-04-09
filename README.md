@@ -85,7 +85,7 @@ Open Claude Code and type:
 /before-fundraising
 ```
 
-If the skill loads, you'll see the onboarding table with all 6 commands.
+If the skill loads, you'll see the onboarding table with all 7 commands.
 
 ---
 
@@ -99,18 +99,36 @@ If the skill loads, you'll see the onboarding table with all 6 commands.
 | 3    | `/fundraising-stage`    | Create actionable execution plan with investor targeting (optional) |
 | 4    | `/pitch-deck`           | Build slide-by-slide deck outline tailored to your target VC        |
 | 5    | `/pitch`                | Practice pitching with a simulated VC partner — full debrief after  |
+| 6    | `/deal-room`            | Multi-VC fundraising process simulation — competitive dynamics      |
 
 ---
 
 ## Workflow
 
 ```
-/before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch
-                                                  ↑                                                    |
-                                                  └──────── investor feedback loop ←───────────────────┘
+  ┌─────────────────────────────────────────────────────────────┐
+  │                                                             │
+  │   Step 0   /before-fundraising     Am I ready to raise?     │
+  │      ↓                                                      │
+  │   Step 1   /product-metrics        Grade my traction        │
+  │      ↓                                                      │
+  │   Step 2   /fundraising-strategy   Plan the round           │
+  │      ↓                                                      │
+  │   Step 3   /fundraising-stage      Execution playbook       │
+  │      ↓                                                      │
+  │   Step 4   /pitch-deck             Build the deck            │
+  │      ↓                                                      │
+  │   Step 5   /pitch ←──── feedback loop ────┐                 │
+  │      │         practice single meetings   │                 │
+  │      │         refine deck & strategy ────┘                 │
+  │      ↓                                                      │
+  │   Step 6   /deal-room                                       │
+  │            simulate full fundraise (3-5 VCs)                │
+  │                                                             │
+  └─────────────────────────────────────────────────────────────┘
 ```
 
-Each command guides you to the next step. After pitching, you can loop back to refine your strategy and deck based on investor feedback, then pitch again.
+Each command guides you to the next. After `/pitch`, loop back to refine your deck and strategy based on VC feedback — then pitch again. When you're consistently landing FOLLOW-UP or better, graduate to `/deal-room` to simulate the full multi-VC process.
 
 ### Document Persistence
 
@@ -126,6 +144,10 @@ Every command saves its output to `.fundraising/` in your project:
 ├── pitch-simulations/
 │   ├── pitch-sequoia-2026-04-09.md
 │   └── pitch-a16z-2026-04-10.md
+├── deal-room/
+│   ├── meeting-sequoia-1-2026-04-09.md
+│   ├── meeting-a16z-1-2026-04-10.md
+│   └── final-report-2026-04-12.md
 └── timeline.jsonl
 ```
 
@@ -167,6 +189,17 @@ The skill covers 4 stages (pre-seed through Series B), each with:
 
 If your product isn't launched and you don't have exceptional team credentials (repeat founders with exits, deep domain expertise), the skill will tell you: **build your MVP first**. With modern AI tools, building is faster than ever — and 100 real users are worth more than any pitch deck.
 
+### Deal Room — Full Process Simulation
+
+After practicing individual pitches with `/pitch`, the Deal Room simulates your entire fundraise:
+
+- **Pick 3-5 VCs** and set your meeting order strategically
+- **Sequential meetings** over simulated weeks with feedback between each one
+- **Competitive dynamics** — VCs ask who else you're talking to; interest from one accelerates others
+- **Pitch evolution** — adjust your pitch between meetings based on feedback
+- **Follow-up meetings** — VCs who want a second look get a focused follow-up
+- **Final report** — pipeline outcome, score trajectory, lessons learned, and term sheet comparison
+
 ### Pitch Simulation Debrief
 
 After each simulated pitch, you get:
@@ -196,14 +229,14 @@ Each domain includes sub-domain classification — the skill asks what type of c
 
 ## Roadmap
 
-- [x] 6 slash commands with guided workflow
+- [x] 7 slash commands with guided workflow
 - [x] 8 VC profiles with community-friendly individual files
 - [x] 4 stage playbooks (pre-seed → Series B)
 - [x] 7 domain metrics with sub-domain classification (SaaS, Consumer, AI, Fintech, Marketplace, Hardware, Biotech)
 - [x] Document persistence to `.fundraising/`
 - [x] Investor feedback loop
 - [ ] Growth/Late/IPO stage playbooks
-- [ ] "Deal Room" multi-meeting simulation
+- [x] "Deal Room" multi-meeting simulation
 - [ ] Cross-session state persistence via file-based context
 
 ---
@@ -246,6 +279,7 @@ fundraising-strategy/SKILL.md            # Step 2: Round planning
 fundraising-stage/SKILL.md               # Step 3: Execution plan
 pitch-deck/SKILL.md                      # Step 4: Deck outline
 pitch/SKILL.md                           # Step 5: VC simulation
+deal-room/SKILL.md                       # Step 6: Multi-VC process simulation
 ```
 
 ---

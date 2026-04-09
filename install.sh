@@ -8,7 +8,7 @@ REPO_URL="https://github.com/lowesyang/fundraising-skill"
 SKILLS_DIR=""
 
 # All skill directories to install
-SKILL_DIRS="fundraising before-fundraising product-metrics fundraising-strategy fundraising-stage pitch-deck pitch"
+SKILL_DIRS="fundraising before-fundraising product-metrics fundraising-strategy fundraising-stage pitch-deck pitch deal-room"
 
 # Colors
 GREEN='\033[0;32m'
@@ -72,7 +72,7 @@ for dir in $SKILL_DIRS; do
     [ -f "$SKILLS_DIR/$dir/SKILL.md" ] && INSTALLED=$((INSTALLED + 1))
 done
 
-if [ "$INSTALLED" -eq 7 ]; then
+if [ "$INSTALLED" -eq 8 ]; then
     echo ""
     echo -e "${GREEN}✅ Installation successful! ($INSTALLED skills installed)${NC}"
     echo ""
@@ -85,14 +85,15 @@ if [ "$INSTALLED" -eq 7 ]; then
     echo "  /fundraising-stage    — Create execution plan"
     echo "  /pitch-deck           — Build your pitch deck outline"
     echo "  /pitch                — Practice pitching to simulated VCs"
+    echo "  /deal-room            — Multi-VC fundraising process simulation"
     echo ""
     echo -e "${YELLOW}Get started:${NC} Open Claude Code and type ${CYAN}/before-fundraising${NC}"
     echo ""
 else
     echo ""
-    echo -e "${YELLOW}⚠️  Partial installation: $INSTALLED/7 skills installed.${NC}"
+    echo -e "${YELLOW}⚠️  Partial installation: $INSTALLED/8 skills installed.${NC}"
     echo "Try manual installation:"
     echo "   git clone $REPO_URL /tmp/fundraising-skill"
-    echo "   cp -r /tmp/fundraising-skill/{fundraising,before-fundraising,product-metrics,fundraising-strategy,fundraising-stage,pitch-deck,pitch} $SKILLS_DIR/"
+    echo "   cp -r /tmp/fundraising-skill/{fundraising,before-fundraising,product-metrics,fundraising-strategy,fundraising-stage,pitch-deck,pitch,deal-room} $SKILLS_DIR/"
     exit 1
 fi

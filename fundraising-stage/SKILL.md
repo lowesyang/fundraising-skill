@@ -57,6 +57,20 @@ This command is **Step 3** (optional) of the fundraising workflow:
    - Follow-up cadence and what to send after meetings
    - How to handle "soft no" vs. "hard no" vs. "we need more time"
 
+   **DD preparation checklist** (read `../fundraising/references/investor-dd-patterns.md`):
+   Generate a domain-specific checklist of documents and data to prepare before DD starts.
+   Typical items include:
+   - Cohort retention analysis (by signup month, with M1-M6 curves)
+   - Revenue reconciliation across data sources (billing, analytics, bank statements)
+   - Unit economics model (CAC, LTV, payback by channel)
+   - Cost structure breakdown (people, tech, marketing, other — with % and trend)
+   - Risk/failure mode documentation (what can go wrong, what guardrails exist)
+   - Cap table (current and post-round with option pool)
+   - Financial model (12-24 month projection with assumptions)
+   - Competitive landscape analysis (not slide-level — detailed feature/positioning comparison)
+   - Customer references (3-5 customers investors can call)
+   - Data room setup (Google Drive or DocSend with organized folders)
+
 5. **Save document:** Write the full execution plan to `.fundraising/execution-plan-{YYYY-MM-DD}.md`
    with YAML frontmatter. Append a timeline entry.
 

@@ -2,8 +2,8 @@
 name: fundraising
 description: >
   Full-lifecycle fundraising assistant for startup founders — guided workflow from readiness assessment
-  through pitch practice with hyper-realistic VC simulations. Six commands in a sequential flow:
-  /before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch,
+  through pitch practice with hyper-realistic VC simulations. Seven commands in a sequential flow:
+  /before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /deal-room,
   with an investor feedback loop that refines your strategy and deck after each pitch.
   Use this skill whenever the user mentions fundraising, raising money, pitch deck, VC meeting,
   investor pitch, Series A/B/seed, startup funding, term sheet, SAFE, valuation, dilution,
@@ -14,7 +14,7 @@ description: >
 
 # Fundraising Skill
 
-A complete fundraising operating system for startup founders. Six commands in a guided workflow —
+A complete fundraising operating system for startup founders. Seven commands in a guided workflow —
 each step builds on the last, and after pitching you can loop back to refine your approach based
 on investor feedback.
 
@@ -29,6 +29,8 @@ Step 4: /pitch-deck           — Build your pitch deck outline
 Step 5: /pitch                — Practice with simulated VCs, get feedback
          ↓
     Investor feedback loop: refine strategy/deck → pitch again
+         ↓
+Step 6: /deal-room            — Multi-VC process simulation (full fundraise)
 ```
 
 ## Onboarding
@@ -45,6 +47,7 @@ When a user first triggers any fundraising command, show this orientation before
 > | 3 | `/fundraising-stage` | Create an execution plan (optional) |
 > | 4 | `/pitch-deck` | Build your pitch deck outline |
 > | 5 | `/pitch` | Practice pitching to simulated VCs |
+> | 6 | `/deal-room` | Multi-VC fundraising process simulation |
 >
 > **Start here:** Run `/before-fundraising` to assess your fundraising readiness.
 
@@ -82,6 +85,10 @@ This serves three purposes:
 ├── pitch-simulations/
 │   ├── pitch-{vc-name}-{YYYY-MM-DD}.md       # from /pitch (one per VC)
 │   └── ...
+├── deal-room/
+│   ├── meeting-{vc}-{round}-{YYYY-MM-DD}.md  # from /deal-room (one per meeting)
+│   ├── dashboard-{YYYY-MM-DD}.md             # pipeline tracker
+│   └── final-report-{YYYY-MM-DD}.md          # process summary
 └── timeline.jsonl                            # event log (append-only)
 ```
 
@@ -99,6 +106,8 @@ Append a JSONL entry to `.fundraising/timeline.jsonl` at the start and end of ea
 {"command": "/before-fundraising", "event": "completed", "verdict": "RAISE NOW", "stage": "series-a", "ts": "2026-04-09T10:30:00Z"}
 {"command": "/product-metrics", "event": "completed", "domain": "saas", "stage": "series-a", "ts": "2026-04-09T10:45:00Z"}
 {"command": "/pitch", "event": "completed", "vc": "sequoia", "verdict": "FOLLOW-UP MEETING", "score": 6.8, "ts": "2026-04-09T11:00:00Z"}
+{"command": "/deal-room", "event": "meeting", "vc": "a16z", "round": 1, "week": 2, "verdict": "TERM SHEET", "score": 7.4, "ts": "2026-04-09T11:30:00Z"}
+{"command": "/deal-room", "event": "completed", "term_sheets": 1, "follow_ups": 1, "passes": 1, "duration_weeks": 5, "ts": "2026-04-09T12:00:00Z"}
 ```
 
 ### Document Format
@@ -129,6 +138,7 @@ When starting any command, check for existing documents in `.fundraising/`:
    - `/fundraising-stage` reads strategy document
    - `/pitch-deck` reads all prior documents (metrics, strategy, execution plan)
    - `/pitch` reads deck outline and prior pitch simulations for accumulated feedback
+   - `/deal-room` reads deck outline, strategy, and all prior pitch simulations
 3. When prior documents exist, show: "📄 Found previous [document]. Using that context.
    Run the command again to refresh."
 
@@ -517,13 +527,58 @@ meeting — not a generic interview. Each VC should feel distinctly different.
 
 ---
 
+## `/deal-room` — Multi-Meeting Fundraising Process Simulation
+
+**Trigger:** "deal room", "run my fundraise", "multi-VC simulation", "full fundraising
+process", "simulate my fundraise", "practice multiple VCs"
+
+The capstone experience. While `/pitch` simulates a single VC meeting, `/deal-room`
+simulates your entire fundraising process — multiple VCs, sequential meetings over
+simulated weeks, competitive dynamics, pitch evolution, and follow-up meetings.
+
+### Flow
+
+1. **Use context from prior commands** if available (deck outline, strategy, prior pitch
+   simulations). Otherwise ask: describe your startup, stage, and target raise amount.
+
+2. **VC Selection:** Founder picks 3-5 VCs from the stage-filtered roster and sets
+   meeting order (strategic: warm up on lower-priority VCs first).
+
+3. **Meeting Loop:** For each VC:
+   - Pre-meeting briefing with Deal Room Dashboard and adjustment suggestions
+   - Meeting mode: "Full simulation" (8-12 exchanges) or "Key moments only" (3-4 exchanges).
+     First meeting is always full.
+   - Run simulation with Deal Room additions: competitive signaling ("who else are you
+     talking to?"), interest acceleration from prior verdicts, pitch evolution tracking
+   - Post-meeting verdict + 5-dimension debrief (same scoring as `/pitch`)
+   - Inter-meeting phase: continue, adjust pitch, or handle follow-ups
+
+4. **Follow-up meetings:** Shorter (4-6 exchanges), focused on specific asks from the
+   prior meeting. Verdicts: PASS / SECOND FOLLOW-UP / TERM SHEET.
+
+5. **Final Report:** Process summary, pipeline outcome, score evolution across meetings,
+   pitch evolution analysis, competitive dynamics impact, lessons learned, and strategic
+   recommendation (term sheet comparison if applicable).
+
+6. **Save documents:** Individual meeting files to `.fundraising/deal-room/meeting-{vc}-{round}-{date}.md`,
+   final report to `.fundraising/deal-room/final-report-{date}.md`. Append timeline entries.
+
+7. **Next step prompt:** Based on outcome — celebrate term sheets, encourage follow-ups,
+   or redirect to `/pitch-deck` and `/pitch` for further practice if all passes.
+
+See `deal-room/SKILL.md` for the complete specification including Dashboard format,
+scoring consistency rules, and session continuity behavior.
+
+---
+
 ## Reference Files
 
 The following reference files contain detailed data that commands load as needed:
 
 | Directory | Files | Used by |
 |-----------|-------|---------|
-| `references/vc-profiles/` | One file per VC (yc.md, a16z.md, sequoia.md, etc.) — see `_index.md` for full list | `/pitch` |
+| `references/vc-profiles/` | One file per VC (yc.md, a16z.md, sequoia.md, etc.) — see `_index.md` for full list | `/pitch`, `/deal-room` |
 | `references/stage-playbooks/` | pre-seed.md, seed.md, series-a.md, series-b.md | `/before-fundraising`, `/fundraising-stage`, `/fundraising-strategy` |
 | `references/metrics-by-domain/` | saas.md, consumer.md, ai-ml.md, fintech.md, marketplace.md, hardware.md, biotech.md | `/product-metrics` |
 | `references/deck-templates/` | yc-demo-day.md, general-series-a.md | `/pitch-deck` |
+| `references/` | investor-dd-patterns.md — universal DD question patterns extracted from real fundraises | `/pitch` (DD preview), `/before-fundraising` (readiness probing), `/fundraising-stage` (DD prep checklist) |

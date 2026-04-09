@@ -38,14 +38,45 @@ This command is **Step 0** of the fundraising workflow:
 1. **Check for existing documents** in `.fundraising/` directory. If prior documents exist from
    earlier sessions, note them and offer to build on that context.
 
-2. **Gather baseline context** — ask these questions upfront:
-   - What stage are you at? (use user-facing labels from Stage Taxonomy)
+2. **Gather stage** — first ask a single question:
+   - What stage are you at? (show user-facing labels from Stage Taxonomy)
+
+3. **Gather project profile** — once the stage is known, collect the project's basic identity.
+   Adapt the required fields to the stage so early founders aren't burdened with questions
+   that don't apply yet, while later-stage founders provide the detail investors expect.
+
+   **All stages (required):**
+   | Field | Description | Example |
+   |-------|-------------|---------|
+   | Company / project name | Working name or registered name | "Acme Monitor" |
+   | One-line description | What does it do, for whom? | "API uptime monitoring for DevOps teams" |
+   | Domain / industry | SaaS, Consumer, AI/ML, Fintech, Marketplace, Hardware, Biotech, Other | "B2B SaaS" |
+   | Problem statement | What pain are you solving? 1-2 sentences. | "DevOps teams waste hours debugging API outages because existing tools lack real-time root-cause analysis." |
+   | Target customer | Who pays / who uses? | "Mid-market engineering teams (50-500 employees)" |
+
+   **Seed and above — add:**
+   | Field | Description |
+   |-------|-------------|
+   | Team size & key roles | Headcount and whether you have technical, product, and GTM leads |
+   | Geography / market | Primary market region |
+
+   **Series A and above — add:**
+   | Field | Description |
+   |-------|-------------|
+   | Legal entity & incorporation | Where incorporated, entity type |
+   | Key competitors | 2-3 closest competitors by name |
+
+   Present these as a simple form the founder fills in. Do NOT proceed until the required fields
+   are answered — the assessment needs this context to be useful. If any required field is blank
+   or too vague (e.g., "a tech company"), ask the founder to be more specific.
+
+4. **Gather fundraising context** — after the profile is complete, ask:
    - Have you raised before? If so, what round, how much, from whom?
    - What's your total funding raised to date?
    - Who are your current investors (if any)?
    - Has your product launched? Do you have real users?
 
-3. **Branch based on product launch status:**
+5. **Branch based on product launch status:**
 
    **If product is NOT launched (no real users, no revenue):**
    - This is pre-seed territory. Focus the evaluation on:
@@ -74,20 +105,29 @@ This command is **Step 0** of the fundraising workflow:
      - What the funding would be used for
      - Biggest bottleneck — money, people, or product?
      - Alternatives to raising (revenue, grants, bootstrapping)
+   - **DD readiness probing** (read `../fundraising/references/investor-dd-patterns.md`):
+     - Can you show cohort retention data? (not just aggregate — investors will ask for M1/M0, M3/M0)
+     - Do your metrics reconcile across data sources? (billing vs analytics vs CRM)
+     - What happens to your product under adverse conditions? (market downturn, churn spike, etc.)
+     - What are your risk guardrails? (what automatically stops when things go wrong)
+     - What's your cost structure? (people vs tech vs marketing — investors will ask for breakdown)
+   - Flag any DD gaps in the assessment: "You'll need to prepare [X] before investors ask for it."
 
-4. **Read the appropriate stage playbook** from `../fundraising/references/stage-playbooks/`
+6. **Read the appropriate stage playbook** from `../fundraising/references/stage-playbooks/`
    for benchmark data.
 
-5. **Output a verdict:**
+7. **Output a verdict:**
    - **RAISE NOW** — specific reasoning, recommended round type, approximate amount, timeline
    - **NOT YET** — what needs to change first, concrete action plan with milestones
    - **MAYBE** — the case for and against, what evidence would tip the decision
 
-6. **Save document:** Write the full assessment to `.fundraising/readiness-assessment-{YYYY-MM-DD}.md`
-   with YAML frontmatter (command, date, stage, verdict, status). Append a timeline entry
-   to `.fundraising/timeline.jsonl`.
+8. **Save document:** Write the full assessment to `.fundraising/readiness-assessment-{YYYY-MM-DD}.md`
+   with YAML frontmatter (command, date, stage, verdict, status, company_name, domain).
+   The document MUST begin with a **Company Overview** table populated from the project profile
+   collected in step 3 — this is the identity anchor for all downstream commands.
+   Append a timeline entry to `.fundraising/timeline.jsonl`.
 
-7. **Next step prompt:**
+9. **Next step prompt:**
    - If product launched: "✅ Readiness assessment complete. Saved to `.fundraising/readiness-assessment-{date}.md`.
      Next: run `/product-metrics` to review your traction data in detail."
    - If not launched: "✅ Assessment complete. Saved to `.fundraising/readiness-assessment-{date}.md`.

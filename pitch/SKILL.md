@@ -89,7 +89,18 @@ represent actual firm views or investment decisions."
    - Expected timeline to close
    - What they'd want in the data room
 
-9. **Save document:** Write the full pitch simulation to
+9. **DD Preview** — After the debrief, generate a "Due Diligence Preview" section based on the
+   pitch's weak points. Read `../fundraising/references/investor-dd-patterns.md` for the universal
+   patterns. Generate 5-8 specific DD questions that this VC would likely ask if they proceed,
+   tailored to the startup's domain and stage. For example:
+   - If traction was scored low: "Expect requests for cohort retention data (M1/M0, M3/M0 curves)"
+   - If market conviction was weak: "They'll ask for bottom-up TAM with customer-level math"
+   - If team strength was questioned: "Prepare for deep reference checks on technical leadership"
+   - If the ask was vague: "They'll want a detailed use-of-funds model with milestone mapping"
+   
+   This helps founders prepare for what comes AFTER the pitch meeting.
+
+10. **Save document:** Write the full pitch simulation to
    `.fundraising/pitch-simulations/pitch-{vc-name}-{YYYY-MM-DD}.md` with YAML frontmatter.
    Append a timeline entry.
 
@@ -103,3 +114,4 @@ represent actual firm views or investment decisions."
     > - `/pitch-deck` — Revise your deck based on the feedback
     > - `/fundraising-strategy` — Adjust your strategy (amount, structure, positioning)
     > - `/fundraising-stage` — Update your execution plan with new insights
+    > - `/deal-room` — Run a full multi-VC fundraising process simulation

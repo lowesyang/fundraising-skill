@@ -5,7 +5,7 @@ Startup fundraising skill for Claude Code — 6 slash commands from readiness as
 ## Structure
 
 - `fundraising/` — shared references (VC profiles, stage playbooks, domain metrics, deck templates)
-- `before-fundraising/`, `product-metrics/`, `fundraising-strategy/`, `fundraising-stage/`, `pitch-deck/`, `pitch/` — individual skill directories, each with a `SKILL.md`
+- `before-fundraising/`, `product-metrics/`, `fundraising-strategy/`, `fundraising-stage/`, `pitch-deck/`, `pitch/`, `deal-room/` — individual skill directories, each with a `SKILL.md`
 
 ## Contributing
 
