@@ -2,6 +2,19 @@
 
 > Used by the `/metrics` command to grade a SaaS founder's numbers with RED/YELLOW/GREEN thresholds.
 
+## Sub-domain Classification
+
+Before evaluating, identify which type of SaaS:
+
+| Sub-domain | Description | Examples | Metric Emphasis |
+|-----------|-------------|---------|----------------|
+| **B2B SaaS** | Selling to businesses, typically with sales team | Salesforce, Slack, Datadog | ARR, NDR, CAC payback, sales efficiency |
+| **Vertical SaaS** | Deep in one industry | Veeva, Procore, Toast | Market penetration in vertical, switching cost |
+| **PLG SaaS** | Product-led growth, self-serve onboarding | Figma, Notion, Canva | Free-to-paid conversion, viral coefficient, time-to-value |
+| **API / Developer Tools** | Infrastructure sold to developers | Twilio, Stripe, Auth0 | API usage growth, developer adoption, revenue per call |
+
+All metrics below apply to all SaaS sub-domains unless noted otherwise.
+
 ---
 
 ### ARR (Annual Recurring Revenue)

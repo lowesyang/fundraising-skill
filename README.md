@@ -180,13 +180,17 @@ After each simulated pitch, you get:
 
 ## Domains Supported
 
-| Domain       | Metrics Covered                                                                                 |
-| ------------ | ----------------------------------------------------------------------------------------------- |
-| **SaaS**     | ARR, MRR growth, NDR, churn, LTV/CAC, payback period, gross margin, magic number, burn multiple |
-| **Consumer** | DAU/MAU, D1/D7/D30 retention, viral coefficient, session length, ARPU, organic vs paid          |
-| **AI/ML**    | Adapts by product type (Model Co / AI App / Infra / AI-Enhanced) — response time, inference cost, data moat, usage growth, customer concentration |
+Each domain includes sub-domain classification — the skill asks what type of company you're building before evaluating metrics.
 
-More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
+| Domain | Sub-domains | Key Metrics |
+|--------|------------|-------------|
+| **SaaS** | B2B, Vertical, PLG, API/Developer Tools | ARR, NDR, churn, LTV/CAC, payback, gross margin, magic number, burn multiple |
+| **Consumer** | Social, Content/Media, E-commerce, Gaming, Health & Wellness | DAU/MAU, D1/D7/D30 retention, viral coefficient, session length, ARPU |
+| **AI** | Foundation Models, AI Apps, Infra, Embodied Intelligence, Chips, Compute Services | Adapts by type — response time, inference cost, data moat, TOPS/W, GPU utilization, safety metrics |
+| **Fintech** | Payments, Lending, Insurance, Wealth Mgmt, Crypto/Web3, BaaS | TPV, take rate, NRR, regulatory status, default rate, gross margin |
+| **Marketplace** | B2C, B2B, Services, Vertical | GMV, take rate, liquidity, repeat purchase, supply/demand ratio, unit economics |
+| **Hardware** | Consumer Electronics, Industrial/IoT, Semiconductors, Cleantech | BOM cost, gross margin trajectory, units shipped, yield, warranty rate, attach rate |
+| **Biotech** | Therapeutics, Diagnostics, Digital Health, Synbio, MedTech | Pipeline stage, probability of success, patents, regulatory pathway, cash runway |
 
 ---
 
@@ -195,11 +199,10 @@ More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 - [x] 6 slash commands with guided workflow
 - [x] 8 VC profiles with community-friendly individual files
 - [x] 4 stage playbooks (pre-seed → Series B)
-- [x] 3 domain metrics (SaaS, Consumer, AI/ML)
+- [x] 7 domain metrics with sub-domain classification (SaaS, Consumer, AI, Fintech, Marketplace, Hardware, Biotech)
 - [x] Document persistence to `.fundraising/`
 - [x] Investor feedback loop
 - [ ] Growth/Late/IPO stage playbooks
-- [ ] More domains (Fintech, Marketplace, Hardware, Biotech)
 - [ ] "Deal Room" multi-meeting simulation
 - [ ] Cross-session state persistence via file-based context
 
@@ -229,7 +232,11 @@ fundraising/                              # Shared references (installed as one 
 │   ├── metrics-by-domain/
 │   │   ├── saas.md
 │   │   ├── consumer.md
-│   │   └── ai-ml.md
+│   │   ├── ai-ml.md                     # AI (6 sub-domains)
+│   │   ├── fintech.md
+│   │   ├── marketplace.md
+│   │   ├── hardware.md
+│   │   └── biotech.md
 │   └── deck-templates/
 │       ├── yc-demo-day.md
 │       └── general-series-a.md

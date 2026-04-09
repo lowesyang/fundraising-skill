@@ -2,6 +2,20 @@
 
 > Used by the `/metrics` command to grade a consumer founder's numbers with RED/YELLOW/GREEN thresholds.
 
+## Sub-domain Classification
+
+Before evaluating, identify which type of consumer product:
+
+| Sub-domain | Description | Examples | Metric Emphasis |
+|-----------|-------------|---------|----------------|
+| **Social** | User-generated content, social networking | Instagram, TikTok, Discord | DAU/MAU, engagement depth, viral coefficient |
+| **Content/Media** | Content creation, streaming, publishing | Spotify, Substack, YouTube | Session length, retention, subscriber conversion |
+| **E-commerce** | Direct-to-consumer retail, shopping | Shein, Warby Parker, Glossier | AOV, repeat purchase rate, CAC by channel |
+| **Gaming** | Mobile, PC, console games | Roblox, Supercell, miHoYo | D1/D7/D30 retention, ARPDAU, session frequency |
+| **Health & Wellness** | Fitness, mental health, nutrition | Noom, Calm, Whoop | Subscription retention, health outcome metrics, engagement streaks |
+
+All metrics below apply to all consumer sub-domains unless noted otherwise.
+
 ---
 
 ### DAU/MAU Ratio

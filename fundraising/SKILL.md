@@ -256,8 +256,13 @@ and stage, and grades their actual numbers against industry benchmarks.
 ### Flow
 
 1. **Ask the user's domain** via AskUserQuestion:
-   - SaaS / Consumer / AI-ML (v1)
-   - Marketplace / Fintech / Hardware / Biotech-DeepTech (v2)
+   - SaaS (B2B, Vertical, PLG, API/Developer Tools)
+   - Consumer (Social, Content/Media, E-commerce, Gaming, Health & Wellness)
+   - AI (Foundation Models, AI Apps, Infra, Embodied Intelligence, Chips, Compute)
+   - Fintech (Payments, Lending, Insurance, Wealth Management, Crypto/Web3, BaaS)
+   - Marketplace (B2C, B2B, Services, Vertical)
+   - Hardware (Consumer Electronics, Industrial/IoT, Semiconductors, Cleantech)
+   - Biotech (Therapeutics, Diagnostics, Digital Health, Synthetic Biology, MedTech)
 
 2. **Use stage from prior commands** if available, otherwise ask.
 
@@ -520,5 +525,5 @@ The following reference files contain detailed data that commands load as needed
 |-----------|-------|---------|
 | `references/vc-profiles/` | One file per VC (yc.md, a16z.md, sequoia.md, etc.) — see `_index.md` for full list | `/pitch` |
 | `references/stage-playbooks/` | pre-seed.md, seed.md, series-a.md, series-b.md | `/before-fundraising`, `/fundraising-stage`, `/fundraising-strategy` |
-| `references/metrics-by-domain/` | saas.md, consumer.md, ai-ml.md | `/product-metrics` |
+| `references/metrics-by-domain/` | saas.md, consumer.md, ai-ml.md, fintech.md, marketplace.md, hardware.md, biotech.md | `/product-metrics` |
 | `references/deck-templates/` | yc-demo-day.md, general-series-a.md | `/pitch-deck` |

@@ -29,7 +29,7 @@ This command is **Step 1** of the fundraising workflow:
    to pre-fill stage and business context. Show: "📄 Found your readiness assessment. Using that context."
 
 2. **Ask the user's domain** via AskUserQuestion:
-   - SaaS / Consumer / AI-ML (v1)
+   - SaaS / Consumer / AI / Fintech / Marketplace / Hardware / Biotech
 
 3. **Use stage from prior commands** if available, otherwise ask.
 
