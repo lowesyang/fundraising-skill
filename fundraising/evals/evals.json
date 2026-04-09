@@ -160,6 +160,120 @@
         "Highlights repeat purchase rate (60%) as strong signal",
         "Includes marketplace-specific nuances (liquidity, density)"
       ]
+    },
+    {
+      "id": 13,
+      "command": "/product-metrics",
+      "prompt": "We're building a foundation model for code generation. 7B parameter model, trained on proprietary enterprise code datasets. Inference latency P50 200ms, cost $0.008 per query. 15% better than CodeLlama on HumanEval. 2M proprietary code examples. Training cost $80K per run, down 35% from last version. Seed stage.",
+      "expected_output": "Identifies AI domain, Foundation Model sub-type. Evaluates model accuracy vs SOTA, inference cost, training cost trajectory, data moat. Should grade all Foundation Model-specific metrics.",
+      "assertions": [
+        "Identifies Foundation Model sub-type",
+        "Evaluates model accuracy against SOTA benchmarks (15% above CodeLlama)",
+        "Grades inference cost ($0.008) against seed benchmarks",
+        "Evaluates training cost trajectory (35% reduction as positive)",
+        "Assesses data moat (2M proprietary examples)",
+        "Does NOT skip model accuracy or training cost (these apply to Foundation Models)"
+      ]
+    },
+    {
+      "id": 14,
+      "command": "/product-metrics",
+      "prompt": "We're an embodied intelligence startup building warehouse picking robots. Task success rate 94%, MTBF 850 hours, sim-to-real gap 8%, zero safety incidents in 6 months. 3 robots deployed at 1 customer. Pre-seed.",
+      "expected_output": "Identifies AI domain, Embodied Intelligence sub-type. Evaluates robotics-specific metrics: task success rate, MTBF, sim-to-real gap, safety record. Should use embodied intelligence benchmarks, not generic AI metrics.",
+      "assertions": [
+        "Identifies Embodied Intelligence sub-type",
+        "Evaluates task success rate (94%) against benchmarks",
+        "Grades MTBF (850 hours)",
+        "Assesses sim-to-real transfer gap (8%)",
+        "Notes zero safety incidents as positive",
+        "Evaluates unit economics per robot deployed",
+        "Does NOT ask about API usage growth or revenue per API call"
+      ]
+    },
+    {
+      "id": 15,
+      "command": "/product-metrics",
+      "prompt": "We're a GPU cloud provider (compute services). 78% GPU utilization, $0.35 per GPU-hour revenue, cost per FLOP 40% below AWS, 85% monthly customer retention, capacity growing 25% MoM. 50 enterprise customers. Seed stage.",
+      "expected_output": "Identifies AI domain, Compute Services sub-type. Evaluates GPU utilization, cost per FLOP, customer retention, capacity growth, revenue per GPU-hour.",
+      "assertions": [
+        "Identifies Compute Services sub-type",
+        "Grades GPU utilization rate (78%)",
+        "Evaluates cost advantage vs AWS (40% below)",
+        "Assesses customer retention (85% monthly)",
+        "Grades capacity growth rate (25% MoM)",
+        "Does NOT ask about model accuracy or training cost"
+      ]
+    },
+    {
+      "id": 16,
+      "command": "/before-fundraising",
+      "prompt": "We're a crypto trading platform with AI-powered autopilot. $3M monthly trading volume, 3000 subscribers at $50/mo ($150K MRR), 55-65% monthly subscription renewal, 2900 active traders. Registered in Singapore, no MAS license yet. Series A.",
+      "expected_output": "Identifies Fintech domain (Crypto/Web3 sub-type). Strong traction metrics but flags regulatory gap (no MAS license) as compliance blocker. Should note fund custody architecture as DD concern.",
+      "assertions": [
+        "Identifies Fintech / Crypto domain",
+        "Recognizes strong traction ($150K MRR, 2900 active traders)",
+        "Flags missing MAS license as compliance concern",
+        "Asks about KYC/AML provider and fund custody",
+        "Notes Singapore registration as relevant for regulatory path",
+        "Verdict accounts for regulatory risk alongside strong metrics"
+      ]
+    },
+    {
+      "id": 17,
+      "command": "/product-metrics",
+      "prompt": "We're a lending fintech. $5M total loan volume last month, 2.5% default rate, net revenue retention 110%, CAC $120 with 8-month payback, gross margin 65%. Regulatory: state-level lending licenses in 12 US states, NMLS registered. Series A.",
+      "expected_output": "Identifies Fintech domain, Lending sub-type. Grades loan volume, default rate, NRR, CAC/payback, gross margin against Series A benchmarks. Notes regulatory progress (12 states) positively.",
+      "assertions": [
+        "Identifies Lending sub-type",
+        "Grades default rate (2.5%) against lending benchmarks",
+        "Evaluates gross margin (65%) for lending model",
+        "Notes 12-state licensing as regulatory progress",
+        "Assesses CAC payback (8 months) against fintech benchmarks",
+        "Includes lending-specific nuances (loss ratio, capital requirements)"
+      ]
+    },
+    {
+      "id": 18,
+      "command": "/before-fundraising",
+      "prompt": "We're building an AI chip for edge inference. 15 TOPS/W performance, 3x better than competitors on our target workload. First tape-out done, yield at 82%. Design wins with 2 automotive OEMs (LOIs signed). Team of 12 (ex-NVIDIA, ex-Qualcomm). No revenue. Pre-seed.",
+      "expected_output": "Identifies as AI Chips & Hardware sub-domain under AI. Despite no revenue, strong team (ex-NVIDIA/Qualcomm) + tape-out complete + design wins may justify MAYBE or even RAISE NOW given deep tech dynamics.",
+      "assertions": [
+        "Identifies AI Chips sub-domain (not generic hardware)",
+        "Recognizes deep tech has different fundraising dynamics",
+        "Values ex-NVIDIA/Qualcomm team highly for chip startup",
+        "Notes completed tape-out as significant milestone",
+        "Values design win LOIs from automotive OEMs",
+        "Does NOT apply standard software pre-seed hard gate blindly"
+      ]
+    },
+    {
+      "id": 19,
+      "command": "/due-diligence",
+      "prompt": "General DD self-check. We're a Fintech company building a cross-border payments platform. Licensed as EMI in EU, MSB in US. Processing $10M TPV monthly.",
+      "expected_output": "Comprehensive DD for Fintech Payments. Heavy on compliance (EMI, MSB, KYC/AML, PSD2, fund flow, client money segregation). Should recognize existing licenses as strength but probe for gaps.",
+      "assertions": [
+        "Covers all 6 DD categories",
+        "Heavy emphasis on compliance (Category E) for Fintech",
+        "Recognizes EMI + MSB licenses as strengths (not gaps)",
+        "Probes for additional compliance: PSD2/SCA, sanctions screening, SAR filing",
+        "Asks about fund flow architecture and client money segregation",
+        "Asks about money laundering risk assessment and transaction monitoring",
+        "Produces DD Scorecard with compliance section scored positively"
+      ]
+    },
+    {
+      "id": 20,
+      "command": "/pitch",
+      "prompt": "We're a biotech startup with a novel mRNA delivery platform. Phase 1 clinical trial enrolling, 3 patents granted, partnership with a top-5 pharma for co-development. Team includes 2 PhDs from MIT and a former Moderna VP. Seed stage. Practice pitching to Lux Capital.",
+      "expected_output": "Lux Capital simulation. Lux is deep tech + science focused. Should probe scientific novelty, IP defensibility, clinical pathway, and team pedigree. Different from software VC pitches.",
+      "assertions": [
+        "Lux Capital partner asks about scientific differentiation",
+        "Probes IP strategy and patent landscape",
+        "Asks about clinical trial design and endpoints",
+        "Values pharma partnership as validation",
+        "Questions are biotech-specific, not generic SaaS questions",
+        "Debrief recognizes biotech metrics (pipeline, regulatory, IP) over software metrics"
+      ]
     }
   ]
 }
