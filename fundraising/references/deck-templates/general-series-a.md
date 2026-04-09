@@ -1,6 +1,6 @@
 # General Series A Deck Template
 
-> Used by the `/deck` command. 15-20 slides for a 30-45 minute meeting. Comprehensive, data-rich, narrative-driven.
+> Used by the `/pitch-deck` command. 15-20 slides for a 30-45 minute meeting. Comprehensive, data-rich, narrative-driven.
 
 ---
 

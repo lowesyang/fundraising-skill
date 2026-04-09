@@ -33,8 +33,10 @@ This command is **Step 6** of the fundraising workflow:
 
 ### Phase 1 — Context & Scope
 
-1. **Check for prior context:** Read `.fundraising/` documents — especially pitch simulations
-   in `.fundraising/pitch-simulations/` and readiness assessment. If prior `/pitch` results exist:
+1. **Load session context:**
+   Glob `.fundraising/*/playbook.md` (exclude `archive/`). If found, read frontmatter + Pitch
+   Simulations section to pre-fill context. Show welcome back greeting (format in `fundraising/SKILL.md`).
+   If multiple playbooks, ask which to use. If prior `/pitch` results exist in the playbook:
    "You pitched to [VC] and got [VERDICT]. I'll tailor DD questions to what they'd focus on."
 
 2. **Determine DD mode** via AskUserQuestion:
@@ -192,39 +194,25 @@ This command is **Step 6** of the fundraising workflow:
 
 ### Phase 5 — Save & Next Steps
 
-10. **Save document:** Write the full DD scorecard and checklist to
-    `.fundraising/due-diligence-{YYYY-MM-DD}.md` with YAML frontmatter:
-
-    ```yaml
-    ---
-    command: /due-diligence
-    date: YYYY-MM-DD
-    mode: specific-vc | general
-    target_vc: sequoia  # if specific
-    domain: fintech
-    overall_readiness: 62%
-    grade: YELLOW
-    deal_blockers: 3
-    status: completed
-    ---
-    ```
-
-    Append a timeline entry to `.fundraising/timeline.jsonl`.
+10. **Save to playbook:** Append to `.fundraising/{round-dir}/playbook.md`:
+    1. Update frontmatter: set `steps_completed.due-diligence` (date + overall_readiness grade) + `last_updated`
+    2. Update Progress Tracker row for `/due-diligence` (✅ with overall readiness grade)
+    3. Append `## Due Diligence — {YYYY-MM-DD}` section with full DD scorecard and checklist
 
 11. **Next step prompt:**
 
     If readiness is GREEN (80%+):
-    > ✅ DD preparation complete. Saved to `.fundraising/due-diligence-{date}.md`.
+    > ✅ DD preparation complete. Saved to `.fundraising/{round-dir}/playbook.md`.
     > You're well-prepared for due diligence. [N] items to polish.
     > Next: run `/deal-room` to simulate your full fundraising process.
 
     If readiness is YELLOW (50-80%):
-    > ✅ DD preparation complete. Saved to `.fundraising/due-diligence-{date}.md`.
+    > ✅ DD preparation complete. Saved to `.fundraising/{round-dir}/playbook.md`.
     > You have [N] gaps to close before DD will go smoothly. Focus on the 🔴 items first.
     > Run `/due-diligence` again after addressing the gaps to re-check.
 
     If readiness is RED (<50%):
-    > ✅ DD preparation complete. Saved to `.fundraising/due-diligence-{date}.md`.
+    > ✅ DD preparation complete. Saved to `.fundraising/{round-dir}/playbook.md`.
     > You're not ready for investor DD yet. [N] deal-blocking items need resolution.
     > Address the 🔴 items, then run `/due-diligence` again.
     > Consider whether it's the right time to be fundraising — `/before-fundraising` can help re-assess.

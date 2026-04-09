@@ -15,7 +15,7 @@
 ## 0.1.0 (2026-04-09)
 
 - Initial release
-- 6 slash commands: /before-fundraising, /product-metrics, /fundraising-strategy, /fundraising-stage, /pitch-deck, /pitch
+- 8 slash commands: /before-fundraising, /product-metrics, /fundraising-strategy, /fundraising-stage, /pitch-deck, /pitch, /due-diligence, /deal-room
 - 8 VC profiles (YC, a16z, Sequoia, Benchmark, First Round, Accel, Lightspeed, Tiger Global)
 - 4 stage playbooks (pre-seed through Series B)
 - 3 domain metrics (SaaS, Consumer, AI/ML)

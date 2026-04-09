@@ -6,7 +6,7 @@ description: >
   Use when the user asks "how much should I raise?", "fundraising strategy", "how to spend the
   money", "raise planning", "plan my round", or "fundraising plan".
   Part of the fundraising workflow: /before-fundraising → /product-metrics →
-  ▶ /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch.
+  ▶ /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room.
 ---
 
 # /fundraising-strategy — Round Planning & Structure
@@ -16,16 +16,17 @@ description: >
 This command is **Step 2** of the fundraising workflow:
 
 ```
-/before-fundraising → /product-metrics → ▶ /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch
+/before-fundraising → /product-metrics → ▶ /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room
 ```
 
 ## Flow
 
-1. **Check for prior context:** Read `.fundraising/readiness-assessment-*.md` and
-   `.fundraising/product-metrics-*.md` if they exist. Show: "📄 Found your readiness assessment
-   and metrics scorecard. Using that context."
+1. **Load session context:**
+   Glob `.fundraising/*/playbook.md` (exclude `archive/`). If found, read frontmatter + prior
+   sections (readiness assessment verdict, metrics overall_grade) to pre-fill context. Show
+   welcome back greeting (format in `fundraising/SKILL.md`). If multiple playbooks, ask which to use.
 
-2. **Use context from prior commands** if available (stage, metrics, readiness assessment).
+2. **Use context from playbook** if available (stage, domain, metrics, prior verdicts).
    Otherwise ask: current stage, burn rate, runway, and growth targets.
 
 3. **Evaluate three strategic dimensions:**
@@ -52,10 +53,13 @@ This command is **Step 2** of the fundraising workflow:
    - Investor targeting: which tier, how many meetings, conversion rates
    - Red flags to watch for (predatory terms, excessive dilution, wrong fit)
 
-5. **Save document:** Write the full strategy to `.fundraising/fundraising-strategy-{YYYY-MM-DD}.md`
-   with YAML frontmatter (command, date, stage, target amount, structure). Append a timeline entry.
+5. **Save to playbook:** Append to `.fundraising/{round-dir}/playbook.md`:
+   1. Update frontmatter: set `steps_completed.fundraising-strategy` (date + target_amount + structure),
+      update top-level `raise_target` and `raise_structure` fields + `last_updated`
+   2. Update Progress Tracker row for `/fundraising-strategy` (✅ with amount + structure)
+   3. Append `## Fundraising Strategy — {YYYY-MM-DD}` section with full strategy output
 
-6. **Next step prompt:** "✅ Strategy set. Saved to `.fundraising/fundraising-strategy-{date}.md`.
+6. **Next step prompt:** "✅ Strategy set. Added to `.fundraising/{round-dir}/playbook.md`.
    Target: $[amount] [structure] at $[valuation].
    Next: run `/fundraising-stage` to create your execution plan, or skip to `/pitch-deck` to
    start building your deck."

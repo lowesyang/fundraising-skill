@@ -44,7 +44,7 @@ We built this for **founders who'd rather be building**. Indie hackers, solo dev
 
 3. **One skill, every stage.** Whether you're a solo dev with a prototype or a 20-person team prepping Series B, the metrics that matter, the VCs who care, the story you should tell all change. This skill adapts to where you actually are.
 
-4. **Your fundraising docs build up over time.** Each step saves a document to `.fundraising/` in your project. Come back tomorrow, next week, next month. Pick up right where you left off.
+4. **Your fundraising playbook builds as you go.** Each step appends to a single living document in `.fundraising/{company}-{stage}/playbook.md` — company profile, metrics, strategy, pitch feedback, strategy changes, DD readiness, deal room results. One document, the whole story. Come back tomorrow, next week, next month and pick up exactly where you left off.
 
 ---
 
@@ -91,16 +91,16 @@ If the skill loads, you'll see the onboarding table with all 8 commands.
 
 ## Commands
 
-| Step | Command                 | What it does                                                        |
-| ---- | ----------------------- | ------------------------------------------------------------------- |
-| 0    | `/before-fundraising`   | Assess if you're ready to raise — honest verdict with hard gates    |
-| 1    | `/product-metrics`      | Review traction data with RED/YELLOW/GREEN grading by domain        |
-| 2    | `/fundraising-strategy` | Plan how much to raise, spending allocation, round structure        |
-| 3    | `/fundraising-stage`    | Create actionable execution plan with investor targeting (optional) |
-| 4    | `/pitch-deck`           | Build slide-by-slide deck outline tailored to your target VC        |
-| 5    | `/pitch`                | Practice pitching with a simulated VC partner — full debrief after  |
-| 6    | `/due-diligence`        | Prepare for investor DD — compliance, data, legal readiness check   |
-| 7    | `/deal-room`            | Multi-VC fundraising process simulation — competitive dynamics      |
+| # | Command | What it does |
+|---|---------|-------------|
+| 0 | `/before-fundraising` | Asks the hard questions (launched product? real users? team credentials?) and delivers a RAISE NOW / NOT YET / MAYBE verdict with specific reasoning and a concrete next step. If the product isn't launched and the team lacks exceptional credentials, it tells you to build the MVP first. |
+| 1 | `/product-metrics` | Grades your actual numbers RED/YELLOW/GREEN against stage benchmarks by domain (SaaS, Consumer, AI/ML, Fintech, Marketplace, Hardware, Biotech). Shows which metrics are pitch strengths and which a skeptical investor will push back on. |
+| 2 | `/fundraising-strategy` | Builds your round strategy from actual burn and runway: raise amount, round structure (SAFE vs. priced), dilution math, and a use-of-funds breakdown you can walk an investor through. |
+| 3 | `/fundraising-stage` | Turns strategy into execution: which VCs to approach first, in what order, warm vs. cold outreach sequencing, and 30/60/90-day milestones to hit while the round is live. |
+| 4 | `/pitch-deck` | Generates a stage-appropriate, slide-by-slide deck outline tailored to your domain and target VC. Populated with your actual metrics, team credentials, GTM, and financials. Structure and emphasis shift by stage (pre-seed to Series C+). |
+| 5 | `/pitch` | Simulates a partner meeting with any of 41 investors. The VC sub-agent reads your deck but has no access to your internal metrics or strategy. Scored 5-dimension debrief after each session: what they were weighing, what to change, and a DD preview of follow-up questions. |
+| 6 | `/due-diligence` | Generates the specific DD questions this investor would ask given your domain, stage, and pitch weak points. Covers legal/IP, domain-specific compliance (Fintech, AI, Biotech, SaaS), and data integrity. Outputs a readiness scorecard and data room checklist. |
+| 7 | `/deal-room` | Runs the full fundraise: 3-5 VCs over simulated weeks, competitive dynamics, pitch evolution between meetings, and deal architecture (lead/follow scoring, dilution modeling, complete financing plan) when term sheets arrive. |
 
 ---
 
@@ -132,11 +132,21 @@ If the skill loads, you'll see the onboarding table with all 8 commands.
   └──────────────────────────────────────────────────────────────────┘
 ```
 
-Each command guides you to the next. After `/pitch`, loop back to refine your deck and strategy based on VC feedback. When you get FOLLOW-UP or TERM SHEET interest, run `/due-diligence` to prepare for investor deep-dive questions (data, compliance, legal, IP). Then graduate to `/deal-room` for the full multi-VC process.
+Commands connect forward. After `/pitch`, loop back to refine your deck and strategy based on the feedback. When you get FOLLOW-UP or TERM SHEET interest, run `/due-diligence` to prepare for the real interrogation. Graduate to `/deal-room` when your single-meeting scores are consistently at FOLLOW-UP or better.
 
-### Document Persistence
+### The Living Playbook
 
-Every command saves its output to `.fundraising/` in your project. Start today, come back tomorrow — the skill picks up where you left off.
+Every command appends to a single document: `.fundraising/{company-slug}-{stage}/playbook.md`. Start today, come back tomorrow — the skill shows your progress and picks up where you left off.
+
+```
+.fundraising/
+└── acme-seed/
+    ├── playbook.md              # Company profile → metrics → strategy → pitch feedback → DD → deal room
+    ├── pitch-simulations/       # Full pitch transcripts
+    └── deal-room/               # Meeting logs + final report
+```
+
+Running multiple strategies in parallel? Create comparison scenarios: `acme-seed/`, `acme-seed-aggressive/`, `acme-seed-conservative/`. Completed a round? Archive it and start fresh for Series A — all prior rounds stay in `.fundraising/archive/`.
 
 ---
 
@@ -200,7 +210,7 @@ Every command saves its output to `.fundraising/` in your project. Start today, 
 
 ### Strategic / Corporate Investors (CVC)
 
-> These investors make **strategic investments** to grow their ecosystems, not purely for financial returns. They offer cloud credits, distribution channels, engineering support, and enterprise customer access — but expect strategic alignment with their platforms.
+> These investors back startups that extend their platforms and ecosystems. Capital comes bundled with cloud credits, distribution channels, engineering support, and enterprise customer access. The trade-off: they expect your product to integrate with and strengthen their stack.
 
 | Firm | Focus | Strategic Value | Links |
 |------|-------|----------------|-------|
@@ -212,6 +222,8 @@ Every command saves its output to `.fundraising/` in your project. Start today, 
 | Intel Capital | AI chips, edge computing, semiconductors | Early Intel hardware access, engineering support | [Web](https://intelcapital.com) · [𝕏](https://x.com/IntelCapital) · [LinkedIn](https://linkedin.com/company/intel-capital) |
 | Oracle Corporate | Enterprise cloud/database ecosystem | OCI credits, enterprise customer base, M&A path | [Web](https://oracle.com) · [𝕏](https://x.com/Oracle) · [LinkedIn](https://linkedin.com/company/oracle) |
 
+Every profile includes: investment thesis, behavioral model (meeting style, signature questions, red flags, decision process), pitch simulator instructions (opening style, push-back patterns, closing signals), **core philosophy & first principles** documented from public sources (blogs, books, podcasts), **signature public statements** with source citations, **recent investments (2022–2025)**, partner-level breakdowns for institutional funds, and **non-obvious founder & culture fit signals** — the soft tells about what type of person each investor is actually drawn to.
+
 Each investor asks different questions, pushes back differently, and evaluates through their own lens. The debrief tells you what they were _actually_ thinking.
 
 ---
@@ -220,12 +232,24 @@ Each investor asks different questions, pushes back differently, and evaluates t
 
 ### Stage-Aware Intelligence
 
-The skill covers 4 stages (pre-seed through Series B), each with:
+The skill covers 7 stages — pre-seed through IPO — each with a dedicated playbook:
 
-- **Readiness benchmarks** — explicit thresholds that power the `/before-fundraising` diagnostic
-- **Metrics grading** — RED/YELLOW/GREEN by domain (SaaS, Consumer, AI/ML)
+| Stage | File | Coverage |
+|-------|------|----------|
+| Pre-seed | `pre-seed.md` | Idea validation, founder credentials, pre-revenue hard gate |
+| Seed | `seed.md` | Early traction, PMF signal, SAFE/priced round structures |
+| Series A | `series-a.md` | Repeatable growth, unit economics, GTM efficiency |
+| Series B | `series-b.md` | Scaling the growth engine, category leadership |
+| Growth (C/D) | `growth.md` | Market dominance, Rule of 40, growth equity investors |
+| Late Stage (E–I) | `late-stage.md` | Crossover rounds + Pre-IPO round, secondary market, IPO ratchets; case studies: Stripe, Databricks, SpaceX, Anthropic, OpenAI |
+| IPO | `ipo.md` | Roadshow, book-build pricing; why Tesla/Snowflake/Airbnb held vs. WeWork/Robinhood/Rivian broke issue price |
+
+Each playbook includes:
+
+- **Readiness benchmarks** — explicit RED/YELLOW/GREEN thresholds that power the `/before-fundraising` diagnostic
+- **Metrics grading** — by domain (SaaS, Consumer, AI/ML) and by sub-stage
 - **Deck templates** — YC Demo Day format and General Series A format
-- **Stage playbooks** — what investors expect, typical terms, key mistakes to avoid
+- **Real case studies** — success and failure examples for growth through IPO stages
 
 ### The Hard Gate
 
@@ -247,19 +271,24 @@ After practicing pitches and preparing for DD, the Deal Room simulates your enti
 
 - **Pick 3-5 VCs** and set your meeting order strategically
 - **Sequential meetings** over simulated weeks with feedback between each
-- **Competitive dynamics**: VCs ask who else you're talking to. Interest from one accelerates others
-- **Pitch evolution**: Adjust your pitch between meetings based on feedback
-- **Follow-up meetings**: VCs who want a second look get a focused follow-up
-- **Final report**: Pipeline outcome, score trajectory, lessons learned, term sheet comparison
+- **Same-VC memory**: if you practiced with Sequoia in `/pitch`, they carry that conversation into the Deal Room. They won't know about your meetings with any other firm.
+- **Competitive dynamics**: VCs ask who else you're talking to. If you mention that another firm expressed interest, the current one responds to it.
+- **Pitch evolution**: adjust your pitch between meetings based on feedback; only the dimensions you actually addressed will improve in the next score
+- **Follow-up meetings**: VCs who want a second look get a focused follow-up (4-6 exchanges, no full re-pitch)
+- **Deal Architecture**: when term sheets arrive, evaluate each offer — lead vs. follow-on candidacy scored on strategic value, signal for future rounds, follow-on capital capacity, and dilution efficiency; two-scenario cap table modeling (this round + projected next raise); "worth it?" judgment per investor; and a complete financing plan with declined-offer language
+- **Final report**: pipeline outcome, score trajectory, pitch evolution log, and complete financing plan
 
-### Pitch Debrief
+### Pitch Simulation
+
+Each VC is played by a dedicated sub-agent that receives only the VC's behavioral profile and what you say during the session. No playbook, no metrics, no prior commands. The VC only knows what you've said out loud in the room. This means they ask the questions a real VC would ask — the ones your deck didn't answer, the ones that probe the weak spots you hoped they'd miss.
 
 After each simulated pitch, you get:
 
 - **5-dimension scoring** (1-10): Problem clarity, Market conviction, Team strength, Traction evidence, Ask specificity
-- **Verdict**: PASS / FOLLOW-UP MEETING / TERM SHEET
-- **Investor feedback**: Specific reasons, what to change, timeline for follow-up
+- **Verdict**: PASS / FOLLOW-UP MEETING / TERM SHEET (decided by the main agent using both the transcript and your actual playbook context)
+- **Investor feedback**: Specific reasons for the verdict, what to change, timeline for follow-up
 - **Internal discussion**: What the VC would say about you after you leave the room
+- **DD preview**: 5-8 due diligence questions this VC would ask if they proceed, tied to your specific weak points
 
 ---
 
@@ -279,20 +308,6 @@ Each domain includes sub-domain classification — the skill asks what type of c
 
 ---
 
-## Roadmap
-
-- [x] 8 slash commands with guided workflow
-- [x] 41 investor profiles (8 angels + 9 seed funds + 12 Series A/B + 5 growth + 7 strategic/CVC)
-- [x] 4 stage playbooks (pre-seed → Series B)
-- [x] 7 domain metrics with sub-domain classification (SaaS, Consumer, AI, Fintech, Marketplace, Hardware, Biotech)
-- [x] Document persistence to `.fundraising/`
-- [x] Investor feedback loop
-- [x] Due diligence preparation with domain-specific compliance
-- [x] "Deal Room" multi-meeting simulation
-- [ ] Growth/Late/IPO stage playbooks
-- [ ] Cross-session state persistence via file-based context
-
----
 
 ## Project Structure
 
@@ -317,7 +332,10 @@ fundraising/                              # Shared references (installed as one 
 │   │   ├── pre-seed.md
 │   │   ├── seed.md
 │   │   ├── series-a.md
-│   │   └── series-b.md
+│   │   ├── series-b.md
+│   │   ├── growth.md              # Series C/D
+│   │   ├── late-stage.md          # Series E–I + Pre-IPO round
+│   │   └── ipo.md
 │   ├── metrics-by-domain/
 │   │   ├── saas.md
 │   │   ├── consumer.md

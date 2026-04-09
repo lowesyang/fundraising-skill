@@ -1,6 +1,6 @@
 # YC Demo Day Deck Template
 
-> Used by the `/deck` command. 2-minute presentation, 5-8 slides. Traction-heavy, extremely concise.
+> Used by the `/pitch-deck` command. 2-minute presentation, 5-8 slides. Traction-heavy, extremely concise.
 
 ---
 

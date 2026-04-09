@@ -7,7 +7,7 @@ description: >
   Use when the user asks "what metrics do investors care about?", "organize my key metrics",
   "investor metrics", "what data should I show?", "traction review", or "product metrics".
   Part of the fundraising workflow: /before-fundraising → ▶ /product-metrics →
-  /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch.
+  /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room.
 ---
 
 # /product-metrics — Traction Data & Investor Metrics Review
@@ -20,18 +20,21 @@ and stage, and grades their actual numbers against industry benchmarks.
 This command is **Step 1** of the fundraising workflow:
 
 ```
-/before-fundraising → ▶ /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch
+/before-fundraising → ▶ /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room
 ```
 
 ## Flow
 
-1. **Check for prior context:** Read `.fundraising/readiness-assessment-*.md` if it exists
-   to pre-fill stage and business context. Show: "📄 Found your readiness assessment. Using that context."
+1. **Load session context:**
+   Glob `.fundraising/*/playbook.md` (exclude `archive/`). If found, read frontmatter to get
+   company name, stage, domain, and prior verdicts. Show welcome back greeting
+   (format in `fundraising/SKILL.md`). If multiple playbooks exist, ask which to use.
+   Pre-fill stage and domain — do not re-ask if already known.
 
-2. **Ask the user's domain** via AskUserQuestion:
+2. **Confirm or ask the user's domain** via AskUserQuestion (skip if already in playbook):
    - SaaS / Consumer / AI / Fintech / Marketplace / Hardware / Biotech
 
-3. **Use stage from prior commands** if available, otherwise ask.
+3. **Use stage from playbook** if available, otherwise ask.
 
 4. **Load domain-specific metrics** from `../fundraising/references/metrics-by-domain/`
    (saas.md, consumer.md, or ai-ml.md).
@@ -48,9 +51,11 @@ This command is **Step 1** of the fundraising workflow:
    - Metrics you should be tracking but aren't
    - Domain-specific nuances (e.g., "marketplace investors care about liquidity more than GMV growth")
 
-7. **Save document:** Write the full metrics scorecard to `.fundraising/product-metrics-{YYYY-MM-DD}.md`
-   with YAML frontmatter (command, date, stage, domain, status). Append a timeline entry.
+7. **Save to playbook:** Append to `.fundraising/{round-dir}/playbook.md`:
+   1. Update frontmatter: set `steps_completed.product-metrics` (date + overall_grade) + `last_updated`
+   2. Update Progress Tracker row for `/product-metrics` (✅ with overall grade)
+   3. Append `## Product Metrics — {YYYY-MM-DD}` section with full scorecard output
 
-8. **Next step prompt:** "✅ Metrics review complete. Saved to `.fundraising/product-metrics-{date}.md`.
+8. **Next step prompt:** "✅ Metrics review complete. Added to `.fundraising/{round-dir}/playbook.md`.
    Your strongest numbers: [list top 2-3].
    Next: run `/fundraising-strategy` to determine how much to raise and how to structure it."

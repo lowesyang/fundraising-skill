@@ -6,6 +6,8 @@ stage_focus: [seed, series-a, series-b, growth]
 check_size: "$1M-$100M"
 website: "https://salesforceventures.com"
 contributed_by: "fundraising-skill"
+last_enriched: "2026-Q2"
+enrichment_sources: ["salesforceventures.com", "salesforce.com", "globalventuring.com", "fortune.com", "saastr.com", "elpislabs.com"]
 ---
 
 ## Salesforce Ventures
@@ -14,12 +16,14 @@ Salesforce Ventures is one of the most active corporate venture capital arms in 
 
 ### Key Team
 
-- **John Somorjai** — EVP of Corporate Development & Salesforce Ventures. The senior leader overseeing the venture arm and M&A. Sets strategic direction.
+- **John Somorjai** — President of Salesforce Ventures and EVP of Corporate Development. Co-founded the fund with Benioff in 2009. Sets strategic direction and leads major deals.
 - **Alex Kayyal** — Partner, Head of EMEA. One of the most visible partners, active in European enterprise SaaS.
 - **Arun Parameswaran** — Partner, focused on enterprise applications and AI.
 - **Claudia Fan Munce** — Managing Partner, deep enterprise and fintech experience.
 - **Rob Keith** — Partner, focused on data and analytics companies.
 - **Investment Associates and Principals** — a team of ~15-20 investment professionals globally (SF, London, Tokyo, Sydney).
+
+**Partner Investment Breakdown:** John Somorjai: overall strategy and major deals, M&A and corporate development overlap — growth stage / Alex Kayyal: EMEA enterprise SaaS, vertical SaaS, European AI — Seed through Series B / Arun Parameswaran: enterprise AI applications, CRM-adjacent platforms, Agentforce ecosystem — Series A-B / Claudia Fan Munce: fintech, enterprise applications, complex regulated industries — Series A-B / Rob Keith: data infrastructure, analytics, data integration — Series A-B
 
 ### Stage Focus
 
@@ -68,6 +72,8 @@ The strategic filter is real but not rigid. Salesforce Ventures will invest in g
 
 The portfolio reads like a who's-who of enterprise SaaS. Multiple portfolio companies have been acquired by Salesforce (Vlocity, Quip contributors), creating a known acqui-hire / acquisition pipeline.
 
+**Recent Investments (2022-2025):** Anthropic (foundation model, strategic AI Fund investment -- Salesforce also ships Claude-powered features in Agentforce), ElevenLabs (AI voice generation for enterprise applications), Runway (AI video generation, creative enterprise workflows), Writer (enterprise generative AI platform, purpose-built for large organizations), Together AI (open-source AI model infrastructure and fine-tuning platform), Protect AI (AI/ML security, later acquired by Palo Alto Networks), World Labs (spatial intelligence AI, founded by Fei-Fei Li), fal AI (fast AI model inference infrastructure), Black Forest Labs (image generation AI, Series B), Goodfire (AI interpretability research and tools), Lovable (AI-powered full-stack web development), LiveKit (real-time AI communication infrastructure for agentic workflows).
+
 ### Sector Preferences
 
 - Enterprise SaaS (all categories)
@@ -81,6 +87,25 @@ The portfolio reads like a who's-who of enterprise SaaS. Multiple portfolio comp
 - Vertical SaaS (financial services, healthcare, public sector)
 - Developer tools and low-code/no-code platforms
 - Collaboration and productivity (Slack ecosystem)
+
+### Core Philosophy & First Principles
+
+Salesforce Ventures was founded in 2009 by Marc Benioff and John Somorjai specifically because AppExchange partners -- strong enterprise SaaS businesses -- were struggling to raise capital during the financial crisis. The origin story matters because it explains the fund's fundamental orientation: Salesforce Ventures exists to strengthen the ecosystem, not just generate returns. That starting point hardwired an unusual balance between strategic and financial motivation that has persisted through 15+ years and $6B+ deployed.
+
+The philosophical center is the Ohana framework -- a Hawaiian concept of family and mutual obligation that Benioff embedded in Salesforce's culture from the beginning. In Benioff's articulation, Ohana extends beyond employees to customers, partners, communities, and the planet. For Salesforce Ventures, this translates into a stakeholder capitalism lens on investment: portfolio companies are expected to succeed financially AND create value for the broader enterprise ecosystem. The 1-1-1 model (1% equity, 1% product, 1% employee time to community causes) has been adopted by more than 20,000 companies inspired by Salesforce, and the fund treats social impact as a genuine signal of founder values alignment, not just PR.
+
+The ecosystem flywheel is the structural engine. The AppExchange has 150,000+ Salesforce customers; a portfolio company that builds a well-integrated AppExchange listing can access enterprise buyers that would otherwise require a 10-person sales team to reach. Salesforce Ventures explicitly manages this flywheel -- not just making financial investments, but actively engineering co-sell arrangements, Dreamforce stage appearances, and product integrations that drive mutual growth. John Somorjai described the logic as "patient capital, coveted community, and privileged access."
+
+In 2024, Salesforce Ventures committed $1 billion specifically to AI investments through its dedicated AI Fund, deploying $850M+ in 35 AI-first companies including Anthropic, Cohere, ElevenLabs, Runway, and Writer. The Agentforce era (Salesforce's 2024-2025 agentic AI platform launch) has made the strategic filter even sharper: the fund is prioritizing companies that build agents, workflows, and data infrastructure that extend Agentforce rather than compete with it.
+
+### Public Statements & Signature Thinking
+
+- "Generative AI is one of the most transformative technologies we've seen in a long time. When we started to see interesting business models take off with this technology, we decided we wanted to be at the forefront." — John Somorjai, President of Salesforce Ventures, 2024
+- "Enterprises are moving beyond experimentation to full-scale production with AI -- especially in agents, search, and integrated workflows." — John Somorjai, Salesforce Ventures, 2025
+- "They offer the financial rigor and alignment with the founding team you'd expect from a traditional VC, but also the practical enterprise approach you get from a corporate investor." — Clement Delangue, CEO of Hugging Face (Salesforce Ventures portfolio company), 2024
+- "Entrepreneurs are seeking out investors who provide enterprise-grade AI resources -- access to trusted infrastructure, deep go-to-market expertise and insights into AI governance and regulatory landscapes -- in addition to capital." — Salesforce Ventures, 2025
+- "Many parts of the VC ecosystem have not kept pace with the needs of today's founders. VC scaled during unprecedented economic growth and it became easy to simply make an investment, attend quarterly board meetings, and leave the hard work of scaling entirely to the entrepreneur." — Salesforce Ventures, "The Long Game" essay, November 2024
+- "We provide enterprising founders with patient capital, coveted community, and privileged access to the resources they need to build industry-defining companies." — Salesforce Ventures, About page, 2024
 
 ### Strategic Value
 
@@ -133,6 +158,15 @@ Professional, structured, and transparent about the strategic angle. Salesforce 
 - The team publishes an annual "Enterprise Value Creation" report and thinks deeply about enterprise SaaS metrics. Come prepared with your metrics deck.
 - They have a strong ESG and impact investing arm. If your company has a social impact angle, it resonates.
 - Portfolio community is active — they host events, share playbooks, and facilitate connections between portfolio companies.
+
+### Founder & Culture Fit (Non-Obvious Signals)
+
+- **Ohana alignment is tested informally.** Founders who talk only about financial outcomes and ignore customer success, employee culture, and community impact trigger quiet skepticism at Salesforce Ventures. The fund looks for founders who have internalized stakeholder capitalism — not as a PR posture, but as an operating philosophy.
+- **AppExchange ambition signals ecosystem seriousness.** Founders who have thought deeply about their AppExchange listing strategy — not just "we could build a connector" but "here's the listing, the customer use case, and the expected install trajectory" — are treated as genuine ecosystem partners, not portfolio companies to be managed.
+- **Patience with co-selling complexity is a genuine trait filter.** Salesforce's joint selling motion requires navigating multiple stakeholders: Salesforce AEs, the portfolio company's own sales team, and enterprise procurement. Founders who become frustrated by this complexity or try to shortcut it damage the co-sell relationship. Founders who thrive treat Salesforce AEs as long-term channel partners requiring cultivation.
+- **Metrication fluency closes faster.** Salesforce Ventures publishes extensive research on enterprise SaaS benchmarks. Founders who speak the same metrics language — NRR, CAC payback, logo retention, ACV expansion — get to the strategic conversation much faster than those who need to be educated on why 140%+ NRR matters.
+- **Social impact and 1-1-1 fit is a real signal, not a checkbox.** Founders who have thought about their company's community impact and who align with Benioff's stakeholder capitalism worldview build relational trust that accelerates deal processes. Founders who are visibly dismissive of ESG considerations signal a values mismatch that slows down internal champions.
+- **Product vision that extends beyond Salesforce is actually valued.** Counter-intuitively, founders who position exclusively as a Salesforce extension can be less compelling than those who have a broader enterprise vision but see Salesforce as the dominant distribution channel. Salesforce Ventures wants to back category leaders, not just Salesforce plugins.
 
 ### For the /pitch Simulator
 

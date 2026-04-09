@@ -6,6 +6,8 @@ stage_focus: [pre-seed, seed]
 check_size: "$500K"
 website: "https://www.ycombinator.com"
 contributed_by: "fundraising-skill"
+last_enriched: "2026-Q2"
+enrichment_sources: ["ycombinator.com/blog", "fs.blog/knowledge-project-podcast/garry-tan", "paulgraham.com/ds.html", "acquired.fm/episodes/how-yc-rewrote-the-seed-playbook-with-garry-tan", "podcastnotes.org/knowledge-project/garry-tan", "news.crunchbase.com/venture/yc-winter-batch-2024-ai-startup-seed-funding"]
 ---
 
 ## Y Combinator (YC)
@@ -15,7 +17,26 @@ contributed_by: "fundraising-skill"
 **Typical Check Size:** $500K standard deal (for 7% equity via post-money SAFE), plus $375K optional MFN side letter
 **Investment Thesis:** YC backs technical founders building products people want. The thesis is empirical, not thematic: find smart people making something users love, give them money, advice, and a network, then get out of the way. YC believes startups succeed by talking to users and iterating fast. Paul Graham's essays remain the philosophical backbone -- startups should do things that don't scale, launch early, and let growth be the signal. The batch model creates peer pressure and accountability that individual angel investing cannot replicate.
 **Portfolio Highlights:** Airbnb, Stripe, Coinbase, DoorDash, Instacart, Dropbox, Reddit, Twitch, Brex, OpenSea
-**Sector Preferences:** Sector-agnostic. Heavy in SaaS, fintech, developer tools, AI/ML, bio, hard tech, marketplaces. Will fund anything if the founders are strong and the problem is real.
+**Recent Investments (2022-2025):** Perplexity AI (S22 — AI-native search engine that raised $1B+ and became a household name for AI search); Replit (long-time YC company, now valued at $1B+ as an AI-powered coding environment); Harvey (AI legal research and drafting platform backed by major law firms and big law); Cognition/Devin (AI software engineering agent); Gamma (AI-powered presentation creator that grew to millions of users); Alchemy (blockchain infrastructure for developers); Mercor (AI-powered technical recruiting); Doola (business formation and compliance for founders worldwide); Clay (AI-powered CRM enrichment and outbound sales); Momentic (AI-powered testing platform for software QA).
+**Sector Preferences:** Sector-agnostic. Heavy in SaaS, fintech, developer tools, AI/ML, bio, hard tech, marketplaces. Will fund anything if the founders are strong and the problem is real. W24 batch was approximately 66% AI-integrated companies; batches from 2023 onward have had heavy AI/LLM, agentic workflow, and fintech infrastructure representation.
+
+### Core Philosophy & First Principles
+
+YC's philosophical foundation is empirical and founder-centric, not sector-driven or thesis-led. Paul Graham articulated it plainly in "Do Things That Don't Scale": the most important truth about early startups is that they succeed because founders make them succeed — not because the market was ready or the timing was perfect. This isn't a passive observation; it shapes every aspect of how YC operates.
+
+The operating principle is **founder quality above all else**. YC bets on the person before the product, the insight before the deck, and the user conversation before the business plan. Garry Tan, who became CEO in 2023, frames this as seeking "earnestness" — a quality rarer than ambition or intelligence, representing genuine conviction that is immune to social pressure. YC explicitly warns against founders who adjust their thesis to match what partners seem to want: they're hunting for true believers, not skilled performers.
+
+A second principle is **velocity as signal**. Michael Seibel and Dalton Caldwell have consistently reinforced that week-over-week growth, shipping frequency, and user iteration speed all matter more than strategic planning. YC partners evaluate how much a team has moved since their last checkpoint — not just what they've built in total. This creates a culture where "since we applied three weeks ago, we did X" is more powerful than any market thesis.
+
+The batch model is itself a philosophical bet: YC believes peer accountability and a concentrated cohort of equally-stressed founders creates conditions for breakthroughs that no amount of one-on-one mentorship can match. Metcalfe's Law applies to the network — the more high-quality nodes, the more valuable the whole. Since Garry Tan wound down the Continuity Fund in 2023 to refocus entirely on early-stage work, YC has sharpened its bet that the zero-to-one moment is where it creates the most value. "Make something people want" remains the singular directive — deceptively simple, operationally demanding.
+
+### Public Statements & Signature Thinking
+- "Startups take off because the founders make them take off. You can't just wait for it to happen." — Paul Graham, "Do Things That Don't Scale" (paulgraham.com, 2013), YC's most-cited essay and still the philosophical backbone of its acceptance criteria.
+- "It's not the product that should be insanely great, but the experience of being your user." — Paul Graham, "Do Things That Don't Scale" (paulgraham.com, 2013); YC uses this to push founders toward obsessive user-level attention over product polish.
+- "Most accelerators fund ideas. Y Combinator funds founders — and transforms them." — Garry Tan, The Knowledge Project Podcast with Shane Parrish, 2025; YC's 1% acceptance rate is calibrated around this founder-first filter.
+- "Earnestness is the key to success and can make or break a startup. It's far rarer than ambition." — Garry Tan, The Knowledge Project Podcast with Shane Parrish, 2025; "earnest" founders succeed where performed founders flame out.
+- "Were those founders animals, and what animals were they?" — Garry Tan, Acquired Podcast with Ben Gilbert and David Rosenthal, 2024; YC's internal language for evaluating founder drive that goes beyond credentials or pedigree.
+- "If you select fewer companies, you're actually reducing the rate of innovation, which is the opposite of what we're trying to do." — Garry Tan, Acquired Podcast, 2024; explains YC's philosophy on batch scale and Metcalfe's Law applied to the founder network.
 
 ### YC Interview Format
 
@@ -139,6 +160,15 @@ Many rejected teams re-apply next batch successfully after implementing feedback
 to rattle you to see how you think under pressure. Garry Tan and Dalton Caldwell post candid
 advice publicly on Twitter/YouTube. YC is the only "investor" where you're applying to join a
 program, not pitching for a check — the batch, network, and Demo Day are the real value.
+
+### Founder & Culture Fit (Non-Obvious Signals)
+- **Earnest over polished**: YC prefers founders who are visibly, genuinely invested in solving the problem — not skilled presenters. Nervousness is fine; rehearsed smoothness is a yellow flag because it can mask lack of conviction.
+- **Willingness to do things that feel embarrassing at scale**: Founders who have manually done grunt work — cold-emailing 100 people, hand-delivering a product, sleeping in a customer's office — signal a psychological disposition YC rates higher than strategy memos or product roadmaps.
+- **Comfort with being wrong in real-time**: YC partners deliberately press on weak points. Founders who update their view mid-meeting ("Actually, you're right, I haven't tested that assumption") outperform founders who defend every position, because the first group learns faster inside the batch.
+- **All-in identity**: Michael Seibel explicitly flags founders who are hedging — still employed, treating YC as validation, or treating their startup as a side project. YC rewards founders for whom no other option exists.
+- **Co-founder chemistry that feels earned**: Partners evaluate whether co-founders have real complementary ownership — not equal stake with duplicate skills. Teams that have survived at least one genuine disagreement and resolved it tell a different story than teams formed at a hackathon.
+- **Specificity as a proxy for user time**: Founders who describe customers by name, quote specific things users said, or mention unexpected user behavior are demonstrating actual time spent in the field. Vague personas signal desk research, which YC discounts heavily.
+- **Speed without chaos**: YC gravitates toward founders who have shipped multiple experiments and learned from each one — not just founders who move fast. The signal is iterative velocity plus reflection, not raw output.
 
 ### YC-Specific Simulation Rules
 

@@ -2,8 +2,8 @@
 name: fundraising
 description: >
   Full-lifecycle fundraising assistant for startup founders — guided workflow from readiness assessment
-  through pitch practice with hyper-realistic VC simulations. Seven commands in a sequential flow:
-  /before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /deal-room,
+  through pitch practice with hyper-realistic VC simulations. Eight commands in a sequential flow:
+  /before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room,
   with an investor feedback loop that refines your strategy and deck after each pitch.
   Use this skill whenever the user mentions fundraising, raising money, pitch deck, VC meeting,
   investor pitch, Series A/B/seed, startup funding, term sheet, SAFE, valuation, dilution,
@@ -14,7 +14,7 @@ description: >
 
 # Fundraising Skill
 
-A complete fundraising operating system for startup founders. Seven commands in a guided workflow —
+A complete fundraising operating system for startup founders. Eight commands in a guided workflow —
 each step builds on the last, and after pitching you can loop back to refine your approach based
 on investor feedback.
 
@@ -93,88 +93,198 @@ All commands use this single taxonomy:
 | `seed` | "MVP built, early users" | Seed tier |
 | `series-a` | "Proven PMF, scaling" | Series A/B tier |
 | `series-b` | "Repeatable growth" | Series A/B tier |
-| `growth` | "Market leader, Series C+" | Growth tier (limited in v1) |
+| `growth` | "Market leader, Series C/D" | Growth tier |
+| `late-stage` | "Series E+, crossover investors, pre-IPO" | Late-stage / crossover tier |
+| `ipo` | "Preparing for IPO or recently public" | Public markets |
 
 ## Document Persistence
 
-Every command saves its output as a markdown document in the project's `.fundraising/` directory.
+Every fundraising round lives in its own directory under `.fundraising/`. Each round has a
+single living `playbook.md` — the complete fundraising guide updated by every command — plus
+subdirectories for pitch transcripts and deal-room meeting logs.
+
 This serves three purposes:
 1. **Cross-session continuity** — pick up where you left off in a new conversation
-2. **Cross-command context** — later commands read earlier documents instead of re-asking
-3. **Audit trail** — track how your fundraising approach evolves over time
+2. **Cross-command context** — later commands read the playbook instead of re-asking
+3. **Audit trail** — one document tells the full fundraising story, including strategy changes
 
 ### Directory Structure
 
 ```
 .fundraising/
-├── readiness-assessment-{YYYY-MM-DD}.md      # from /before-fundraising
-├── product-metrics-{YYYY-MM-DD}.md           # from /product-metrics
-├── fundraising-strategy-{YYYY-MM-DD}.md      # from /fundraising-strategy
-├── execution-plan-{YYYY-MM-DD}.md            # from /fundraising-stage
-├── pitch-deck-outline-{YYYY-MM-DD}.md        # from /pitch-deck
-├── pitch-simulations/
-│   ├── pitch-{vc-name}-{YYYY-MM-DD}.md       # from /pitch (one per VC)
-│   └── ...
-├── deal-room/
-│   ├── meeting-{vc}-{round}-{YYYY-MM-DD}.md  # from /deal-room (one per meeting)
-│   ├── dashboard-{YYYY-MM-DD}.md             # pipeline tracker
-│   └── final-report-{YYYY-MM-DD}.md          # process summary
-└── timeline.jsonl                            # event log (append-only)
+├── {company-slug}-{stage}/                   # one directory per round (default scenario)
+│   ├── playbook.md                           # THE living playbook — all stages in one doc
+│   ├── pitch-simulations/
+│   │   ├── {vc}-{YYYY-MM-DD}.md             # full pitch transcript (from /pitch)
+│   │   └── ...
+│   └── deal-room/
+│       ├── meeting-{vc}-round-{N}.md         # full meeting log (from /deal-room)
+│       └── ...
+├── {company-slug}-{stage}-{scenario}/        # optional: comparison scenario
+│   └── playbook.md
+└── archive/
+    └── round-{N}/
+        └── {company-slug}-{stage}/           # entire directory moved here on archive
 ```
 
-### File Naming
+**Directory naming:**
+- Default round: `{company-slug}-{stage}/` (e.g., `acme-seed/`, `stripe-series-a/`)
+- Comparison scenario: `{company-slug}-{stage}-{scenario}/` (e.g., `acme-seed-aggressive/`)
+- `company-slug` = company name lowercased, spaces → hyphens
+- `scenario` = short label chosen by the founder (e.g., `conservative`, `aggressive`, `priced-round`)
 
-- Use the current date: `YYYY-MM-DD` format (e.g., `2026-04-09`)
-- VC names in lowercase kebab-case: `pitch-sequoia-2026-04-09.md`
-- If a file for today already exists, overwrite it (latest version wins for same-day runs)
+### The Playbook — `playbook.md`
 
-### Timeline Log
+The playbook is both machine-readable (YAML frontmatter) and human-readable (narrative guide).
+Every command appends a new section; the document grows as the founder progresses.
 
-Append a JSONL entry to `.fundraising/timeline.jsonl` at the start and end of each command:
+**Frontmatter (machine-readable state):**
 
-```json
-{"command": "/before-fundraising", "event": "completed", "verdict": "RAISE NOW", "stage": "series-a", "ts": "2026-04-09T10:30:00Z"}
-{"command": "/product-metrics", "event": "completed", "domain": "saas", "stage": "series-a", "ts": "2026-04-09T10:45:00Z"}
-{"command": "/pitch", "event": "completed", "vc": "sequoia", "verdict": "FOLLOW-UP MEETING", "score": 6.8, "ts": "2026-04-09T11:00:00Z"}
-{"command": "/deal-room", "event": "meeting", "vc": "a16z", "round": 1, "week": 2, "verdict": "TERM SHEET", "score": 7.4, "ts": "2026-04-09T11:30:00Z"}
-{"command": "/deal-room", "event": "completed", "term_sheets": 1, "follow_ups": 1, "passes": 1, "duration_weeks": 5, "ts": "2026-04-09T12:00:00Z"}
+```yaml
+---
+company: Acme
+stage: seed
+domain: saas
+sub_domain: b2b
+problem: "DevOps teams waste hours debugging API outages"
+target_customer: "Mid-market engineering teams"
+raise_target: "$3M"
+raise_structure: "post-money SAFE"
+started: 2026-04-09
+last_updated: 2026-04-10
+steps_completed:
+  before-fundraising: {date: 2026-04-09, verdict: "RAISE NOW"}
+  product-metrics: {date: 2026-04-09, overall_grade: YELLOW}
+  fundraising-strategy: {date: 2026-04-09, target_amount: "$3M", structure: "post-money SAFE"}
+  fundraising-stage: {date: 2026-04-09}
+  pitch-deck: {date: 2026-04-09}
+  pitch:
+    - {date: 2026-04-09, vc: sequoia, verdict: "FOLLOW-UP MEETING", score: 7.2}
+    - {date: 2026-04-10, vc: a16z, verdict: PASS, score: 5.1}
+  due-diligence: {date: 2026-04-10, overall_readiness: YELLOW}
+  deal-room: {date: 2026-04-10, term_sheets: 1, follow_ups: 1, passes: 1}
+---
 ```
 
-### Document Format
-
-Each saved document should use this frontmatter structure:
+**Body structure:**
 
 ```markdown
----
-command: /before-fundraising
-date: 2026-04-09
-stage: series-a
-status: completed
+# {Company} — Fundraising Playbook
+
+## Company Overview
+| Field | Value |
+|-------|-------|
+| Company | ... |
+| Stage | ... |
+| Domain | ... |
+| Problem | ... |
+| Target Customer | ... |
+| Team | ... |
+
+## Progress Tracker
+| Step | Command | Status | Date | Key Result |
+|------|---------|--------|------|------------|
+| 0 | /before-fundraising | ✅ | 2026-04-09 | RAISE NOW |
+| 1 | /product-metrics | ✅ | 2026-04-09 | Overall: YELLOW |
+| 2 | /fundraising-strategy | ⬜ | — | — |
+| 3 | /fundraising-stage | ⬜ | — | — |
+| 4 | /pitch-deck | ⬜ | — | — |
+| 5 | /pitch | ⬜ | — | — |
+| 6 | /due-diligence | ⬜ | — | — |
+| 7 | /deal-room | ⬜ | — | — |
+
 ---
 
-# Readiness Assessment — [Company/Product Name]
+## Readiness Assessment — {YYYY-MM-DD}
+**Verdict: RAISE NOW**
+[full /before-fundraising output]
 
-[full output content]
+---
+
+## Product Metrics — {YYYY-MM-DD}
+**Overall Grade: YELLOW**
+[full /product-metrics output]
+
+---
+
+## Fundraising Strategy — {YYYY-MM-DD}
+**Target: $3M · Structure: post-money SAFE**
+[full /fundraising-strategy output]
+
+---
+
+## Execution Plan — {YYYY-MM-DD}
+[full /fundraising-stage output]
+
+---
+
+## Pitch Deck Outline — {YYYY-MM-DD}
+[full /pitch-deck output]
+
+---
+
+## Pitch Simulations
+
+### {VC} — {YYYY-MM-DD} · {VERDICT} · {score}/10
+**Key Feedback:** [top 3 points]
+> Full transcript: `.fundraising/{round-dir}/pitch-simulations/{vc}-{date}.md`
+
+---
+
+## Strategy Changes
+| Date | Change | Triggered By |
+|------|--------|--------------|
+| 2026-04-10 | Expanded TAM framing | Sequoia feedback |
+
+---
+
+## Due Diligence — {YYYY-MM-DD}
+**Overall Readiness: YELLOW**
+[full /due-diligence output]
+
+---
+
+## Deal Room Summary — {YYYY-MM-DD}
+**Term sheets: 1 · Follow-ups: 1 · Passes: 1**
+[summary]
+> Full pipeline: `.fundraising/{round-dir}/deal-room/`
 ```
 
 ### Cross-Command Context Loading
 
-When starting any command, check for existing documents in `.fundraising/`:
+**On any command start:**
 
-1. Read `.fundraising/timeline.jsonl` (if exists) to understand what commands have been run
-2. Load the most recent relevant documents to pre-fill context:
-   - `/product-metrics` reads `readiness-assessment-*.md` for stage and business context
-   - `/fundraising-strategy` reads both readiness assessment and product metrics
-   - `/fundraising-stage` reads strategy document
-   - `/pitch-deck` reads all prior documents (metrics, strategy, execution plan)
-   - `/pitch` reads deck outline and prior pitch simulations for accumulated feedback
-   - `/deal-room` reads deck outline, strategy, and all prior pitch simulations
-3. When prior documents exist, show: "📄 Found previous [document]. Using that context.
-   Run the command again to refresh."
+1. Glob `.fundraising/*/playbook.md` (exclude `archive/`).
+2. **One match:** load it; show welcome back greeting; pre-fill all known fields from frontmatter.
+3. **Multiple matches (scenario comparison):** list them with key differences, ask which to use:
+   ```
+   Found 2 plans for Acme (seed):
+     [1] acme-seed/            — $3M · post-money SAFE · last updated 2026-04-09
+     [2] acme-seed-aggressive/ — $5M · priced round · last updated 2026-04-09
+   Which plan are you continuing? (or start a new scenario)
+   ```
+4. **No match:** proceed fresh.
+5. Same-session conversation context takes precedence over saved playbook.
 
-This means founders can run `/before-fundraising` today, come back tomorrow and run
-`/product-metrics`, and it will automatically pick up their stage and business context
-from the saved assessment.
+**Welcome back greeting format:**
+
+```
+Welcome back, {company}!
+Stage: {stage} · Domain: {domain} · Last updated: {date}
+
+Progress ({N}/7 steps):
+  ✅ /before-fundraising — {verdict}
+  ✅ /product-metrics — {overall_grade}
+  ⬜ /fundraising-strategy
+  ⬜ /fundraising-stage
+  ⬜ /pitch-deck
+  ⬜ /pitch
+  ⬜ /deal-room
+
+Recommended next step: /{first incomplete command}
+```
+
+Do not re-ask for company name, stage, domain, or any field already in the playbook.
 
 ## Inter-Command State
 
@@ -195,6 +305,19 @@ Next recommended: `/next-command` — brief description of what it does and why 
 ```
 
 This guides founders through the full workflow without them needing to remember the sequence.
+
+### Skipped Steps
+
+If a command is run without prior steps (e.g., user runs `/pitch` without having run
+`/before-fundraising`), and no playbook exists:
+
+1. Collect the minimum context needed to proceed (company description, stage, what they want to pitch).
+2. Show a one-line note: "Tip: `/before-fundraising` gives you a readiness assessment that makes
+   this pitch practice more targeted — run it before your real fundraise."
+3. Do NOT block the user or refuse to run the command. The recommendation is advisory, not a gate.
+
+This ensures the skill is useful even for founders who jump straight to pitching, while nudging
+them toward the full workflow.
 
 ## Error Handling
 
@@ -271,17 +394,15 @@ assessment of whether they should be raising at all, and if so, what kind of rou
    - **NOT YET** — what needs to change first, concrete action plan with milestones
    - **MAYBE** — the case for and against, what evidence would tip the decision
 
-5. **Save document:** Write the full assessment to `.fundraising/readiness-assessment-{YYYY-MM-DD}.md`
-   with frontmatter including command, date, stage, verdict, and status. Append a timeline entry
-   to `.fundraising/timeline.jsonl`.
+5. **Save to playbook:** Create `.fundraising/{company-slug}-{stage}/playbook.md` with full
+   frontmatter + Company Overview + Progress Tracker + Readiness Assessment section.
+   See `before-fundraising/SKILL.md` for the full save spec.
 
 6. **Next step prompt:**
-   - If product launched: "✅ Readiness assessment complete. Saved to `.fundraising/readiness-assessment-{date}.md`.
+   - If product launched: "✅ Readiness assessment complete. Saved to `.fundraising/{company-slug}-{stage}/playbook.md`.
      Next: run `/product-metrics` to review your traction data in detail."
-   - If not launched: "✅ Assessment complete. Saved to `.fundraising/readiness-assessment-{date}.md`.
-     Focus: build and launch your MVP first. When you have real users, come back and run `/before-fundraising` again."
-   - If RAISE NOW: "✅ You're ready to raise. Saved to `.fundraising/readiness-assessment-{date}.md`.
-     Next: run `/product-metrics` to organize your numbers, then `/fundraising-strategy` to plan your round."
+   - If not launched: "✅ Assessment complete. Build and launch your MVP first."
+   - If RAISE NOW: "✅ You're ready to raise. Next: `/product-metrics` → `/fundraising-strategy`."
 
 ---
 
@@ -320,10 +441,10 @@ and stage, and grades their actual numbers against industry benchmarks.
    - Metrics you should be tracking but aren't
    - Domain-specific nuances (e.g., "marketplace investors care about liquidity more than GMV growth")
 
-6. **Save document:** Write the full metrics scorecard to `.fundraising/product-metrics-{YYYY-MM-DD}.md`
-   with frontmatter including command, date, stage, domain, and status. Append a timeline entry.
+6. **Save to playbook:** Append "Product Metrics" section to `.fundraising/{round-dir}/playbook.md`.
+   Update frontmatter + Progress Tracker. See `product-metrics/SKILL.md` for full save spec.
 
-7. **Next step prompt:** "✅ Metrics review complete. Saved to `.fundraising/product-metrics-{date}.md`.
+7. **Next step prompt:** "✅ Metrics review complete. Added to `.fundraising/{round-dir}/playbook.md`.
    Your strongest numbers: [list top 2-3].
    Next: run `/fundraising-strategy` to determine how much to raise and how to structure it."
 
@@ -363,10 +484,10 @@ and stage, and grades their actual numbers against industry benchmarks.
    - Investor targeting: which tier, how many meetings, conversion rates
    - Red flags to watch for (predatory terms, excessive dilution, wrong fit)
 
-4. **Save document:** Write the full strategy to `.fundraising/fundraising-strategy-{YYYY-MM-DD}.md`
-   with frontmatter including command, date, stage, target amount, and structure. Append a timeline entry.
+4. **Save to playbook:** Append "Fundraising Strategy" section to `.fundraising/{round-dir}/playbook.md`.
+   Update frontmatter (raise_target, raise_structure) + Progress Tracker.
 
-5. **Next step prompt:** "✅ Strategy set. Saved to `.fundraising/fundraising-strategy-{date}.md`.
+5. **Next step prompt:** "✅ Strategy set. Added to `.fundraising/{round-dir}/playbook.md`.
    Target: $[amount] [structure] at $[valuation].
    Next: run `/fundraising-stage` to create your execution plan, or skip to `/pitch-deck` to
    start building your deck."
@@ -413,10 +534,10 @@ strategy, but the day-by-day playbook for running their raise. This takes the st
    - Follow-up cadence and what to send after meetings
    - How to handle "soft no" vs. "hard no" vs. "we need more time"
 
-4. **Save document:** Write the full execution plan to `.fundraising/execution-plan-{YYYY-MM-DD}.md`
-   with frontmatter including command, date, stage, timeline, and target investor count. Append a timeline entry.
+4. **Save to playbook:** Append "Execution Plan" section to `.fundraising/{round-dir}/playbook.md`.
+   Update frontmatter + Progress Tracker.
 
-5. **Next step prompt:** "✅ Execution plan ready. Saved to `.fundraising/execution-plan-{date}.md`.
+5. **Next step prompt:** "✅ Execution plan ready. Added to `.fundraising/{round-dir}/playbook.md`.
    You have a [X]-week timeline targeting [Y] firms.
    Next: run `/pitch-deck` to build your pitch deck."
 
@@ -457,10 +578,10 @@ the synthesis of everything you've prepared so far.
 
 7. Output as a structured document usable as a brief for actual slide creation.
 
-8. **Save document:** Write the full deck outline to `.fundraising/pitch-deck-outline-{YYYY-MM-DD}.md`
-   with frontmatter including command, date, stage, target VC, and slide count. Append a timeline entry.
+8. **Save to playbook:** Append "Pitch Deck Outline" section to `.fundraising/{round-dir}/playbook.md`.
+   Update frontmatter + Progress Tracker.
 
-9. **Next step prompt:** "✅ Deck outline complete. Saved to `.fundraising/pitch-deck-outline-{date}.md`.
+9. **Next step prompt:** "✅ Deck outline complete. Added to `.fundraising/{round-dir}/playbook.md`.
    [N] slides tailored for [VC/general].
    Next: run `/pitch` to practice your pitch with a simulated VC partner."
 
@@ -488,16 +609,16 @@ meeting — not a generic interview. Each VC should feel distinctly different.
 3. **Load the selected VC's profile** from `references/vc-profiles/`. Read the appropriate tier file
    (seed-tier.md, series-ab-tier.md, or growth-tier.md).
 
-4. **Run the simulation:**
-   - Assume the VC partner's persona completely — their speech patterns, their priorities, their quirks
-   - Run 8-12 exchanges (one exchange = one founder message + one VC response)
-   - The first 2-3 exchanges are the founder's pitch; remaining are VC Q&A
-   - Ask questions consistent with the VC's known style (loaded from profile)
-   - Reference the VC's actual portfolio where relevant
-   - Use the VC's push-back patterns and closing signals from the profile
+4. **Run the simulation via VC sub-agent:**
+   Spawn a sub-agent with: the VC profile, the pitch deck outline from the playbook (framed as
+   "the founder sent you this deck"), and the conversation transcript. The sub-agent does not
+   receive the founder's metrics grades, strategy verdicts, or readiness assessment — only what
+   the founder would actually share with an investor. The sub-agent plays the VC across 8-12
+   exchanges; main Claude relays messages and decides the verdict after the simulation ends.
+   See `pitch/SKILL.md` for the full sub-agent protocol.
 
-5. **Deliver a verdict:** PASS / FOLLOW-UP MEETING / TERM SHEET — with reasoning tied to that VC's
-   specific thesis.
+5. **Deliver a verdict:** PASS / FOLLOW-UP MEETING / TERM SHEET — decided by main Claude using
+   both the conversation transcript and the founder's actual playbook context.
 
 6. **DEBRIEF:**
    - "Here's what [VC name] was actually evaluating at each exchange"
@@ -532,23 +653,23 @@ meeting — not a generic interview. Each VC should feel distinctly different.
    - Expected timeline to close
    - What they'd want in the data room
 
-8. **Save document:** Write the full pitch simulation (exchanges, verdict, debrief, investor feedback)
-   to `.fundraising/pitch-simulations/pitch-{vc-name}-{YYYY-MM-DD}.md` with frontmatter including
-   command, date, vc, verdict, composite score, and stage. Append a timeline entry.
+8. **Save:** Write full transcript to `.fundraising/{round-dir}/pitch-simulations/{vc}-{date}.md`.
+   Append pitch summary + feedback points to playbook under "Pitch Simulations". Prompt founder
+   to log any strategy changes. See `pitch/SKILL.md` for full save spec.
 
-   If prior pitch simulations exist in `.fundraising/pitch-simulations/`, read them to reference
-   accumulated feedback. For example: "In your previous pitch to Sequoia, they flagged weak unit
-   economics. Let's see if Benchmark has the same concern."
+   Read prior pitch simulation summaries from the playbook to reference accumulated feedback:
+   "In your previous pitch to Sequoia, they flagged weak unit economics. Let's see if Benchmark
+   has the same concern."
 
 9. **Feedback Loop — Next step prompt:**
 
-   > ✅ Pitch simulation complete. Saved to `.fundraising/pitch-simulations/pitch-{vc}-{date}.md`.
+   > ✅ Pitch simulation complete. Transcript saved to `.fundraising/{round-dir}/pitch-simulations/{vc}-{date}.md`.
    > [VC name] verdict: [VERDICT].
    >
    > Based on this feedback, you can:
    > - `/pitch` — Practice with a different VC to get more perspectives
-   > - `/pitch-deck` — Revise your deck based on the feedback (updates `.fundraising/pitch-deck-outline-*.md`)
-   > - `/fundraising-strategy` — Adjust your strategy (updates `.fundraising/fundraising-strategy-*.md`)
+   > - `/pitch-deck` — Revise your deck based on the feedback
+   > - `/fundraising-strategy` — Adjust your strategy
    > - `/fundraising-stage` — Update your execution plan with new insights
 
    This creates an iterative loop: pitch → get feedback → refine → pitch again. Each iteration
@@ -591,8 +712,8 @@ simulated weeks, competitive dynamics, pitch evolution, and follow-up meetings.
    pitch evolution analysis, competitive dynamics impact, lessons learned, and strategic
    recommendation (term sheet comparison if applicable).
 
-6. **Save documents:** Individual meeting files to `.fundraising/deal-room/meeting-{vc}-{round}-{date}.md`,
-   final report to `.fundraising/deal-room/final-report-{date}.md`. Append timeline entries.
+6. **Save documents:** Individual meeting files to `.fundraising/{round-dir}/deal-room/meeting-{vc}-round-{N}.md`,
+   final report to `.fundraising/{round-dir}/deal-room/final-report.md`. Append playbook summary section.
 
 7. **Next step prompt:** Based on outcome — celebrate term sheets, encourage follow-ups,
    or redirect to `/pitch-deck` and `/pitch` for further practice if all passes.
@@ -609,7 +730,7 @@ The following reference files contain detailed data that commands load as needed
 | Directory | Files | Used by |
 |-----------|-------|---------|
 | `references/vc-profiles/` | One file per VC (yc.md, a16z.md, sequoia.md, etc.) — see `_index.md` for full list | `/pitch`, `/deal-room` |
-| `references/stage-playbooks/` | pre-seed.md, seed.md, series-a.md, series-b.md | `/before-fundraising`, `/fundraising-stage`, `/fundraising-strategy` |
+| `references/stage-playbooks/` | pre-seed.md, seed.md, series-a.md, series-b.md, growth.md, late-stage.md, ipo.md | `/before-fundraising`, `/fundraising-stage`, `/fundraising-strategy` |
 | `references/metrics-by-domain/` | saas.md, consumer.md, ai-ml.md, fintech.md, marketplace.md, hardware.md, biotech.md | `/product-metrics` |
 | `references/deck-templates/` | yc-demo-day.md, general-series-a.md | `/pitch-deck` |
 | `references/` | investor-dd-patterns.md — universal DD question patterns extracted from real fundraises | `/pitch` (DD preview), `/before-fundraising` (readiness probing), `/fundraising-stage` (DD prep checklist) |

@@ -9,7 +9,7 @@ description: >
   "full fundraising process", "simulate my fundraise", "practice multiple VCs",
   "deal room simulation", or "run the full process".
   Part of the fundraising workflow: /before-fundraising → /product-metrics →
-  /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → ▶ /deal-room.
+  /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → ▶ /deal-room.
 ---
 
 # /deal-room — Multi-Meeting Fundraising Process Simulation
@@ -21,10 +21,10 @@ the real thing by letting you experience the full arc of a fundraise.
 
 ## Workflow Context
 
-This command is **Step 6** of the fundraising workflow:
+This command is **Step 7** of the fundraising workflow:
 
 ```
-/before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → ▶ /deal-room
+/before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → ▶ /deal-room
 ```
 
 Founders should practice individual pitches with `/pitch` first, then graduate to the
@@ -39,15 +39,16 @@ represent actual firm views or investment decisions."
 
 ### Phase 1 — Setup
 
-1. **Check for prior context:** Read `.fundraising/` documents — especially
-   `pitch-deck-outline-*.md`, `fundraising-strategy-*.md`, and any prior pitch simulations
-   in `.fundraising/pitch-simulations/`. If prior `/pitch` simulations exist, acknowledge them:
+1. **Load session context:**
+   Glob `.fundraising/*/playbook.md` (exclude `archive/`). If found, read frontmatter + pitch
+   deck, strategy, and Pitch Simulations sections to fully pre-fill context. Show welcome back
+   greeting (format in `fundraising/SKILL.md`). If multiple playbooks, ask which to use.
+   If prior `/pitch` simulations exist in the playbook, acknowledge them:
    "You've already pitched to [VCs]. Your scores: [summary]. Let's use that experience in
    the Deal Room."
 
-2. **Use context from prior commands** if available (startup description, stage, deck outline,
-   strategy). Otherwise ask: describe your startup in 2-3 sentences, your current stage,
-   and your target raise amount.
+2. **Use context from playbook** if available (startup description, stage, deck outline, strategy).
+   Otherwise ask: describe your startup in 2-3 sentences, your current stage, and target raise amount.
 
 3. **VC Selection** — present the stage-filtered VC roster via AskUserQuestion and ask the
    founder to pick **3-5 VCs** for their fundraising process:
@@ -88,19 +89,57 @@ Repeat for each VC in the selected order:
 
    The **first meeting is always full simulation** to establish the founder's pitch baseline.
 
-8. **Run the meeting** — load the VC profile from `../fundraising/references/vc-profiles/{slug}.md`.
-   Run the simulation using the same behavioral modeling as `/pitch`, with these Deal Room
-   additions:
+8. **Run the meeting via VC sub-agent** — load the VC profile from `../fundraising/references/vc-profiles/{slug}.md`.
+
+   Spawn a sub-agent to play the VC role. The VC knows what any real investor would know before
+   the meeting: the deck the founder sent, any data room materials submitted, and (if this is a
+   follow-up) the transcript of their prior conversation.
+
+   **Before spawning:**
+   - Check the playbook's "Pitch Deck Outline" section — pass it if present.
+   - Check the playbook's "Due Diligence" section — if `/due-diligence` has been completed,
+     pass the DD readiness summary and any materials the founder submitted to investors.
+   - Check the playbook's `steps_completed.pitch` array for a prior `/pitch` simulation with
+     this same VC. If one exists, read the full transcript from
+     `.fundraising/{round-dir}/pitch-simulations/{vc}-{date}.md`.
+
+   **Sub-agent receives (and ONLY this):**
+   - The VC profile (behavioral style, investment thesis, portfolio context, signature
+     questions, push-back patterns, closing signals)
+   - The pitch deck outline from the playbook, if present, framed as:
+     > "The founder sent you their deck before the meeting."
+   - The DD readiness summary and submitted materials from the playbook, if present, framed as:
+     > "The founder submitted a data room. Here is what they provided."
+   - **If this VC was previously pitched in `/pitch`:** the prior meeting transcript, framed as:
+     > "You met this founder before. The transcript of your prior meeting is below. You
+     > remember what they told you, the questions you asked, and your impressions — but
+     > you do not know anything they haven't told you directly."
+     If no prior `/pitch` transcript exists for this VC, use a cold-start instruction:
+     > "You are a partner at [VC Firm]. You have reviewed the deck and any submitted
+     > materials above. You are now meeting this founder. React to what you've read and to
+     > what they say in the room. Stay in character throughout."
+   - The current Deal Room conversation transcript accumulated so far
+
+   **Sub-agent must NOT receive:**
+   - Readiness assessment, metrics grades, fundraising strategy, or prior VC verdicts
+   - Transcripts from other VCs (pitch simulations or Deal Room meetings with other firms)
+   - Any section of the playbook the founder would not send to an investor
+
+   **Conversation loop:** Each founder message → pass [VC profile + cold-start + transcript]
+   to sub-agent → relay response. Repeat for 8-12 exchanges (first 2-3: founder's pitch;
+   remaining: VC Q&A). End when VC wraps up or exchange count is reached.
+
+   **Deal Room additions** (these emerge naturally in the conversation — the VC asks, the
+   founder answers, the sub-agent responds to what it hears):
 
    - **Competitive signaling:** At some point during Q&A (naturally, not forced), the VC asks
-     "Who else are you talking to?" or equivalent. The founder's answer matters — naming
-     strong VCs who showed interest creates competitive pressure.
-   - **Interest acceleration:** If prior meetings generated FOLLOW-UP or TERM SHEET verdicts,
-     model the current VC being slightly more engaged and moving faster (realistic competitive
-     dynamics). They may reference having "heard good things" or ask more urgently about timeline.
-   - **Pitch evolution:** If the founder adjusted their pitch between meetings, the VC's
-     evaluation should reflect the improvement. Score dimensions that were explicitly
-     addressed should improve; dimensions that weren't should remain consistent.
+     "Who else are you talking to?" or equivalent. The founder's answer matters — if the founder
+     mentions strong VCs who showed interest, competitive pressure is created.
+   - **Interest acceleration:** If the founder mentions prior interest from other VCs in their
+     answer to competitive questions, the sub-agent VC may become more engaged or move faster
+     (realistic response to competitive signals the founder reveals).
+   - **Pitch evolution:** If the founder adjusted their pitch between meetings, the sub-agent
+     evaluates what it hears — improvements the founder actually delivers will show in the score.
 
 9. **Post-meeting verdict and debrief** — same 5-dimension scoring as `/pitch`:
    - Problem clarity (1-10)
@@ -116,29 +155,9 @@ Repeat for each VC in the selected order:
    - If TERM SHEET: the competitive leverage this creates for remaining meetings
    - If PASS: "You've lost one option. [N] VCs remaining in your process."
 
-10. **Save meeting document:** Write to
-    `.fundraising/deal-room/meeting-{vc}-{round}-{YYYY-MM-DD}.md` with YAML frontmatter:
-
-    ```yaml
-    ---
-    command: /deal-room
-    type: meeting
-    date: YYYY-MM-DD
-    vc: {slug}
-    round: 1
-    week: {week_number}
-    verdict: FOLLOW-UP MEETING
-    composite_score: 6.8
-    stage: series-a
-    mode: full | key-moments
-    status: completed
-    ---
-    ```
-
-    Append a timeline entry to `.fundraising/timeline.jsonl`:
-    ```json
-    {"command": "/deal-room", "event": "meeting", "vc": "sequoia", "round": 1, "week": 1, "verdict": "FOLLOW-UP MEETING", "score": 6.8, "ts": "2026-04-09T10:30:00Z"}
-    ```
+10. **Save meeting log:** Write full meeting record to
+    `.fundraising/{round-dir}/deal-room/meeting-{vc}-round-{N}.md` with YAML frontmatter
+    (command, date, vc, round, week, verdict, composite_score, stage, mode, status).
 
 11. **Inter-meeting phase** — after each meeting (except the last), present the updated
     Dashboard and offer three options via AskUserQuestion:
@@ -174,12 +193,169 @@ Repeat for each VC in the selected order:
     `/due-diligence` for that specific VC: "VC expressed interest — run `/due-diligence` to
     prepare for their DD questions before the follow-up meeting."
     
-    If the founder has already run `/due-diligence`, reference the saved scorecard from
-    `.fundraising/due-diligence-*.md` and note any gaps that remain.
+    If the founder has already run `/due-diligence`, reference the scorecard from the
+    "Due Diligence" section in the playbook and note any gaps that remain.
 
-### Phase 4 — Process Conclusion & Final Report
+### Phase 4 — Deal Architecture & Financing Plan
 
-13. After all meetings and follow-ups are complete, generate the **Deal Room Final Report**:
+Triggered when: all scheduled meetings and follow-ups are complete AND at least one TERM SHEET has been issued. If no term sheets were received, skip to Phase 5.
+
+14. **Term Sheet Inventory** — compile all term sheets received. For each one, display:
+
+    | Field | Value |
+    |-------|-------|
+    | VC | Name |
+    | Pre-money valuation | $XM |
+    | Check size | $XM |
+    | Post-round ownership | X% |
+    | Board seat | Yes / Observer / No |
+    | Pro-rata rights | Yes / No (follow-on rounds) |
+    | Lead or follow | Lead / Follow |
+    | Special terms | info rights, anti-dilution, drag-along, etc. |
+    | Expiry | [week] |
+
+    If the founder has a target raise amount from their playbook or fundraising-strategy session, surface it here: "Your target raise was $XM at roughly $YM pre-money. Here's how each offer compares."
+
+    Ask via AskUserQuestion whether any simulated terms should be adjusted to better match their actual target round parameters.
+
+15. **Lead Investor Analysis** — for each VC that issued a TERM SHEET, evaluate lead candidacy on four dimensions (score 1–5 each):
+
+    **a) Strategic Value-Add**
+    Portfolio synergies (customers, partners, acquirers in portfolio); domain expertise in the founder's sector; board seat quality (will this GP add real operational judgment or mostly observe?); reference network available from current portfolio companies.
+
+    **b) Signal Value for Future Rounds**
+    Brand / prestige effect when pitching Series A/B investors; whether this VC's name on the cap table increases or decreases the perceived quality of the deal for downstream investors; geographic / ecosystem fit.
+
+    **c) Follow-on Capital Capacity**
+    Fund size relative to check written (a $200M fund writing a $3M seed check has limited pro-rata capacity); stated follow-on policy; historical re-investment rate with portfolio companies; whether they have a growth fund to participate in later rounds.
+
+    **d) Dilution Efficiency**
+    Value delivered per percentage point of equity taken; whether their standard terms (pro-rata, information rights, anti-dilution provisions) are founder-friendly or investor-friendly; board control implications.
+
+    Show the lead candidacy matrix:
+    ```
+    | VC          | Strategic | Signal | Follow-on | Dilution Eff. | Lead Score |
+    |-------------|-----------|--------|-----------|---------------|------------|
+    | [VC A]      |    X/5    |  X/5   |    X/5    |      X/5      |   XX/20    |
+    | [VC B]      |    X/5    |  X/5   |    X/5    |      X/5      |   XX/20    |
+    ```
+
+    Recommend the highest-scoring VC as lead. If scores are close, explain the tie-breaker (e.g., board seat quality, sector expertise depth, fund size relative to round).
+
+16. **Follow-on Stack Analysis** — for each remaining VC (TERM SHEET or FOLLOW-UP heading toward term sheet) evaluate as a follow-on:
+
+    Apply these principles:
+    - **Check size fit:** Follow-ons should fill the round to target without over-allocating or forcing a larger round than planned
+    - **Non-overlapping value:** Does this follow-on add something the lead doesn't already provide? (e.g., geographic network, sector expertise, customer intro channel)
+    - **No competing lead behavior:** If a potential follow-on insists on a board seat or is known to require lead economics, discuss negotiating them to a smaller check without board rights — or declining
+    - **Dilution discipline:** Each additional investor adds dilution and cap table complexity; question whether each is worth it
+    - **Round closure:** Prioritize investors who can close fast over investors who add more process drag
+
+    For each potential follow-on produce a one-line verdict:
+    > **[VC Name]** — $XM / XX% — [specific value-add] — Recommendation: **Accept / Reduce to $XM / Decline**
+    
+    Explain any "Decline" recommendation: round already full, terms too complex, limited incremental value beyond what lead provides, or dilution not justified by the value they bring.
+
+17. **Dilution Modeling** — build a pro-forma cap table for two scenarios:
+
+    **Scenario A — Proposed round (with selected lead + follow-ons):**
+    ```
+    Pre-money valuation:   $XM
+    Round size:            $XM
+    Post-money valuation:  $XM
+    New dilution:          XX%
+
+    Cap Table Post-Round:
+    ┌─────────────────────────────────────────────┐
+    │ Founders                   XX% → XX%        │
+    │ Option Pool                XX% → XX%        │
+    │ Lead: [VC]                  —  → XX%        │
+    │ Follow-on: [VC]             —  → XX%        │
+    │ Follow-on: [VC]             —  → XX%        │
+    │ Prior investors            XX% → XX%        │
+    └─────────────────────────────────────────────┘
+    ```
+
+    **Scenario B — Projected post-next-round (assuming a standard follow-on raise):**
+    Use the founder's next-stage target from their playbook, or assume a typical raise for their stage (e.g., if current is Seed → assume Series A of ~$10–15M at ~5–7× current post-money). Show projected founder ownership after the next round.
+
+    **Dilution health check:**
+    - Flag if combined founder ownership after this round falls below 60% (early warning)
+    - Flag if projected post-Series A founder ownership falls below 40% (common threshold for maintaining long-term incentive alignment)
+    - Flag if total investor count exceeds 8–10 (cap table complexity signal for Series A)
+
+18. **Value-Add vs. Dilution Decision** — for each investor in the proposed deal, a concise "worth it?" judgment:
+
+    > **Taking [VC]'s $XM at XX% dilution is recommended** because [specific, concrete value-add: e.g., "their portfolio includes 4 direct enterprise buyers in your target vertical; the GP personally built and sold a company in this space and will add real board value at the Series A stage."]
+
+    > **Taking [VC]'s $XM at XX% dilution is marginal** because [e.g., "their brand adds signal value but their portfolio doesn't overlap with your ICP; you could fill this allocation with a more strategically aligned angel at better economics."]
+
+    > **Declining [VC]'s offer is recommended** because [e.g., "their pro-rata rights combined with the lead's pro-rata would over-constrain your Series A syndication; their check size doesn't justify the additional cap table entry and DD overhead."]
+
+19. **Complete Financing Plan** — synthesize into one actionable output:
+
+    ```
+    ═══════════════════════════════════════════════════
+    FINANCING PLAN — [Round Name] — Week [N]
+    ═══════════════════════════════════════════════════
+
+    ROUND SUMMARY
+    Pre-money valuation:    $XM
+    Round size:             $XM
+    Post-money valuation:   $XM
+    Total dilution:         XX%
+    Investor count:         N
+
+    LEAD INVESTOR
+    ┌──────────────────────────────────────────────┐
+    │ [VC Name]                                    │
+    │ Amount: $XM   Ownership: XX%                 │
+    │ Board seat: Yes / Observer / No              │
+    │ Why lead: [1–2 sentence rationale]           │
+    └──────────────────────────────────────────────┘
+
+    FOLLOW-ON INVESTORS
+    ┌─────────────┬────────┬───────────┬───────────────────────┐
+    │ Investor    │ Amount │ Ownership │ Key Value-Add         │
+    ├─────────────┼────────┼───────────┼───────────────────────┤
+    │ [VC A]      │ $XM    │ XX%       │ [reason]              │
+    │ [VC B]      │ $XM    │ XX%       │ [reason]              │
+    └─────────────┴────────┴───────────┴───────────────────────┘
+
+    DECLINED OFFERS
+    ┌─────────────┬────────────────────────────────────────────┐
+    │ Investor    │ Reason                                     │
+    ├─────────────┼────────────────────────────────────────────┤
+    │ [VC C]      │ [dilution vs. value-add not justified /    │
+    │             │  round fully subscribed / terms conflict]  │
+    └─────────────┴────────────────────────────────────────────┘
+
+    FOUNDER RETENTION
+    Post-round:           ~XX%
+    Post-Series A (est.): ~XX%
+
+    NEXT STEPS
+    1. Accept [Lead VC] term sheet — respond by [week]
+    2. Notify follow-on VCs of their allocations
+    3. Decline [declined VCs] — suggested language below
+    4. Target close: [week estimate]
+
+    SUGGESTED DECLINE LANGUAGE
+    For [VC C]: "We've decided to keep the round smaller and more focused
+    to preserve cap table room for our Series A. We'd love to stay in touch
+    and include you in our Series A process."
+    ═══════════════════════════════════════════════════
+    ```
+
+    Ask via AskUserQuestion: "Does this financing plan work for you? You can adjust the round size, swap lead/follow-on assignments, change allocations, or include a declined VC."
+
+    Save the financing plan to `.fundraising/{round-dir}/deal-room/financing-plan.md` with YAML frontmatter (command, date, stage, lead_vc, lead_amount, follow_on_vcs, total_raise, pre_money, dilution_pct, status: draft).
+
+---
+
+### Phase 5 — Process Conclusion & Final Report
+
+20. After all meetings, follow-ups, and deal architecture are complete, generate the **Deal Room Final Report**:
 
     **Process Summary:**
     - Timeline of all meetings, week by week
@@ -211,47 +387,35 @@ Repeat for each VC in the selected order:
     - Biggest single improvement made during the process
 
     **Strategic Recommendation:**
-    - If TERM SHEET(s): compare terms side by side, recommend which to pursue and why
-    - If FOLLOW-UP(s) but no term sheet: what to do next, timeline for follow-ups
-    - If all PASS: honest assessment of what needs to change, concrete action plan,
-      recommended timeline to try again
+    - If TERM SHEET(s): reference the Financing Plan from Phase 4 — include lead recommendation, follow-on stack, dilution summary, and the declined-offer rationale. Don't repeat the full plan here; link to it.
+    - If FOLLOW-UP(s) but no term sheet: what to do next, timeline for follow-ups, and what milestone would likely convert each follow-up to a term sheet
+    - If all PASS: honest assessment of what needs to change, concrete action plan, recommended timeline to try again
 
-14. **Save final report:** Write to `.fundraising/deal-room/final-report-{YYYY-MM-DD}.md`
-    with YAML frontmatter:
+21. **Save to playbook + final report:**
+    - Write full final report to `.fundraising/{round-dir}/deal-room/final-report.md`
+      with YAML frontmatter (command, date, stage, vcs_selected, term_sheets, follow_ups,
+      passes, duration_weeks, financing_plan_file, status).
+    - Append to `.fundraising/{round-dir}/playbook.md`:
+      1. Update frontmatter: set `steps_completed.deal-room` (date, term_sheets, follow_ups, passes)
+         + `last_updated`
+      2. Update Progress Tracker row for `/deal-room` (✅ with "Term sheets: {N}, Lead: {VC}")
+      3. Append `## Deal Room Summary — {YYYY-MM-DD}` section with pipeline outcome table,
+         score evolution, lessons learned, financing plan summary, and strategic recommendation
+         > Full pipeline log: `.fundraising/{round-dir}/deal-room/`
 
-    ```yaml
-    ---
-    command: /deal-room
-    type: final-report
-    date: YYYY-MM-DD
-    stage: series-a
-    vcs_selected: [sequoia, a16z, benchmark]
-    term_sheets: 1
-    follow_ups: 1
-    passes: 1
-    duration_weeks: 5
-    status: completed
-    ---
-    ```
+22. **Next step prompt** — based on outcome:
 
-    Append a timeline entry:
-    ```json
-    {"command": "/deal-room", "event": "completed", "term_sheets": 1, "follow_ups": 1, "passes": 1, "duration_weeks": 5, "ts": "2026-04-09T12:00:00Z"}
-    ```
-
-15. **Next step prompt** — based on outcome:
-
-    If TERM SHEET(s):
-    > ✅ Deal Room complete. You have [N] term sheet(s). Saved to `.fundraising/deal-room/final-report-{date}.md`.
-    > In a real process, you'd now negotiate terms and close. Review the term sheet comparison above.
-    > Congratulations — your pitch evolved significantly through this process.
+    If TERM SHEET(s) and Financing Plan complete:
+    > ✅ Deal Room complete. Financing plan saved to `.fundraising/{round-dir}/deal-room/financing-plan.md`.
+    > Lead: [VC] / $XM. Follow-ons: [VCs]. Total round: $XM. Founder retention post-round: ~XX%.
+    > In a real process, your next step is accepting the lead term sheet and notifying follow-ons of their allocations.
 
     If FOLLOW-UP(s) but no term sheet:
-    > ✅ Deal Room complete. You have active interest from [N] VC(s). Saved to `.fundraising/deal-room/final-report-{date}.md`.
+    > ✅ Deal Room complete. You have active interest from [N] VC(s). Saved to `.fundraising/{round-dir}/deal-room/final-report.md`.
     > Next: run `/deal-room` again to continue follow-up meetings, or `/pitch` to practice specific weak areas.
 
     If all PASS:
-    > ✅ Deal Room complete. This round didn't produce results — but the feedback is valuable. Saved to `.fundraising/deal-room/final-report-{date}.md`.
+    > ✅ Deal Room complete. This round didn't produce results — but the feedback is valuable. Saved to `.fundraising/{round-dir}/deal-room/final-report.md`.
     > Review the lessons learned, then:
     > - `/pitch-deck` — Revise your deck based on consistent VC feedback
     > - `/pitch` — Practice specific weak areas identified across meetings
@@ -267,9 +431,16 @@ Show this between meetings and update it after each meeting:
 | VC | Week | Status | Score | Verdict | Next Step |
 |----|------|--------|-------|---------|-----------|
 | Sequoia | 1 | ✅ Done | 6.8 | FOLLOW-UP | Week 4: deliver Q2 metrics |
-| a16z | 2 | ✅ Done | 7.4 | TERM SHEET | Review terms |
+| a16z | 2 | ✅ Done | 7.4 | TERM SHEET | In deal architecture |
 | Benchmark | 3 | ▶ Next | -- | -- | Scheduled |
 | First Round | -- | ⏳ Queued | -- | -- | After Benchmark |
+
+### Term Sheet Tracker
+*(Appears once at least one TERM SHEET is received)*
+
+| VC | Pre-money | Check | Ownership | Board | Lead/Follow | Expires |
+|----|-----------|-------|-----------|-------|-------------|---------|
+| a16z | $18M | $3M | 14.3% | Observer | Lead | Week 6 |
 
 ### Competitive Signals
 - a16z term sheet creates urgency for Benchmark meeting
@@ -285,7 +456,7 @@ Show this between meetings and update it after each meeting:
 If a Deal Room session is interrupted (conversation ends, context resets), the founder
 can restart `/deal-room` and the system picks up from the saved state:
 
-1. Read `.fundraising/deal-room/` for existing meeting files
+1. Read `.fundraising/{round-dir}/deal-room/` for existing meeting files
 2. Reconstruct the Dashboard from saved meetings
 3. Identify which VCs have been met and which remain
 4. Resume from the next unmet VC

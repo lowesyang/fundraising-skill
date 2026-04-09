@@ -1,11 +1,11 @@
 # fundraising-skill
 
-Startup fundraising skill for Claude Code — 6 slash commands from readiness assessment to VC pitch simulation.
+Startup fundraising skill for Claude Code — 8 slash commands from readiness assessment to VC pitch simulation.
 
 ## Structure
 
 - `fundraising/` — shared references (VC profiles, stage playbooks, domain metrics, deck templates)
-- `before-fundraising/`, `product-metrics/`, `fundraising-strategy/`, `fundraising-stage/`, `pitch-deck/`, `pitch/`, `deal-room/` — individual skill directories, each with a `SKILL.md`
+- `before-fundraising/`, `product-metrics/`, `fundraising-strategy/`, `fundraising-stage/`, `pitch-deck/`, `pitch/`, `due-diligence/`, `deal-room/` — individual skill directories, each with a `SKILL.md`
 
 ## Contributing
 

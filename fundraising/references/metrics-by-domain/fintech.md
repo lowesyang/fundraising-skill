@@ -1,6 +1,6 @@
 # Fintech Metrics — Stage-Specific Benchmarks
 
-> Used by the `/metrics` command to grade a fintech founder's numbers with RED/YELLOW/GREEN thresholds.
+> Used by the `/product-metrics` command to grade a fintech founder's numbers with RED/YELLOW/GREEN thresholds.
 
 ---
 

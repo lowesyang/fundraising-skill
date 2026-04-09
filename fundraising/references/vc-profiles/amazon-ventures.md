@@ -6,6 +6,8 @@ stage_focus: [series-a, series-b, growth]
 check_size: "$10M-$500M (corporate) / $1M-$25M (Alexa Fund)"
 website: "https://aws.amazon.com/startups/"
 contributed_by: "fundraising-skill"
+last_enriched: "2026-Q2"
+enrichment_sources: ["Amazon shareholder letter 2024 (aboutamazon.com)", "Andy Jassy shareholder letter 2024 (CNBC)", "Amazon Anthropic press release 2024 (aboutamazon.com)", "TechCrunch (Alexa Fund AI expansion, March 2025)", "Amazon Alexa Fund blog (developer.amazon.com, 2025)", "GeekWire (Anthropic investment reporting, 2025)"]
 ---
 
 ## Amazon & AWS Investments
@@ -21,6 +23,8 @@ Amazon invests through multiple vehicles rather than a single unified venture fu
 - **AWS Startup Team** — manages AWS Activate and startup partnerships
 
 Note: Amazon's investment decisions often involve senior leadership and business unit heads rather than a traditional GP/Partner structure. The people at the table depend on which vehicle is investing and which business unit has strategic interest.
+
+**Partner Investment Breakdown:** Andy Jassy: strategic AI/cloud megadeals ($100M+), sets overall investment thesis through shareholder letters and AWS strategy — Matt Wood (VP AI, AWS): AI/ML company technical evaluation, Bedrock and SageMaker integration assessments — Paul Bernard (Alexa Fund): voice AI, ambient computing, AI agents, smart hardware; check size $1M-$25M — Industrial Innovation Fund team: supply chain, robotics, warehouse automation; $5M-$50M — Climate Pledge Fund team: clean energy, decarbonization, circular economy; $5M-$100M
 
 ### Stage Focus
 
@@ -71,6 +75,26 @@ Key thesis pillars:
 - Sustainability and clean energy
 - Healthcare (pharmacy, telehealth — post-PillPack, Amazon Clinic)
 - Enterprise SaaS that drives AWS consumption
+
+### Core Philosophy & First Principles
+
+Amazon's investment worldview is inseparable from its corporate DNA: every bet must trace back to a customer problem, and every customer solution should run on, strengthen, or extend the AWS flywheel. Jeff Bezos articulated the flywheel logic in a now-legendary napkin sketch in 2000 (with Jim Collins): lower costs attract more customers, more customers attract more third-party sellers, more sellers create more selection, better selection lowers costs further. The flywheel applies equally to investment strategy — every portfolio company that succeeds on AWS adds reference architecture, customer proof points, and compute revenue to the ecosystem, which makes AWS more valuable to the next company.
+
+Andy Jassy, Bezos's successor and former AWS chief, has brought the AWS lens even more explicitly to corporate investment. Jassy's 2024 shareholder letter stated: "If your mission is to make customers' lives better and easier every day, and you believe every customer experience will be reinvented by AI, you're going to invest deeply and broadly in AI." Amazon has announced $200B in capex for 2026, with the majority directed at AI infrastructure. The Anthropic investment ($8B total, with Anthropic naming AWS as its "primary cloud and training partner") is the model: strategic capital tied to deep technical integration and compute commitment.
+
+Amazon's investment philosophy also embodies what Bezos called "working backwards" — starting from the customer experience (written as a press release and FAQ before any code is written) and reasoning backward to the technology. Founders who arrive presenting a technology-first pitch rather than a customer-first narrative miss the most important cultural signal. Amazon investors are trained to ask "who is the customer?" before any other question.
+
+The Alexa Fund expanded its scope in 2025 to include AI-enabled hardware and smart agents beyond voice-first applications, reflecting the broader Amazon thesis that ambient, multi-modal AI represents the next platform shift. The fund explicitly cites "AI-enabled hardware and smart agents" as new investment priority areas alongside Alexa+ and Amazon's multimodal model family.
+
+### Public Statements & Signature Thinking
+
+- "If your mission is to make customers' lives better and easier every day, and you believe every customer experience will be reinvented by AI, you're going to invest deeply and broadly in AI." — Andy Jassy, Amazon Shareholder Letter, 2024. The clearest statement of why AWS is expanding AI investment aggressively.
+- "Generative AI is shaping up to become Amazon's next big primitive service." — Andy Jassy, Amazon Shareholder Letter, 2024 (CNBC). Signals that AI infrastructure is now in the same category as S3, EC2, and the core AWS primitives that defined cloud computing.
+- "We now have the two largest AI labs who are both significantly betting on Trainium." — Andy Jassy, 2026. The most direct statement of how Amazon's chip investment strategy connects to its portfolio investment strategy.
+- "Progress often involves circling back to first principles — if you want to find the next zig, you need to be willing to go back to first principles." — Andy Jassy, Shareholder Letter, 2024. Amazon's operating philosophy as applied to investment: disruptive companies are ones that question existing assumptions, not iterate on them.
+- "We start with the customer and work backward." — Jeff Bezos, 1997 Shareholder Letter and throughout Amazon's public communications. The organizing principle that every Amazon investor and operator internalizes and applies to portfolio company evaluations.
+
+**Recent Investments (2022-2025):** Anthropic ($8B total across 2023-2024; Anthropic uses AWS Trainium for training and Inferentia for inference, with Project Rainier data center built specifically for this workload), OpenAI (strategic partnership announced 2026 with commitment to deploy 2 gigawatts of AWS Trainium chips), Figure AI (humanoid robotics; relevant to fulfillment automation [verify investment via public sources]), Agility Robotics (warehouse robots for Amazon fulfillment centers; Industrial Innovation Fund), Hugging Face (ML platform; participated in rounds alongside other strategic investors), Stability AI (generative AI; AWS Bedrock integration [verify investment amount via public sources]), Alexa Fund AI cohort 2025 (four new AI startups, focus on AI agents and ambient AI hardware per TechCrunch March 2025 reporting)
 
 ### Strategic Value
 
@@ -126,6 +150,15 @@ Industrial Innovation Fund and Climate Pledge Fund: 4-10 weeks, involves relevan
 - Expect questions about your operational metrics at a granular level. Amazon is operationally obsessive.
 - The strategic angle is always present but never crude. They won't say "we want to lock you into AWS," but the expectation is implicit.
 - Be prepared for Amazon to want deep technical integration, not just a financial relationship.
+
+### Founder & Culture Fit (Non-Obvious Signals)
+
+- **Customer obsession as identity, not just strategy.** Amazon evaluates whether founders think in terms of customer problems as a reflex, not as a pitch framing. Founders whose internal language is "what does the customer need?" rather than "what is our product?" resonate deeply with Amazon's 16 Leadership Principles.
+- **Written clarity is a proxy for thinking quality.** Amazon's 6-pager culture means they equate the ability to write a clear, structured narrative with the ability to think clearly. Founders who can communicate in tight, jargon-free prose — rather than bullet decks and buzzwords — signal cultural alignment.
+- **Comfort with Day 1 thinking over complacency.** Bezos's "Day 1 vs. Day 2" framing (Day 2 = stasis, irrelevance, death) means Amazon values founders who treat every stage of their company as a fresh start with existential urgency. Founders who display institutional-style thinking ("we have a process for that") trigger Day 2 concerns.
+- **Operational specificity at granular scale.** Amazon's culture is operationally obsessive — they think in units, latency, SLAs, and cost per transaction, not aggregate metrics. Founders who can discuss their operations at the unit level (cost per order, latency per inference call, churn by cohort) signal the kind of operational DNA Amazon respects.
+- **Explicit AWS commitment signals partnership seriousness.** Beyond the financial investment, Amazon needs to see a genuine long-term infrastructure commitment to AWS. Founders who frame AWS as "our preferred cloud" rather than a multi-cloud hedge signal the level of partnership Amazon is actually investing in.
+- **Willingness to be acquired is unstated but present.** Amazon has historically acquired its most strategic portfolio companies (Ring, PillPack, Zappos). Founders who are building independent companies are fine; founders who signal openness to deep acquisition-level integration open different conversations.
 
 ### For the /pitch Simulator
 

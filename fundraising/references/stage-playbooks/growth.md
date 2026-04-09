@@ -170,11 +170,11 @@ At growth stage, the pitch shifts from scaling a business to **building a catego
 - **How this differs from Series B:** Series B proved the business model works at scale. Growth stage proves you're the market leader with a durable competitive position and a business that can stand on its own as a public company.
 - **How this differs from later stages:** At late stage and pre-IPO, the focus shifts entirely to financial engineering, governance, and IPO/exit readiness. Growth stage is the last round where "we're building something massive" matters more than "here's our S-1 preview."
 
-## Preparing for Late Stage / Pre-IPO (Transition Guide)
+## Preparing for Late Stage (Transition Guide)
 
 What changes beyond growth stage — start positioning for these during your Series C/D:
 
-| Growth Metric | Late Stage / Pre-IPO Equivalent | What Changes |
+| Growth Metric | Late Stage Equivalent | What Changes |
 |--------------|-------------------------------|--------------|
 | ARR $50M+ | ARR $200M+ or clear path to $500M+ | Must demonstrate sustainable growth at scale |
 | Rule of 40 | Rule of 50+ or FCF positive | Profitability narrative becomes dominant |
@@ -186,7 +186,7 @@ What changes beyond growth stage — start positioning for these during your Ser
 
 **IPO clock starts:** Most growth-stage companies are 2-4 years from IPO. Start building IPO-readiness infrastructure now: Big 4 audit firm, SOX compliance preparation, investor relations capability, and public company financial reporting systems.
 
-**Narrative shift preview:** At growth stage, your story is "we're the category leader building a durable franchise." At late stage / pre-IPO, it must become "we're a public-company-ready business with predictable, profitable growth."
+**Narrative shift preview:** At growth stage, your story is "we're the category leader building a durable franchise." At late stage, it must become "we're a public-company-ready business with predictable, profitable growth."
 
 ## Timeline and Process
 

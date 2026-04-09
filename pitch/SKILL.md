@@ -8,7 +8,7 @@ description: >
   Use when the user asks "practice my pitch", "simulate a VC meeting", "pitch practice",
   "mock interview", "pitch to [VC name]", or wants to rehearse a fundraising conversation.
   Part of the fundraising workflow: /before-fundraising → /product-metrics →
-  /fundraising-strategy → /fundraising-stage → /pitch-deck → ▶ /pitch.
+  /fundraising-strategy → /fundraising-stage → /pitch-deck → ▶ /pitch → /due-diligence → /deal-room.
 ---
 
 # /pitch — Hyper-Realistic VC Simulation & Investor Feedback
@@ -21,7 +21,7 @@ meeting — not a generic interview. Each VC should feel distinctly different.
 This command is **Step 5** of the fundraising workflow:
 
 ```
-/before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → ▶ /pitch
+/before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → ▶ /pitch → /due-diligence → /deal-room
 ```
 
 ## Legal Disclaimer
@@ -31,11 +31,13 @@ represent actual firm views or investment decisions."
 
 ## Flow
 
-1. **Check for prior context:** Read `.fundraising/pitch-deck-outline-*.md` and prior pitch
-   simulations in `.fundraising/pitch-simulations/`. If prior pitches exist, reference
-   accumulated feedback.
+1. **Load session context:**
+   Glob `.fundraising/*/playbook.md` (exclude `archive/`). If found, read frontmatter + pitch
+   deck outline section + prior "Pitch Simulations" entries to pre-fill context and reference
+   accumulated feedback. Show welcome back greeting (format in `fundraising/SKILL.md`).
+   If multiple playbooks, ask which to use.
 
-2. **Use context from prior commands** if available (startup description, stage, deck outline).
+2. **Use context from playbook** if available (startup description, stage, deck outline).
    Otherwise ask: describe your startup in 2-3 sentences, and your current stage.
 
 3. **Present VC selection** via AskUserQuestion, filtered by stage:
@@ -48,20 +50,50 @@ represent actual firm views or investment decisions."
    own file (e.g., `yc.md`, `sequoia.md`, `a16z.md`). Read `_index.md` first for the full list of
    available VCs.
 
-5. **Run the simulation:**
-   - Assume the VC partner's persona completely — their speech patterns, their priorities, their quirks
-   - **If YC is selected:** Follow the YC-Specific Simulation Rules in `yc.md` — 5-7 exchanges
-     (not 8-12), no pitch phase (questions from the start), rapid-fire format, demo request,
-     YC-specific verdicts (ACCEPTED / WAITLISTED / REJECTED WITH FEEDBACK), and Velocity
-     dimension replacing Ask Specificity. This simulates a YC batch interview, not a funding pitch.
-   - **For all other investors:** Run 8-12 exchanges (one exchange = one founder message + one VC response).
-     The first 2-3 exchanges are the founder's pitch; remaining are VC Q&A.
-   - Ask questions consistent with the VC's known style (loaded from profile)
-   - Reference the VC's actual portfolio where relevant
-   - Use the VC's push-back patterns and closing signals from the profile
+5. **Run the simulation via VC sub-agent:**
 
-6. **Deliver a verdict:** PASS / FOLLOW-UP MEETING / TERM SHEET — with reasoning tied to that VC's
-   specific thesis.
+   Spawn a sub-agent to play the VC role. The VC knows what any real investor would know before
+   walking into the room: the deck the founder sent ahead of the meeting. They do not have access
+   to the founder's internal planning context — metrics grades, strategy verdicts, readiness
+   assessment — only the materials the founder would actually share.
+
+   **Sub-agent receives (and ONLY this):**
+   - The VC profile loaded in step 4 (behavioral style, investment thesis, portfolio context,
+     signature questions, push-back patterns, closing signals)
+   - The pitch deck outline from the playbook's "Pitch Deck Outline" section, if one exists,
+     framed as:
+     > "The founder sent you their pitch deck before the meeting. Here is the deck outline."
+     If no deck outline exists in the playbook, omit this — the VC enters without having seen
+     a deck and will ask for the pitch cold.
+   - A cold-start instruction:
+     > "You are a partner at [VC Firm]. You have just reviewed the founder's deck (if provided
+     > above). You are now meeting them for the first time. React to what you read in the deck
+     > and to what the founder says in the room. Do not ask questions that assume knowledge
+     > beyond the deck and the conversation. Stay in character throughout."
+   - The conversation transcript accumulated so far (founder messages + your prior VC responses)
+
+   **Sub-agent must NOT receive:**
+   - Readiness assessment, metrics grades, fundraising strategy, or prior VC verdicts
+   - Any section of the playbook the founder would not send to an investor
+   - The founder's background or anything not in the deck or said aloud during the pitch
+
+   **Conversation loop:**
+   Each time the founder sends a message, pass [VC profile + cold-start instruction +
+   conversation history] to the sub-agent and relay its response as the VC's reply.
+   Repeat for 8-12 exchanges (one exchange = one founder message + one VC response).
+   The first 2-3 exchanges are the founder's pitch; remaining are VC Q&A.
+
+   **YC exception:** Follow the YC-Specific Simulation Rules from `yc.md` — 5-7 exchanges,
+   questions from the start (no pitch phase), rapid-fire format. Sub-agent structure is the same;
+   only the exchange count and format change.
+
+   **End of simulation:** When the natural close point is reached (VC wraps up or 8-12 exchanges
+   done), output the VC's closing statement and end the sub-agent loop.
+
+6. **Deliver a verdict:** PASS / FOLLOW-UP MEETING / TERM SHEET — decided by the **main Claude**
+   (not the sub-agent) based on both the conversation transcript and the founder's actual
+   context from the playbook. This allows the verdict to reflect not just what the founder
+   said, but how accurately they represented their true situation.
 
 7. **DEBRIEF:**
    - "Here's what [VC name] was actually evaluating at each exchange"
@@ -105,13 +137,27 @@ represent actual firm views or investment decisions."
    
    This helps founders prepare for what comes AFTER the pitch meeting.
 
-10. **Save document:** Write the full pitch simulation to
-   `.fundraising/pitch-simulations/pitch-{vc-name}-{YYYY-MM-DD}.md` with YAML frontmatter.
-   Append a timeline entry.
+10. **Save to playbook + transcript:**
+    - Write full simulation transcript to `.fundraising/{round-dir}/pitch-simulations/{vc}-{YYYY-MM-DD}.md`
+      with YAML frontmatter (command, date, vc, verdict, score, status).
+    - Append to `.fundraising/{round-dir}/playbook.md`:
+      1. Update frontmatter: add entry to `steps_completed.pitch` array (date, vc, verdict, score)
+         + `last_updated`
+      2. If this is the first pitch: update Progress Tracker row for `/pitch` (✅)
+      3. Append under `## Pitch Simulations`:
+         ```
+         ### {VC} — {YYYY-MM-DD} · {VERDICT} · {score}/10
+         **Key Feedback:** [top 3 most actionable feedback points]
+         > Full transcript: `.fundraising/{round-dir}/pitch-simulations/{vc}-{date}.md`
+         ```
+    - Ask: "Would you like to log a strategy change based on this feedback?
+      (e.g., adjusted pitch angle, changed ask amount, added a slide)
+      If yes, describe the change — I'll add it to your Strategy Changes log."
+      If yes: append a row to the `## Strategy Changes` table in the playbook.
 
-10. **Feedback Loop — Next step prompt:**
+11. **Feedback Loop — Next step prompt:**
 
-    > ✅ Pitch simulation complete. Saved to `.fundraising/pitch-simulations/pitch-{vc}-{date}.md`.
+    > ✅ Pitch simulation complete. Transcript saved to `.fundraising/{round-dir}/pitch-simulations/{vc}-{date}.md`.
     > [VC name] verdict: [VERDICT].
     >
     > Based on this feedback, you can:

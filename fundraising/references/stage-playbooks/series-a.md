@@ -7,7 +7,7 @@
 
 ## What Investors Expect at This Stage
 - **Traction benchmarks:** Proven product-market fit. For B2B SaaS: $1M-$2.5M ARR with strong net revenue retention (110%+). For consumer: 50K-500K MAU with strong engagement and retention curves. For marketplace: GMV traction with clear unit economics per transaction.
-- **Team composition:** 8-20 people. Functional leadership emerging (head of engineering, first sales hire or VP Sales, head of product). Founders demonstrating ability to recruit senior talent.
+- **Team composition:** Typically 8-20 people at raise. Functional leadership emerging (head of engineering, first sales hire or VP Sales, head of product). However, a 4-6 person team with exceptional metrics ($1.5M+ ARR, 120%+ NRR) is not a blocker — VCs back efficiency. Flag it as a hire plan requirement, not a veto.
 - **Market proof needed:** Repeatable customer acquisition in at least one channel. Clear ICP (ideal customer profile) defined and validated. Evidence of expansion revenue or strong organic growth.
 - **Product maturity:** Core product is stable and delivers measurable value. Customers are retained and expanding. Product roadmap is clear and driven by customer feedback.
 
@@ -83,6 +83,7 @@ These thresholds power the diagnostic grading system:
   - GREEN: 10-25 people with key functional leads in place
   - YELLOW: 5-10 people, some key roles unfilled
   - RED: Under 5 people or missing critical functions (no dedicated sales/eng lead)
+  - **Override rule:** If ARR ≥ $1.5M AND NRR ≥ 120%, a small team (4-6 people) should NOT block a RAISE NOW verdict. Instead, flag it as a priority hire gap with a "hire fast" action item. Exceptional metrics at a lean team size is actually a signal of founder efficiency that top-tier VCs value. Give RAISE NOW and note: "Your team is lean for Series A — plan to go from 4 → 15+ in the next 12 months. Lead this conversation proactively; don't let VCs surface it."
 
 - **Metric: Runway at Time of Raise**
   - GREEN: 9+ months runway remaining

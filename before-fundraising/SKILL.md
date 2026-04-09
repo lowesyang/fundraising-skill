@@ -7,7 +7,7 @@ description: >
   Use when the user asks "should I raise?", "am I ready to fundraise?", "do I need funding?",
   "evaluate my startup for fundraising", "fundraising readiness", or "before fundraising".
   Part of the fundraising skill workflow: /before-fundraising → /product-metrics →
-  /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch.
+  /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room.
 ---
 
 # /before-fundraising — Fundraising Readiness Assessment
@@ -20,7 +20,7 @@ founders need an honest assessment of whether they should be raising at all.
 This command is **Step 0** of the fundraising workflow:
 
 ```
-▶ /before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch
+▶ /before-fundraising → /product-metrics → /fundraising-strategy → /fundraising-stage → /pitch-deck → /pitch → /due-diligence → /deal-room
 ```
 
 ## Stage Taxonomy
@@ -31,12 +31,44 @@ This command is **Step 0** of the fundraising workflow:
 | `seed` | "MVP built, early users" | Seed tier |
 | `series-a` | "Proven PMF, scaling" | Series A/B tier |
 | `series-b` | "Repeatable growth" | Series A/B tier |
-| `growth` | "Market leader, Series C+" | Growth tier (limited in v1) |
+| `growth` | "Market leader, Series C/D" | Growth tier |
+| `late-stage` | "Series E+, crossover investors, pre-IPO" | Late-stage / crossover tier |
+| `ipo` | "Preparing for IPO or recently public" | Public markets |
 
 ## Flow
 
-1. **Check for existing documents** in `.fundraising/` directory. If prior documents exist from
-   earlier sessions, note them and offer to build on that context.
+1. **Load session context:**
+   Glob `.fundraising/*/playbook.md` (exclude `archive/`).
+
+   - **No playbook found:** proceed fresh — ask stage (step 2), then gather company profile (step 3).
+
+   - **One playbook found:** show welcome back greeting (format in `fundraising/SKILL.md`).
+     Ask:
+     ```
+     Found existing fundraising context:
+       Company: {name} · Stage: {stage} · {N} steps complete · Last updated: {date}
+
+     What would you like to do?
+       1. Continue this plan (pick up where you left off)
+       2. Create a new scenario for comparison (same stage, different strategy)
+       3. Start a new round (archive everything, move to next stage)
+       4. Reset (discard current session, start fresh)
+     ```
+     - **Option 1:** Skip steps 2-5; pre-fill known company info; jump to re-evaluation.
+     - **Option 2:** Ask for a short scenario label (e.g., "conservative", "aggressive").
+       Create `.fundraising/{company-slug}-{stage}-{scenario}/`. Proceed fresh for that scenario.
+     - **Option 3:** First ask: "What stage is the new round? (e.g., Series A, Series B, Growth)"
+       Map the answer to a canonical stage slug. Then:
+       `mv .fundraising/{company-slug}-{stage}*/  .fundraising/archive/round-{N}/`
+       (moves all directories matching that company+stage, including scenario variants).
+       Archive N = count of existing `archive/round-*/` folders + 1.
+       Create `.fundraising/{company-slug}-{new-stage}/`. Show: "Archived. Starting fresh for {new-stage}."
+       Proceed fresh with the new stage pre-filled — skip stage question in step 2.
+     - **Option 4:** `mv .fundraising/{company-slug}-{stage}*/  .fundraising/archive/discarded-{date}/`.
+       Proceed completely fresh.
+
+   - **Multiple playbooks found (scenario comparison):** list them (format in `fundraising/SKILL.md`)
+     and ask which to use; then apply options 1-4 to the selected scenario.
 
 2. **Gather stage** — first ask a single question:
    - What stage are you at? (show user-facing labels from Stage Taxonomy)
@@ -117,18 +149,26 @@ This command is **Step 0** of the fundraising workflow:
    - **NOT YET** — what needs to change first, concrete action plan with milestones
    - **MAYBE** — the case for and against, what evidence would tip the decision
 
-8. **Save document:** Write the full assessment to `.fundraising/readiness-assessment-{YYYY-MM-DD}.md`
-   with YAML frontmatter (command, date, stage, verdict, status, company_name, domain).
-   The document MUST begin with a **Company Overview** table populated from the project profile
-   collected in step 3 — this is the identity anchor for all downstream commands.
-   Append a timeline entry to `.fundraising/timeline.jsonl`.
+8. **Save to playbook:** Create (or update) `.fundraising/{company-slug}-{stage}/playbook.md`.
+
+   - **If playbook does not exist yet (fresh start):** Write the full file:
+     1. YAML frontmatter with all company fields + `steps_completed.before-fundraising`
+     2. `# {Company} — Fundraising Playbook` heading
+     3. **Company Overview** table (populated from step 3 — identity anchor for all downstream commands)
+     4. **Progress Tracker** table (all 7 steps; mark `/before-fundraising` ✅ with verdict)
+     5. `## Readiness Assessment — {YYYY-MM-DD}` section with full assessment output
+
+   - **If playbook already exists (continuing or re-running):**
+     1. Update frontmatter: set `steps_completed.before-fundraising` + `last_updated`
+     2. Update Progress Tracker row for `/before-fundraising`
+     3. Append `## Readiness Assessment — {YYYY-MM-DD}` section (new date preserves history)
 
 9. **Next step prompt:**
-   - If product launched: "✅ Readiness assessment complete. Saved to `.fundraising/readiness-assessment-{date}.md`.
+   - If product launched: "✅ Readiness assessment complete. Saved to `.fundraising/{company-slug}-{stage}/playbook.md`.
      Next: run `/product-metrics` to review your traction data in detail."
-   - If not launched: "✅ Assessment complete. Saved to `.fundraising/readiness-assessment-{date}.md`.
+   - If not launched: "✅ Assessment complete. Saved to `.fundraising/{company-slug}-{stage}/playbook.md`.
      Focus: build and launch your MVP first. When you have real users, come back and run `/before-fundraising` again."
-   - If RAISE NOW: "✅ You're ready to raise. Saved to `.fundraising/readiness-assessment-{date}.md`.
+   - If RAISE NOW: "✅ You're ready to raise. Saved to `.fundraising/{company-slug}-{stage}/playbook.md`.
      Next: run `/product-metrics` to organize your numbers, then `/fundraising-strategy` to plan your round."
 
 The diagnostic must be honest. If the founder isn't ready, say so clearly. A diagnostic that always
