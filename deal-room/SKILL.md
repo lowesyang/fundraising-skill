@@ -51,8 +51,8 @@ represent actual firm views or investment decisions."
 
 3. **VC Selection** — present the stage-filtered VC roster via AskUserQuestion and ask the
    founder to pick **3-5 VCs** for their fundraising process:
-   - Pre-seed/Seed: YC, First Round
-   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed
+   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis)
+   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil)
    - Growth: Tiger Global
 
    Prompt: "Select 3-5 VCs for your fundraising process. You'll meet them sequentially
@@ -150,7 +150,7 @@ Repeat for each VC in the selected order:
     - **"Handle follow-up"** — if any previous VC gave FOLLOW-UP MEETING, the founder can
       choose to do a follow-up meeting before proceeding (see Phase 3)
 
-### Phase 3 — Follow-up Meetings
+### Phase 3 — Follow-up Meetings & Due Diligence
 
 12. Follow-up meetings trigger when a VC gave FOLLOW-UP MEETING and the founder chooses
     to handle it (either during the inter-meeting phase or after all initial meetings).
@@ -168,6 +168,57 @@ Repeat for each VC in the selected order:
 
     Save follow-up meetings with `round: 2` (or `round: 3` for second follow-ups) in
     the filename and frontmatter.
+
+13. **Due Diligence Simulation** — when any VC gives FOLLOW-UP MEETING or TERM SHEET,
+    simulate the DD process that follows. Read `../fundraising/references/investor-dd-patterns.md`
+    and generate domain-appropriate DD questions.
+
+    **DD happens AFTER the pitch, not before.** This is when investors dig deeper into the
+    company — it's the phase between "we're interested" and "here's the wire."
+
+    **DD question generation — draw from patterns #1-16, prioritized by:**
+    - The pitch's weakest scoring dimensions (low traction → demand cohort data)
+    - The specific VC's known priorities (Sequoia → market timing proof, Benchmark → product depth)
+    - The startup's domain (Fintech → compliance/licenses, AI → data privacy, Biotech → regulatory)
+
+    **Simulate the DD as a structured Q&A:**
+
+    **Data Integrity & Metrics (patterns #1-2):**
+    - "Send us your cohort retention analysis — M1 through M6, segmented by acquisition channel."
+    - "Your deck says $X ARR. Walk us through the reconciliation from Stripe to your reported number."
+
+    **Technical & Defensibility (patterns #4-5):**
+    - "We'd like a technical deep dive with your CTO. What's your architecture and where's the moat?"
+    - "What data do you use to train? What's proprietary vs public? License status?"
+
+    **Risk & Failure Modes (patterns #6-7):**
+    - "Walk us through your worst week/month. What happened, how did you recover?"
+    - "What guardrails exist? What breaks if you 10x overnight?"
+
+    **Unit Economics & Cost (patterns #8-9):**
+    - "Send us a cost breakdown — people, tech, marketing, other. Monthly trend for last 6 months."
+    - "What's your fully-loaded CAC by channel? Payback period?"
+
+    **Compliance & Legal (patterns #15-16):**
+    - Fintech: "Share your MSB/MTL license status. KYC/AML provider and pass rates. Fund segregation architecture."
+    - AI: "GDPR compliance documentation. Data processing agreements. AI output liability approach."
+    - Biotech: "FDA submission status. IRB approvals. GMP facility audit reports."
+    - SaaS: "SOC 2 Type II report. GDPR DPA with major customers. PII handling documentation."
+    - Hardware: "FCC/CE certification documents. Product liability insurance policy."
+    - ALL: "Cap table. IP assignment agreements for all contributors. Employment classification audit. Pending litigation."
+
+    **Customer References (pattern #3):**
+    - "We'd like to speak with 3-5 customers. Please provide contacts — ideally including one who almost churned."
+
+    **Present the DD as a checklist** the founder needs to prepare, with:
+    - 🔴 **Must have before close** — deal-blocking if missing
+    - 🟡 **Should have** — won't kill the deal but delays it
+    - 🟢 **Nice to have** — shows maturity
+
+    The founder can respond to each DD item. Grade their preparedness and flag gaps:
+    "You're missing [X]. This will delay your close by 2-4 weeks. Prepare it now."
+
+    Save DD results to `.fundraising/deal-room/dd-{vc}-{YYYY-MM-DD}.md`.
 
 ### Phase 4 — Process Conclusion & Final Report
 

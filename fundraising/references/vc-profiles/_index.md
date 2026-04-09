@@ -19,6 +19,12 @@ A community-maintained collection of detailed VC firm profiles. Each profile inc
 | Accel | `accel` | Series A/B | Seed to Growth | $10M-$60M | [accel.md](accel.md) |
 | Lightspeed Venture Partners | `lightspeed` | Series A/B | Seed to Growth | $10M-$75M | [lightspeed.md](lightspeed.md) |
 | Tiger Global | `tiger-global` | Growth | Series B to Pre-IPO | $25M-$200M+ | [tiger-global.md](tiger-global.md) |
+| Floodgate | `floodgate` | Seed | Pre-seed, Seed | $1M-$5M | [floodgate.md](floodgate.md) |
+| Precursor Ventures | `precursor` | Seed | Pre-seed, Seed | $100K-$1M | [precursor.md](precursor.md) |
+| Hustle Fund | `hustle-fund` | Seed | Pre-seed | $25K-$200K | [hustle-fund.md](hustle-fund.md) |
+| Naval Ravikant | `naval` | Angel | Pre-seed, Seed | $100K-$500K | [naval.md](naval.md) |
+| Elad Gil | `elad-gil` | Angel | Seed, Series A | $100K-$2M | [elad-gil.md](elad-gil.md) |
+| Jason Calacanis | `calacanis` | Angel | Pre-seed, Seed | $25K-$250K | [calacanis.md](calacanis.md) |
 
 ## Contributing a New VC Profile
 
@@ -76,5 +82,5 @@ contributed_by: "your-github-username"
 - **Accuracy matters.** Profiles should reflect the firm's actual behavior, not generic VC stereotypes. Cite public sources (blog posts, podcasts, published theses) where possible.
 - **Be specific.** Generic descriptions like "they like good founders" are not useful. Describe what "good" means to this specific firm.
 - **Include both bull and bear.** The pitch simulator sections need realistic positive and negative signals.
-- **Keep frontmatter consistent.** Use the exact field names and value formats shown in the template. The `tier` field must be one of: `seed`, `series-ab`, `growth`. The `stage_focus` array should use: `pre-seed`, `seed`, `series-a`, `series-b`, `growth`, `pre-ipo`.
+- **Keep frontmatter consistent.** Use the exact field names and value formats shown in the template. The `tier` field must be one of: `angel`, `seed`, `series-ab`, `growth`. The `stage_focus` array should use: `pre-seed`, `seed`, `series-a`, `series-b`, `growth`, `pre-ipo`.
 - **One firm per file.** Each file covers a single VC firm.

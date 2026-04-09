@@ -105,20 +105,9 @@ This command is **Step 0** of the fundraising workflow:
      - What the funding would be used for
      - Biggest bottleneck — money, people, or product?
      - Alternatives to raising (revenue, grants, bootstrapping)
-   - **DD readiness probing** (read `../fundraising/references/investor-dd-patterns.md`):
-     - Can you show cohort retention data? (not just aggregate — investors will ask for M1/M0, M3/M0)
-     - Do your metrics reconcile across data sources? (billing vs analytics vs CRM)
-     - What happens to your product under adverse conditions? (market downturn, churn spike, etc.)
-     - What are your risk guardrails? (what automatically stops when things go wrong)
-     - What's your cost structure? (people vs tech vs marketing — investors will ask for breakdown)
-   - **Compliance readiness** (domain-specific, from `investor-dd-patterns.md` #15-16):
-     - Fintech/Crypto: Do you have required licenses (MSB, MTL)? KYC/AML provider? Client fund segregation?
-     - AI: GDPR/CCPA compliance? AI output liability? EU AI Act risk category?
-     - Biotech: FDA/EMA status? IRB approval? GMP certification?
-     - SaaS: SOC 2? GDPR DPA agreements? PII handling?
-     - Hardware: FCC/CE/UL certifications? Product liability insurance?
-     - ALL at Series A+: IP assignment agreements? Cap table hygiene? D&O insurance? Employment classification?
-   - Flag any DD gaps in the assessment: "You'll need to prepare [X] before investors ask for it."
+   - Note: detailed DD and compliance probing happens later in the workflow (after `/pitch`,
+     during `/deal-room`). At this stage, just flag obvious blockers like missing regulatory
+     licenses for Fintech/Biotech, or no IP assignment agreements.
 
 6. **Read the appropriate stage playbook** from `../fundraising/references/stage-playbooks/`
    for benchmark data.

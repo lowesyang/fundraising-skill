@@ -450,8 +450,8 @@ meeting — not a generic interview. Each VC should feel distinctly different.
    Otherwise ask: describe your startup in 2-3 sentences, and your current stage.
 
 2. **Present VC selection** via AskUserQuestion, filtered by stage:
-   - Pre-seed/Seed: YC, First Round
-   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed
+   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis)
+   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil)
    - Growth: Tiger Global
 
 3. **Load the selected VC's profile** from `references/vc-profiles/`. Read the appropriate tier file

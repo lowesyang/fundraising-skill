@@ -20,7 +20,7 @@ Is your deck telling the right story for your stage?<br>
 
 A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
-with **8 real VC firms** modeled from public data.
+with **14 real investors** (VC firms + angel investors) modeled from public data.
 
 [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
 
@@ -138,20 +138,43 @@ Every command saves its output to `.fundraising/` in your project. Start today, 
 
 ## VC Roster
 
-8 firms modeled with detailed behavioral profiles for the `/pitch` simulator:
+14 investors modeled with detailed behavioral profiles for the `/pitch` simulator and `/deal-room`:
 
-| Firm                        | Tier       | Known For                                           |
+### Angel Investors
+
+| Investor             | Stage          | Known For                                              |
+| -------------------- | -------------- | ------------------------------------------------------ |
+| Naval Ravikant       | Pre-seed, Seed | Socratic, first-principles, "specific knowledge"       |
+| Elad Gil             | Seed, Series A | Operator-investor, scaling expertise, High Growth Handbook |
+| Jason Calacanis      | Pre-seed, Seed | High-energy, speed-obsessed, "cockroach founders"      |
+
+### Seed Funds
+
+| Firm                | Stage          | Known For                                              |
+| ------------------- | -------------- | ------------------------------------------------------ |
+| Y Combinator (YC)   | Pre-seed, Seed | "Do things that don't scale", user growth obsession    |
+| First Round Capital  | Pre-seed, Seed | Operator-friendly, community-driven, platform model    |
+| Floodgate            | Pre-seed, Seed | "Thunder lizards", contrarian, framework-driven        |
+| Precursor Ventures   | Pre-seed, Seed | Pre-seed specialist, product-minded, fast decisions    |
+| Hustle Fund          | Pre-seed       | Micro-fund, speed of execution, first-time founders    |
+
+### Series A/B Firms
+
+| Firm                        | Stage      | Known For                                           |
 | --------------------------- | ---------- | --------------------------------------------------- |
-| Y Combinator (YC)           | Seed       | "Do things that don't scale", user growth obsession |
-| First Round Capital         | Seed       | Operator-friendly, community-driven, platform model |
 | Andreessen Horowitz (a16z)  | Series A/B | Network effects, "what's the 10x version?"          |
 | Sequoia Capital             | Series A/B | "Why now?", market timing, arc narrative            |
 | Benchmark                   | Series A/B | Terse, product-obsessed, lets silence hang          |
 | Accel                       | Series A/B | Data-driven, pattern-matching, fintech/SaaS         |
 | Lightspeed Venture Partners | Series A/B | "Earned insight", enterprise SaaS                   |
-| Tiger Global                | Growth     | Speed of decision, growth metrics, no board seats   |
 
-Each VC asks different questions, pushes back differently, and evaluates through their own lens. The debrief tells you what they were _actually_ thinking.
+### Growth
+
+| Firm                        | Stage              | Known For                                    |
+| --------------------------- | ------------------ | -------------------------------------------- |
+| Tiger Global                | Series B to Pre-IPO | Speed of decision, growth metrics, no board seats |
+
+Each investor asks different questions, pushes back differently, and evaluates through their own lens. The debrief tells you what they were _actually_ thinking.
 
 ---
 
@@ -211,7 +234,7 @@ Each domain includes sub-domain classification — the skill asks what type of c
 ## Roadmap
 
 - [x] 7 slash commands with guided workflow
-- [x] 8 VC profiles with community-friendly individual files
+- [x] 14 investor profiles (8 VC firms + 3 seed funds + 3 angel investors)
 - [x] 4 stage playbooks (pre-seed → Series B)
 - [x] 7 domain metrics with sub-domain classification (SaaS, Consumer, AI, Fintech, Marketplace, Hardware, Biotech)
 - [x] Document persistence to `.fundraising/`
@@ -228,16 +251,17 @@ Each domain includes sub-domain classification — the skill asks what type of c
 fundraising/                              # Shared references (installed as one skill)
 ├── SKILL.md
 ├── references/
-│   ├── vc-profiles/                      # One file per VC — easy to contribute via PR
-│   │   ├── _index.md                     # Directory of all VCs + contribution guide
-│   │   ├── yc.md                         # Y Combinator
-│   │   ├── first-round.md               # First Round Capital
-│   │   ├── a16z.md                       # Andreessen Horowitz
-│   │   ├── sequoia.md                    # Sequoia Capital
-│   │   ├── benchmark.md                  # Benchmark
-│   │   ├── accel.md                      # Accel
-│   │   ├── lightspeed.md                 # Lightspeed Venture Partners
-│   │   └── tiger-global.md              # Tiger Global
+│   ├── vc-profiles/                      # One file per investor — easy to contribute via PR
+│   │   ├── _index.md                     # Directory + contribution guide
+│   │   ├── yc.md, first-round.md         # Seed funds
+│   │   ├── floodgate.md, precursor.md    # Seed funds
+│   │   ├── hustle-fund.md                # Pre-seed micro fund
+│   │   ├── a16z.md, sequoia.md           # Series A/B firms
+│   │   ├── benchmark.md, accel.md        # Series A/B firms
+│   │   ├── lightspeed.md                 # Series A/B firms
+│   │   ├── tiger-global.md               # Growth
+│   │   ├── naval.md, elad-gil.md         # Angel investors
+│   │   └── calacanis.md                  # Angel investors
 │   ├── stage-playbooks/
 │   │   ├── pre-seed.md
 │   │   ├── seed.md
