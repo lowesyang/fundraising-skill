@@ -184,7 +184,7 @@ After each simulated pitch, you get:
 | ------------ | ----------------------------------------------------------------------------------------------- |
 | **SaaS**     | ARR, MRR growth, NDR, churn, LTV/CAC, payback period, gross margin, magic number, burn multiple |
 | **Consumer** | DAU/MAU, D1/D7/D30 retention, viral coefficient, session length, ARPU, organic vs paid          |
-| **AI/ML**    | Model accuracy, inference latency/cost, data moat, training cost trajectory, API usage growth   |
+| **AI/ML**    | Adapts by product type (Model Co / AI App / Infra / AI-Enhanced) — response time, inference cost, data moat, usage growth, customer concentration |
 
 More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 
@@ -203,8 +203,8 @@ More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 
 ### v2 (planned)
 
-- [ ] **Community-contributed VC profiles** — open directory structure for anyone to add new VCs via PR
-- [ ] Refactor existing 8 VCs into individual profile files (one file per VC, easy to contribute)
+- [x] **Community-contributed VC profiles** — one file per VC, add new VCs via PR
+- [x] Individual VC profile files with YAML frontmatter
 - [ ] Growth/Late/IPO stage playbooks
 - [ ] More domains (Fintech, Marketplace, Hardware, Biotech)
 - [ ] "Deal Room" multi-meeting simulation
@@ -248,10 +248,63 @@ pitch-deck/SKILL.md                      # Step 4: Deck outline
 pitch/SKILL.md                           # Step 5: VC simulation
 ```
 
-### Contributing a VC Profile
+---
 
-Want to add a new VC? Create a file in `fundraising/references/vc-profiles/` following the template
-in `_index.md` and submit a PR. See the [contribution guide](fundraising/references/vc-profiles/_index.md) for details.
+## Contributing a VC Profile
+
+The VC roster is community-driven. Anyone can add a new VC or improve an existing profile via PR.
+
+### Quick Start
+
+1. Copy the template below into a new file: `fundraising/references/vc-profiles/{vc-slug}.md`
+2. Fill in the profile using **publicly available information only** (websites, podcasts, blog posts, interviews)
+3. Submit a PR
+
+### Profile Template
+
+```yaml
+---
+name: "Firm Name"
+slug: firm-name
+tier: seed | series-ab | growth | late
+stage_focus: [pre-seed, seed]
+check_size: "$1M - $5M"
+website: "https://example.com"
+contributed_by: "your-github-username"
+---
+```
+
+```markdown
+## Firm Name
+
+**Key Partners:** [names]
+**Stage Focus:** [stages]
+**Typical Check Size:** [$X - $Y]
+**Investment Thesis:** [1-2 paragraphs from public statements]
+**Portfolio Highlights:** [5-10 notable companies]
+**Sector Preferences:** [industries/verticals]
+
+### Behavioral Model
+**Meeting Style:** [formal/casual, time-boxed, etc.]
+**Signature Questions:** [3-5 questions this firm is known for]
+**What Gets Them Excited:** [patterns they look for]
+**Red Flags For Them:** [what makes them pass]
+**Decision Process:** [solo GP vs partnership, timeline]
+**Unique Quirks:** [distinctive behaviors]
+
+### For the /pitch Simulator
+**Opening Style:** [how they start meetings]
+**Push-back Patterns:** [how they challenge founders]
+**Closing Signals:** [positive vs negative signals]
+**Internal Discussion:** [what they'd say after you leave]
+```
+
+### Guidelines
+
+- **Public info only** — profiles are built from websites, podcasts, blog posts, and interviews. No insider or confidential information.
+- **Make it distinct** — the value of the simulation is that each VC *feels different*. Focus on what makes this VC unique: their signature questions, their quirks, their specific push-back patterns.
+- **Be specific** — "asks tough questions" is useless. "Lets silence hang for 5 seconds after you answer, waiting to see if you'll fill the gap" is gold.
+- **Test it** — after writing your profile, run `/pitch` with it. Can you tell which VC you're talking to without being told? If not, the behavioral model needs more specificity.
 
 ---
 
