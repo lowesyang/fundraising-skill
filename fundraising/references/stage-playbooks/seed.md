@@ -11,7 +11,31 @@
 - **Market proof needed:** Evidence that people want this product -- not just signups, but usage, retention, or willingness to pay. Ideally a few customer quotes or case studies.
 - **Product maturity:** Live product in market. Core use case works. Does not need to be polished, but must deliver clear value to users.
 
-## Readiness Benchmarks (for /diagnose)
+## Seed Investor Evaluation Weights
+
+When evaluating a seed company, investors weight these factors:
+
+1. **Product-market signal** (40% of decision)
+   - Usage data, retention curves, early revenue or willingness to pay
+   - Does the product work? Are users pulling it from you?
+   - Customer quotes and organic demand signals matter more than TAM slides
+
+2. **Team execution** (30% of decision)
+   - Iteration speed: how fast are you shipping and learning?
+   - Technical depth to build without outsourcing core product
+   - Ability to recruit strong early hires (first 5-10 employees)
+
+3. **Market opportunity** (20% of decision)
+   - TAM credibility ($1B+ with bottoms-up analysis)
+   - Market timing: why is this solvable now but wasn't 3 years ago?
+   - Early defensibility signals (data moat, network effects, switching costs)
+
+4. **Traction trajectory** (10% of decision)
+   - Month-over-month growth rate and consistency matter more than absolute numbers
+   - Direction of the curve matters more than the current position
+   - Founders who know their numbers cold signal operational rigor
+
+## Readiness Benchmarks (for /product-metrics)
 
 These thresholds power the diagnostic grading system:
 
@@ -71,6 +95,17 @@ These thresholds power the diagnostic grading system:
 - **Pro-rata rights:** Standard for lead investors. Seed investors will want the right to maintain their ownership in the Series A.
 - **Anti-dilution provisions:** Broad-based weighted average is standard if doing a priced round.
 
+## Typical Spending Allocation
+
+How seed capital is typically deployed over 18-24 months:
+
+- **Engineering & Product: 50-60%** — Primary hires: senior engineers. Build core product, iterate on PMF, invest in infrastructure only when it blocks growth. This is a building stage.
+- **Go-to-Market: 15-25%** — First sales/marketing hire, content marketing, early paid experiments to test channels. Do not scale spend until a channel is proven repeatable.
+- **G&A / Operations: 10-15%** — Legal (IP, employment), accounting, tools, minimal office costs. Keep this lean.
+- **Buffer: 10-15%** — Runway extension for slower-than-expected growth. Do not plan to zero.
+
+**Key principle:** At seed, the majority of capital goes to building product and proving PMF. If you're spending more than 25% on sales and marketing, you're scaling before you've found what works. GTM spend should be experimental, not scaled.
+
 ## Key Mistakes to Avoid
 
 1. **Raising without a clear use of funds narrative.** "We'll figure it out" doesn't work at seed. You need a credible 18-month plan: key hires, growth experiments, and milestones that get you to Series A readiness.
@@ -92,12 +127,40 @@ At seed, the pitch shifts from founder and vision to **product-market pull**.
 - **How this differs from pre-seed:** Pre-seed was about the problem and the founders. Seed is about early proof the solution works. The bar is "promising," not "proven."
 - **How this differs from Series A:** At Series A, you need proven PMF with repeatable acquisition channels. At seed, you need early signs of PMF and a credible path to proving it.
 
+## Preparing for Series A (Transition Guide)
+
+Metrics and expectations change fundamentally between seed and Series A. Start tracking these during your seed stage:
+
+| Seed Metric | Series A Equivalent | What Changes |
+|-------------|-------------------|--------------|
+| MRR ($15K+ target) | ARR ($1.5M+ target) | Annualized, ~10x higher bar |
+| M1 retention (40%+ B2B) | NRR (120%+ target) | Expansion revenue matters, not just retention |
+| User/customer count | Cohort analysis | Raw numbers → segmented retention curves |
+| Burn multiple <3x | Burn multiple <2x | Efficiency bar tightens significantly |
+| "Promising" growth | Repeatable channel | Must name the specific channel and show it scales |
+| Not tracked | CAC payback (<12 months) | Required at Series A -- start measuring now |
+| Not tracked | LTV:CAC (3:1+ target) | Required at Series A -- start measuring now |
+| Not tracked | Gross margin (70%+ target) | Required at Series A -- start measuring now |
+
+**Start early:** Begin tracking CAC, LTV, and gross margin 6+ months before your Series A process. Investors will want at least 2-3 quarters of trend data. If you wait until you're fundraising to start measuring, you're too late.
+
+**Narrative shift preview:** At seed, your story is "this is promising and people want it." At Series A, it must become "this is proven, repeatable, and ready to scale with capital."
+
 ## Timeline and Process
 
 - **When to start:** When you have 3-6 months of user/revenue data showing positive trends, and enough runway to fundraise without desperation (ideally 6+ months remaining).
 - **How long it typically takes:** 6-12 weeks. Top companies close in 3-4 weeks; most take 6-8 weeks.
+- **Typical conversion rates:**
+  - Outreach to first meeting: ~50% (warm intros), ~10% (cold email/LinkedIn)
+  - First meeting to follow-up interest: 30-40%
+  - Follow-up interest to term sheet: 20-30%
+  - End-to-end: expect 40-60 first meetings to generate 1-2 term sheets (~3-5% cold-to-close)
+  - **Diagnostic:** if you're converting less than 30% of warm-intro meetings to follow-ups, your pitch needs work before you take more meetings
 - **Key milestones and preparation:**
-  1. **4-6 weeks before launch:** Build target list of 40-80 seed funds and angels. Research partners, portfolio conflicts, and check sizes. Prepare materials: deck (12-15 slides), data room, financial model, and product demo.
+  1. **4-6 weeks before launch:** Build target list of 40-80 seed funds and angels. Research partners, portfolio conflicts, and check sizes. Prepare materials: deck (12-15 slides), financial model, product demo, and a lean data room:
+     - Cap table and SAFE/convertible note summary
+     - Metrics dashboard (MRR, growth rate, retention, user engagement)
+     - Product demo recording or live demo environment
   2. **Week 1-2:** Launch with 10-15 first meetings. Prioritize warm intros from founders in investor portfolios. Start with "friendlies" to practice pitch, but don't burn top targets.
   3. **Week 2-4:** Run a tight process. Take 4-6 meetings per day during peak weeks. Track interest levels and move fast with engaged investors.
   4. **Week 3-5:** Secure a lead investor. The lead sets terms and catalyzes the round. Once you have a lead, other investors will move quickly.

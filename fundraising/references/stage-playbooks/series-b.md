@@ -11,7 +11,31 @@
 - **Market proof needed:** Dominant position in initial market segment. Evidence of ability to expand (new segments, geographies, or product lines). Competitive moat becoming visible (network effects, data advantages, switching costs, brand).
 - **Product maturity:** Multi-product or multi-segment capability. Enterprise-grade reliability and security (if B2B). Platform potential emerging. Product org is shipping predictably.
 
-## Readiness Benchmarks (for /diagnose)
+## Series B Investor Evaluation Weights
+
+When evaluating a Series B company, investors weight these factors:
+
+1. **Growth engine efficiency** (35% of decision)
+   - Burn multiple, magic number, revenue per employee -- prove the machine works efficiently
+   - Investors stress-test: does each dollar in produce predictable dollars out?
+   - Cohort economics must be stable or improving, not just growing top-line
+
+2. **Market position and expansion** (25% of decision)
+   - Dominant position in initial market segment with clear evidence (win rates, market share)
+   - Expansion vectors: new segments, geographies, or product lines with early traction
+   - Competitive moat deepening: network effects, data advantages, switching costs, brand
+
+3. **Executive team and organization** (25% of decision)
+   - VP-level leadership across sales, engineering, marketing, product, and finance
+   - Middle management layer forming: the company runs without founders in every meeting
+   - Culture scales: hiring velocity, retention of A-players, org design for 50-100+ people
+
+4. **Path to profitability** (15% of decision)
+   - When does the P&L cross breakeven? At what ARR?
+   - Unit economics at scale: do margins improve or deteriorate with growth?
+   - Capital efficiency narrative: how much more capital is needed to reach profitability?
+
+## Readiness Benchmarks (for /product-metrics)
 
 These thresholds power the diagnostic grading system:
 
@@ -92,9 +116,25 @@ These thresholds power the diagnostic grading system:
 - **Anti-dilution provisions:** Broad-based weighted average is standard. Full ratchet is a red flag -- only accept under extreme circumstances.
 - **Other provisions:** D&O insurance required. Quarterly board reporting with standardized financial packages. Employee option pool refresh (typically 5-10% top-up). Right of first refusal on secondary sales.
 
+## Typical Spending Allocation
+
+How Series B capital is typically deployed over 18-24 months:
+
+- **Go-to-Market / Sales: 35-45%** — Scale proven channels, expand sales team, invest in enterprise motion or international sales. Marketing transitions from experiments to programmatic demand gen.
+- **Engineering & Product: 25-30%** — Platform hardening, multi-product development, scaling infrastructure, security and compliance engineering. Hire senior architects and tech leads.
+- **G&A / Operations: 15-20%** — Full-time CFO, HR team, legal counsel, compliance, finance ops. Organizational complexity requires real infrastructure at this stage.
+- **International / Expansion: 5-10%** — New geographies, verticals, or product lines. Early investment in expansion vectors.
+- **Buffer: 5%** — Minimal buffer; business model should be predictable enough to plan tightly.
+
+**Key principle:** G&A grows significantly at Series B as organizational complexity demands infrastructure (HR, finance, legal, compliance). If engineering is still consuming 40%+ of budget, question whether the GTM engine truly has product-market fit. The capital allocation should reflect a company scaling a proven business model, not still searching for one.
+
 ## Key Mistakes to Avoid
 
-1. **Raising without clear unit economics.** Series B investors model your business to $100M+ ARR. If you can't show that each dollar invested in growth returns multiples predictably, the investment thesis falls apart. Know your fully-loaded CAC, gross margin, NRR, and payback period cold.
+1. **Raising without clear unit economics.** Series B investors model your business to $100M+ ARR. If you can't show that each dollar invested in growth returns multiples predictably, the investment thesis falls apart. "Knowing your numbers cold" means:
+   - Fully-loaded CAC by channel (not just blended -- break out paid, organic, sales-assisted)
+   - Blended AND segmented gross margin (by product line, customer tier, or geography)
+   - NRR by cohort vintage (are newer cohorts retaining as well as early ones?)
+   - CAC payback period by customer segment (enterprise vs. mid-market vs. SMB)
 
 2. **Growing headcount faster than revenue.** The single most common Series B trap. Companies hire aggressively post-Series A, burn rate spikes, and efficiency metrics deteriorate. Investors at this stage scrutinize burn multiple and revenue per employee closely.
 
@@ -113,13 +153,49 @@ At Series B, the pitch shifts from product-market fit to **building a category-d
 - **How this differs from Series A:** Series A proved the product works and people want it. Series B proves the business model works at scale. The conversation moves from product-market fit to go-to-market fit, org scaling, and market leadership.
 - **How this differs from later stages:** At Series C and beyond, the focus shifts to market dominance, international expansion, and pre-IPO positioning. Series B is the bridge -- you're proving you can scale, not that you already have.
 
+## Preparing for Series C+ (Transition Guide)
+
+What changes beyond Series B -- start positioning for these during your Series B:
+
+| Series B Metric | Series C+ Equivalent | What Changes |
+|----------------|---------------------|--------------|
+| ARR $8M+ | ARR $30M-$50M+ | Must demonstrate path to $100M+ ARR with bottoms-up model |
+| Burn multiple <1.5x | Rule of 40 (growth % + margin % > 40) | Profitability narrative becomes central |
+| Dominant in initial segment | Market leadership with proof | Win rates, market share data, analyst recognition |
+| Early expansion vectors | Multi-product or international revenue | Expansion must show revenue contribution, not just experiments |
+| Not tracked | International revenue % | Global expansion traction expected if applicable |
+| Not tracked | Multi-product attach rate | Cross-sell and upsell must be measurable |
+| Not tracked | Free cash flow trajectory | When does the business generate cash? |
+
+**Pre-IPO positioning:** Series C+ investors evaluate you as a potential public company. Governance, audit readiness, and executive team completeness are table stakes. Consider engaging a CFO with public company experience.
+
+**Narrative shift preview:** At Series B, your story is "we can scale this efficiently." At Series C+, it must become "we are the category leader and the path to a durable, profitable public company is clear."
+
 ## Timeline and Process
 
 - **When to start:** Begin relationship-building 6-12 months before going to market. Formally launch the process when you have 12+ months of runway and metrics are in an uptrend. Avoid launching during seasonal dips in metrics.
 - **How long it typically takes:** 10-16 weeks from first partner meeting to close. The full timeline including preparation is 4-6 months.
+- **Typical conversion rates:**
+  - Outreach to partner meeting: ~50-60% (warm intro from Series A lead), ~10-15% (cold)
+  - First partner meeting to management presentation: 50-60%
+  - Management presentation to term sheet: 40-50%
+  - End-to-end: expect 10-15 first partner meetings to generate 2-3 term sheets (~15-25% overall)
+  - Higher conversion than Series A because you have more data and stronger signal; but cycles are longer (4-6 hour management presentations)
+  - **Diagnostic:** below 50% first-to-management-presentation conversion signals the growth story isn't resonating -- revisit unit economics narrative
+  - If using a banker: expect more structured process with direct introductions and tighter timelines
 - **Key milestones and preparation:**
   1. **6-12 months before:** Identify 15-20 target growth-stage firms. Build relationships through portfolio introductions, industry events, and quarterly investor updates. Share metrics transparently to build trust.
-  2. **6-8 weeks before launch:** Prepare comprehensive materials: pitch deck (20-25 slides), detailed financial model (5-year with bottoms-up assumptions), data room (audited or reviewed financials, contracts, cap table, org chart, customer metrics dashboard, cohort analyses), 8-10 referenceable customers.
+  2. **6-8 weeks before launch:** Prepare comprehensive materials: pitch deck (20-25 slides), detailed financial model (5-year with bottoms-up assumptions), 8-10 referenceable customers, and a comprehensive data room:
+     - Audited or reviewed financials (last 2 years) plus monthly P&L/balance sheet/cash flow
+     - 5-year financial model with bottoms-up revenue assumptions by segment
+     - Customer metrics dashboard with cohort analyses, NRR by vintage, and churn waterfall
+     - Key customer contracts (top 10-15 by ARR) with renewal dates and expansion history
+     - Cap table (fully diluted), all prior round documents, and board consents
+     - IP portfolio: patents, trade secrets, open-source audit, key licenses
+     - Org chart with headcount plan, employee handbook, and option pool summary
+     - Board materials from last 4 quarters (sanitized if needed)
+     - Insurance certificates: D&O, E&O, cyber liability
+     - For comprehensive DD preparation, run `/due-diligence`
   3. **Week 1-2:** Launch process to 10-15 firms simultaneously. Schedule partner meetings within a 2-week window. Coordinate with your Series A lead on introductions and signaling.
   4. **Week 2-5:** Partner meetings, management presentations, and deep dives. Expect 4-6 hour sessions with full team presentations, detailed financial review, customer reference calls (investors will call 10-15 customers), and technical architecture reviews.
   5. **Week 4-7:** Term sheets arrive. Evaluate on: valuation, structure (beware structured terms), board composition, investor platform and value-add, partner track record, and fund size (ensure your check size is meaningful to their fund).

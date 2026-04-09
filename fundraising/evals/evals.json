@@ -3,21 +3,163 @@
   "evals": [
     {
       "id": 1,
-      "prompt": "I'm building an AI code review tool that uses LLMs to find bugs in pull requests. We have 15 paying customers doing $8K MRR, growing 20% month over month. Team of 3 engineers. I want to practice pitching to Sequoia for a Series A. Let's do /pitch.",
-      "expected_output": "A realistic VC simulation where Sequoia's partner asks 'why now?' early, probes market timing around AI/LLM adoption, challenges on competitive moat vs GitHub Copilot and similar tools, and delivers a verdict with a detailed 5-dimension debrief.",
-      "files": []
+      "command": "/before-fundraising",
+      "prompt": "We're a 2-person team with a working prototype of a consumer social app for sharing book highlights. We have 500 users on a waitlist but haven't launched yet. No revenue. Should we raise?",
+      "expected_output": "Identifies pre-seed stage, triggers hard gate (no launched product + no prior exits), gives NOT YET or MAYBE verdict with MVP-first recommendation. Should NOT give RAISE NOW. Includes next step prompt.",
+      "assertions": [
+        "Verdict is NOT YET or MAYBE, not RAISE NOW",
+        "Correctly identifies pre-seed stage",
+        "Includes MVP-first recommendation mentioning AI development tools",
+        "Provides actionable next steps (launch, get users, validate retention)",
+        "Shows next step prompt pointing to /product-metrics or build MVP first"
+      ]
     },
     {
       "id": 2,
-      "prompt": "We're a 2-person team with a working prototype of a consumer social app for sharing book highlights. We have 500 users on a waitlist but haven't launched yet. No revenue. Should we raise? Run /diagnose for me.",
-      "expected_output": "A diagnostic that asks stage-appropriate questions, maps to pre-seed or seed stage, and likely gives a NOT YET or MAYBE verdict since there's no launched product or revenue — with specific advice on what to achieve before raising.",
-      "files": []
+      "command": "/before-fundraising",
+      "prompt": "We're a B2B SaaS company doing $1.5M ARR, 130% NDR, selling API monitoring to DevOps teams. 4-person team, launched 8 months ago, 45 paying customers. We want to raise a Series A.",
+      "expected_output": "Identifies Series A stage, product is launched, collects project profile, gives RAISE NOW verdict with amount recommendation. Guides to /product-metrics as next step.",
+      "assertions": [
+        "Correctly identifies series-a stage",
+        "Acknowledges product is launched with real traction",
+        "Gives RAISE NOW verdict",
+        "Recommends raise amount and valuation range",
+        "Next step prompt guides to /product-metrics"
+      ]
     },
     {
       "id": 3,
-      "prompt": "I need help building my pitch deck. We're a SaaS company doing $2M ARR, 150% net dollar retention, selling to enterprise DevOps teams. We want to raise a Series A and our top target is a16z. Run /deck for me.",
-      "expected_output": "A slide-by-slide deck outline tailored to a16z's preferences (emphasizing TAM/SAM/SOM, network effects, platform potential). Should use the general-series-a template but customize for a16z style. Should call out strong points (NDR, enterprise focus) and gaps.",
-      "files": []
+      "command": "/product-metrics",
+      "prompt": "We're an AI Application company (using OpenAI APIs). SaaS pricing, $500K ARR, 15% MoM growth, 80% gross margin, 40 customers. Seed stage.",
+      "expected_output": "Identifies AI domain, asks sub-domain type, correctly routes to AI Application metrics (skips model accuracy and training cost). Grades metrics with RED/YELLOW/GREEN against seed benchmarks.",
+      "assertions": [
+        "Asks for AI sub-domain type before metrics",
+        "Skips model accuracy benchmarks for AI Application type",
+        "Skips training cost trajectory for AI Application type",
+        "Includes inference cost / API cost as key metric",
+        "Grades each metric with RED/YELLOW/GREEN",
+        "Next step prompt guides to /fundraising-strategy"
+      ]
+    },
+    {
+      "id": 4,
+      "command": "/fundraising-strategy",
+      "prompt": "Series A SaaS, $2M ARR, 20% MoM growth, $80K monthly burn, 6 months runway. Want to raise to scale sales team and expand to Europe.",
+      "expected_output": "Recommends raise amount (18-24 month runway calc), spending allocation (team, product, GTM), round structure (priced round at Series A), and investor targeting strategy.",
+      "assertions": [
+        "Recommends specific raise amount with reasoning",
+        "Includes spending allocation breakdown",
+        "Discusses priced round structure for Series A",
+        "Mentions dilution expectations",
+        "Next step prompt guides to /fundraising-stage or /pitch-deck"
+      ]
+    },
+    {
+      "id": 5,
+      "command": "/pitch",
+      "prompt": "I'm building an AI code review tool that uses LLMs to find bugs in pull requests. We have 15 paying customers doing $8K MRR, growing 20% month over month. Team of 3 engineers. Practice pitching to Sequoia for a Series A.",
+      "expected_output": "Sequoia partner simulation with 'why now?' question early, market timing probes, 8-12 exchanges, verdict with 5-dimension debrief, DD preview, and feedback loop prompt.",
+      "assertions": [
+        "Sequoia asks 'why now?' or probes market timing within first 3 exchanges",
+        "VC voice is recognizably Sequoia-specific (not generic)",
+        "Simulation has 8-12 exchanges",
+        "Debrief includes all 5 dimensions with 1-10 scores",
+        "Clear verdict: PASS, FOLLOW-UP MEETING, or TERM SHEET",
+        "Includes DD Preview section with specific follow-up questions",
+        "Feedback loop prompt includes /due-diligence option"
+      ]
+    },
+    {
+      "id": 6,
+      "command": "/pitch",
+      "prompt": "Same AI code review startup ($8K MRR, 3 engineers). Now pitch to Benchmark.",
+      "expected_output": "Benchmark partner is distinctly different from Sequoia: terse, product-focused, uses silence. Should feel like a different person, not a reskin.",
+      "assertions": [
+        "Benchmark partner is terse and product-focused",
+        "Questions are different from Sequoia's style",
+        "Asks to see the product or demo early",
+        "Uses silence or minimal responses as pressure technique",
+        "Verdict and debrief reflect Benchmark's specific evaluation criteria"
+      ]
+    },
+    {
+      "id": 7,
+      "command": "/pitch-deck",
+      "prompt": "We're a SaaS company doing $2M ARR, 150% net dollar retention, selling to enterprise DevOps teams. Series A targeting a16z.",
+      "expected_output": "Slide-by-slide deck outline tailored to a16z preferences (TAM/SAM/SOM, network effects, platform potential). Calls out strengths (NDR) and gaps.",
+      "assertions": [
+        "Deck is tailored to a16z preferences (mentions network effects or platform)",
+        "Has 10+ distinct slides",
+        "Calls out 150% NDR as a strength",
+        "Identifies gaps or weak points in the story",
+        "Suggests specific data points to prepare",
+        "Uses Series A deck template format"
+      ]
+    },
+    {
+      "id": 8,
+      "command": "/due-diligence",
+      "prompt": "I just pitched to Sequoia and got FOLLOW-UP MEETING. They scored my traction evidence at 5/10 and market conviction at 6/10. We're a Fintech company (crypto trading platform). Prepare me for their DD.",
+      "expected_output": "DD questions weighted toward traction (cohort data, reconciliation) and market (TAM deep-dive) based on pitch weak points. Includes Fintech-specific compliance questions (licenses, KYC/AML, fund segregation).",
+      "assertions": [
+        "Generates DD questions based on pitch weak points (traction, market)",
+        "Includes Fintech-specific compliance questions (licenses, KYC/AML)",
+        "Asks about fund custody and segregation",
+        "Interactive Q&A with per-item grading (ready/partial/not-ready)",
+        "Produces DD Scorecard with overall readiness percentage",
+        "Generates data room checklist with priority tiers"
+      ]
+    },
+    {
+      "id": 9,
+      "command": "/due-diligence",
+      "prompt": "General DD self-check. We're an AI company building foundation models for healthcare. No prior pitch.",
+      "expected_output": "Comprehensive DD covering all 6 categories. AI-specific questions (data privacy, model training data licensing) plus Biotech/Healthcare overlap (FDA, HIPAA). No VC-specific weighting since no prior pitch.",
+      "assertions": [
+        "Covers all 6 DD categories",
+        "Includes AI-specific compliance (GDPR, EU AI Act, data licensing)",
+        "Includes healthcare-specific compliance (HIPAA, FDA if applicable)",
+        "Asks about training data ownership and licensing",
+        "Produces DD Scorecard",
+        "Works without prior /pitch context"
+      ]
+    },
+    {
+      "id": 10,
+      "command": "/fundraising-upgrade",
+      "prompt": "Check if there's a new version of the fundraising skill.",
+      "expected_output": "Runs version check, compares local vs remote VERSION, reports current version and whether an update is available.",
+      "assertions": [
+        "Shows current installed version number",
+        "Checks remote version from GitHub",
+        "Reports whether update is available or up-to-date"
+      ]
+    },
+    {
+      "id": 11,
+      "command": "/before-fundraising",
+      "prompt": "We're a hardware company making smart sensors for industrial IoT. Prototype working, 3 pilot customers, no revenue yet. Team of 5 (2 hardware engineers, 1 firmware, 1 business, 1 ops). Pre-seed.",
+      "expected_output": "Pre-seed assessment for Hardware domain. Notes that hardware has longer development cycles. Evaluates team composition for hardware startup. May give MAYBE since they have pilot customers even without revenue.",
+      "assertions": [
+        "Correctly identifies Hardware domain",
+        "Evaluates hardware-specific considerations (BOM, manufacturing, certification)",
+        "Notes pilot customers as positive traction signal",
+        "Does not blindly apply software startup benchmarks to hardware",
+        "Provides hardware-appropriate next steps"
+      ]
+    },
+    {
+      "id": 12,
+      "command": "/product-metrics",
+      "prompt": "We're a B2C marketplace for freelance designers. GMV last month was $200K, take rate 15%, 60% repeat purchase rate, 500 active buyers, 200 active sellers. Seed stage.",
+      "expected_output": "Identifies Marketplace domain (B2C sub-type). Grades GMV, take rate, repeat purchase, supply/demand ratio against seed benchmarks. Highlights liquidity and repeat rate as key metrics.",
+      "assertions": [
+        "Identifies Marketplace domain and B2C sub-type",
+        "Evaluates supply/demand ratio (500 buyers vs 200 sellers)",
+        "Grades take rate (15%) against marketplace benchmarks",
+        "Highlights repeat purchase rate (60%) as strong signal",
+        "Includes marketplace-specific nuances (liquidity, density)"
+      ]
     }
   ]
 }
