@@ -30,6 +30,28 @@ A community-maintained collection of detailed VC firm profiles. Each profile inc
 | Ron Conway | `ron-conway` | Angel | Pre-seed, Seed | $25K-$500K | [ron-conway.md](ron-conway.md) |
 | Marc Andreessen | `marc-andreessen` | Angel | Pre-seed, Seed | $100K-$1M | [marc-andreessen.md](marc-andreessen.md) |
 | Reid Hoffman | `reid-hoffman` | Angel | Pre-seed, Seed | $100K-$1M | [reid-hoffman.md](reid-hoffman.md) |
+| Lux Capital | `lux-capital` | Seed | Seed, Series A | $1M-$20M | [lux-capital.md](lux-capital.md) |
+| Radical Ventures | `radical-ventures` | Seed | Seed, Series A | $1M-$15M | [radical-ventures.md](radical-ventures.md) |
+| Greylock Partners | `greylock` | Series A/B | Seed to Series B | $5M-$50M | [greylock.md](greylock.md) |
+| Khosla Ventures | `khosla` | Series A/B | Seed to Growth | $1M-$50M | [khosla.md](khosla.md) |
+| General Catalyst | `general-catalyst` | Series A/B | Seed to Growth | $5M-$100M | [general-catalyst.md](general-catalyst.md) |
+| Index Ventures | `index-ventures` | Series A/B | Seed to Growth | $5M-$100M | [index-ventures.md](index-ventures.md) |
+| Founders Fund | `founders-fund` | Series A/B | Seed to Growth | $3M-$100M | [founders-fund.md](founders-fund.md) |
+| Thrive Capital | `thrive-capital` | Series A/B | Series A to Growth | $10M-$200M | [thrive-capital.md](thrive-capital.md) |
+| Coatue Management | `coatue` | Growth | Series B to Pre-IPO | $25M-$500M | [coatue.md](coatue.md) |
+| Insight Partners | `insight-partners` | Growth | Series B to Pre-IPO | $25M-$300M | [insight-partners.md](insight-partners.md) |
+| 500 Global | `500-global` | Seed | Pre-seed, Seed | $50K-$500K | [500-global.md](500-global.md) |
+| Felicis Ventures | `felicis` | Seed | Seed, Series A | $500K-$10M | [felicis.md](felicis.md) |
+| NEA | `nea` | Series A/B | Seed to Growth | $1M-$100M | [nea.md](nea.md) |
+| SoftBank Vision Fund | `softbank` | Growth | Series B to Pre-IPO | $50M-$1B+ | [softbank.md](softbank.md) |
+| DST Global | `dst-global` | Growth | Series B to Pre-IPO | $50M-$500M | [dst-global.md](dst-global.md) |
+| NVIDIA NVentures | `nvidia-nventures` | Strategic | Series A to Growth | $5M-$50M | [nvidia-nventures.md](nvidia-nventures.md) |
+| Microsoft M12 & Corporate | `microsoft-m12` | Strategic | Series A to Growth | $5M-$100M+ | [microsoft-m12.md](microsoft-m12.md) |
+| GV (Google Ventures) | `google-ventures` | Strategic | Seed to Growth | $1M-$50M | [google-ventures.md](google-ventures.md) |
+| Amazon & AWS Investments | `amazon-ventures` | Strategic | Series A to Growth | $10M-$500M | [amazon-ventures.md](amazon-ventures.md) |
+| Salesforce Ventures | `salesforce-ventures` | Strategic | Seed to Growth | $1M-$100M | [salesforce-ventures.md](salesforce-ventures.md) |
+| Intel Capital | `intel-capital` | Strategic | Seed to Growth | $2M-$50M | [intel-capital.md](intel-capital.md) |
+| Oracle Corporate Investments | `oracle-ventures` | Strategic | Series A to Growth | $10M-$200M | [oracle-ventures.md](oracle-ventures.md) |
 
 ## Contributing a New VC Profile
 
@@ -87,5 +109,5 @@ contributed_by: "your-github-username"
 - **Accuracy matters.** Profiles should reflect the firm's actual behavior, not generic VC stereotypes. Cite public sources (blog posts, podcasts, published theses) where possible.
 - **Be specific.** Generic descriptions like "they like good founders" are not useful. Describe what "good" means to this specific firm.
 - **Include both bull and bear.** The pitch simulator sections need realistic positive and negative signals.
-- **Keep frontmatter consistent.** Use the exact field names and value formats shown in the template. The `tier` field must be one of: `angel`, `seed`, `series-ab`, `growth`. The `stage_focus` array should use: `pre-seed`, `seed`, `series-a`, `series-b`, `growth`, `pre-ipo`.
+- **Keep frontmatter consistent.** Use the exact field names and value formats shown in the template. The `tier` field must be one of: `angel`, `seed`, `series-ab`, `growth`, `strategic`. The `stage_focus` array should use: `pre-seed`, `seed`, `series-a`, `series-b`, `growth`, `pre-ipo`.
 - **One firm per file.** Each file covers a single VC firm.

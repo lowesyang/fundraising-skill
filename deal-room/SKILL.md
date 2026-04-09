@@ -51,9 +51,10 @@ represent actual firm views or investment decisions."
 
 3. **VC Selection** — present the stage-filtered VC roster via AskUserQuestion and ask the
    founder to pick **3-5 VCs** for their fundraising process:
-   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)
-   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil, Peter Thiel, Marc Andreessen, Reid Hoffman)
-   - Growth: Tiger Global
+   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor, Hustle Fund, Lux Capital, Radical Ventures, 500 Global, Felicis + Angels (Naval, Elad Gil, Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)
+   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed, Greylock, Khosla, General Catalyst, Index Ventures, Founders Fund, Thrive Capital, NEA + Angels (Elad Gil, Peter Thiel, Marc Andreessen, Reid Hoffman)
+   - Growth: Tiger Global, Coatue, Insight Partners, SoftBank Vision Fund, DST Global
+   - Strategic/CVC: NVIDIA NVentures, Microsoft M12, GV (Google), Amazon/AWS, Salesforce Ventures, Intel Capital, Oracle
 
    Prompt: "Select 3-5 VCs for your fundraising process. You'll meet them sequentially
    and can adjust your pitch between meetings."

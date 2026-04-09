@@ -452,9 +452,10 @@ meeting — not a generic interview. Each VC should feel distinctly different.
    Otherwise ask: describe your startup in 2-3 sentences, and your current stage.
 
 2. **Present VC selection** via AskUserQuestion, filtered by stage:
-   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)
-   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil, Peter Thiel, Marc Andreessen, Reid Hoffman)
-   - Growth: Tiger Global
+   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor, Hustle Fund, Lux Capital, Radical Ventures, 500 Global, Felicis + Angels (Naval, Elad Gil, Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)
+   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed, Greylock, Khosla, General Catalyst, Index Ventures, Founders Fund, Thrive Capital, NEA + Angels (Elad Gil, Peter Thiel, Marc Andreessen, Reid Hoffman)
+   - Growth: Tiger Global, Coatue, Insight Partners, SoftBank Vision Fund, DST Global
+   - Strategic/CVC: NVIDIA NVentures, Microsoft M12, GV (Google), Amazon/AWS, Salesforce Ventures, Intel Capital, Oracle
 
 3. **Load the selected VC's profile** from `references/vc-profiles/`. Read the appropriate tier file
    (seed-tier.md, series-ab-tier.md, or growth-tier.md).

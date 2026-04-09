@@ -13,14 +13,12 @@ Read `CONTRIBUTING.md` before making changes. It contains templates, formatting 
 
 ### Contribution types
 
-| Type | Location | Section |
-|------|----------|---------|
-| New VC profile | `fundraising/references/vc-profiles/{slug}.md` | CONTRIBUTING.md #1 |
-| New domain | `fundraising/references/metrics-by-domain/{domain}.md` | CONTRIBUTING.md #2a |
-| New sub-domain to existing domain | Edit existing domain file | CONTRIBUTING.md #2b |
-| New metric to existing domain | Append to existing domain file | CONTRIBUTING.md #2c |
-| Stage playbook | `fundraising/references/stage-playbooks/{stage}.md` | CONTRIBUTING.md #3 |
-| Deck template | `fundraising/references/deck-templates/{template}.md` | CONTRIBUTING.md #4 |
+| Type | Guide |
+|------|-------|
+| New VC profile | `CONTRIBUTING-vc-profiles.md` |
+| New domain / sub-domain / metric | `CONTRIBUTING-domain-metrics.md` |
+| Stage playbook | `CONTRIBUTING-stage-playbooks.md` |
+| Deck template | `CONTRIBUTING-deck-templates.md` |
 
 ### Key rules
 
