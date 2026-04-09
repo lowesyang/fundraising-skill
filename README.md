@@ -203,27 +203,33 @@ More domains (Fintech, Marketplace, Hardware, Biotech) coming in v2.
 
 ### v2 (planned)
 
-- [ ] Asia VC tier (HongShan, GGV, ZhenFund, Hillhouse)
+- [ ] **Community-contributed VC profiles** — open directory structure for anyone to add new VCs via PR
+- [ ] Refactor existing 8 VCs into individual profile files (one file per VC, easy to contribute)
 - [ ] Growth/Late/IPO stage playbooks
 - [ ] More domains (Fintech, Marketplace, Hardware, Biotech)
 - [ ] "Deal Room" multi-meeting simulation
 - [ ] Cross-session state persistence via file-based context
-- [ ] Community contribution model for VC profiles
 
 ---
 
 ## Project Structure
 
 ```
-fundraising/
-├── SKILL.md                          # Main skill definition (6 commands)
+fundraising/                              # Shared references (installed as one skill)
+├── SKILL.md
 ├── references/
-│   ├── vc-profiles/
-│   │   ├── seed-tier.md              # YC, First Round
-│   │   ├── series-ab-tier.md         # a16z, Sequoia, Benchmark, Accel, Lightspeed
-│   │   └── growth-tier.md            # Tiger Global
+│   ├── vc-profiles/                      # One file per VC — easy to contribute via PR
+│   │   ├── _index.md                     # Directory of all VCs + contribution guide
+│   │   ├── yc.md                         # Y Combinator
+│   │   ├── first-round.md               # First Round Capital
+│   │   ├── a16z.md                       # Andreessen Horowitz
+│   │   ├── sequoia.md                    # Sequoia Capital
+│   │   ├── benchmark.md                  # Benchmark
+│   │   ├── accel.md                      # Accel
+│   │   ├── lightspeed.md                 # Lightspeed Venture Partners
+│   │   └── tiger-global.md              # Tiger Global
 │   ├── stage-playbooks/
-│   │   ├── pre-seed.md               # With hard gate on product launch
+│   │   ├── pre-seed.md
 │   │   ├── seed.md
 │   │   ├── series-a.md
 │   │   └── series-b.md
@@ -234,9 +240,18 @@ fundraising/
 │   └── deck-templates/
 │       ├── yc-demo-day.md
 │       └── general-series-a.md
-└── evals/
-    └── evals.json                    # Test cases
+before-fundraising/SKILL.md               # Step 0: Readiness assessment
+product-metrics/SKILL.md                  # Step 1: Traction grading
+fundraising-strategy/SKILL.md            # Step 2: Round planning
+fundraising-stage/SKILL.md               # Step 3: Execution plan
+pitch-deck/SKILL.md                      # Step 4: Deck outline
+pitch/SKILL.md                           # Step 5: VC simulation
 ```
+
+### Contributing a VC Profile
+
+Want to add a new VC? Create a file in `fundraising/references/vc-profiles/` following the template
+in `_index.md` and submit a PR. See the [contribution guide](fundraising/references/vc-profiles/_index.md) for details.
 
 ---
 

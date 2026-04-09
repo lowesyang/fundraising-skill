@@ -518,7 +518,7 @@ The following reference files contain detailed data that commands load as needed
 
 | Directory | Files | Used by |
 |-----------|-------|---------|
-| `references/vc-profiles/` | seed-tier.md, series-ab-tier.md, growth-tier.md | `/pitch` |
+| `references/vc-profiles/` | One file per VC (yc.md, a16z.md, sequoia.md, etc.) — see `_index.md` for full list | `/pitch` |
 | `references/stage-playbooks/` | pre-seed.md, seed.md, series-a.md, series-b.md | `/before-fundraising`, `/fundraising-stage`, `/fundraising-strategy` |
 | `references/metrics-by-domain/` | saas.md, consumer.md, ai-ml.md | `/product-metrics` |
 | `references/deck-templates/` | yc-demo-day.md, general-series-a.md | `/pitch-deck` |

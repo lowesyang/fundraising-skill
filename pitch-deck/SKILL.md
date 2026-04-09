@@ -36,8 +36,8 @@ This command is **Step 4** of the fundraising workflow:
 3. **Load the appropriate deck template** from `../fundraising/references/deck-templates/`
    (yc-demo-day.md or general-series-a.md).
 
-4. **If a target VC is specified**, also load their profile from `../fundraising/references/vc-profiles/`
-   to tailor the deck to their preferences.
+4. **If a target VC is specified**, load their individual profile from `../fundraising/references/vc-profiles/`
+   (e.g., `a16z.md`, `sequoia.md`) to tailor the deck to their preferences.
 
 5. **Generate a slide-by-slide outline:**
    - For each slide: title, key message (1 sentence), supporting data points, design notes

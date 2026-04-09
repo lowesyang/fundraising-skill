@@ -43,8 +43,9 @@ represent actual firm views or investment decisions."
    - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed
    - Growth: Tiger Global
 
-4. **Load the selected VC's profile** from `../fundraising/references/vc-profiles/`. Read the
-   appropriate tier file (seed-tier.md, series-ab-tier.md, or growth-tier.md).
+4. **Load the selected VC's profile** from `../fundraising/references/vc-profiles/`. Each VC has its
+   own file (e.g., `yc.md`, `sequoia.md`, `a16z.md`). Read `_index.md` first for the full list of
+   available VCs.
 
 5. **Run the simulation:**
    - Assume the VC partner's persona completely — their speech patterns, their priorities, their quirks

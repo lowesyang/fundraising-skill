@@ -1,4 +1,12 @@
-# Growth-Stage VC Profiles
+---
+name: "Tiger Global"
+slug: tiger-global
+tier: growth
+stage_focus: [series-b, series-c, growth, pre-ipo]
+check_size: "$25M-$200M+"
+website: "https://www.tigerglobal.com"
+contributed_by: "fundraising-skill"
+---
 
 ## Tiger Global
 
