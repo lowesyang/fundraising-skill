@@ -37,3 +37,10 @@ contributed_by: "fundraising-skill"
 - *Positive:* "How much are you raising?" "When could you start the batch?" "Let me introduce you to [portfolio founder in adjacent space]." Partners lean in, start brainstorming your go-to-market with you.
 - *Negative:* "Interesting, but I think you need more traction before we'd be ready." "Come back when you have paying users." The meeting ends at exactly the time limit with a polite but firm close.
 **Internal Discussion:** "The founder really understands their users -- did you see how she described the onboarding problem? That's someone who's been in the trenches." vs. "Smart person, but this feels like a solution looking for a problem. There's no evidence anyone wants this." They'd reference comparable batch companies: "Reminds me of [Company X] from W22 batch, and that worked out."
+
+### Links
+- Website: [ycombinator.com](https://www.ycombinator.com)
+- Twitter/X: [@ycombinator](https://x.com/ycombinator)
+- LinkedIn: [Y Combinator](https://linkedin.com/school/y-combinator)
+- YouTube: [Y Combinator](https://youtube.com/@ycombinator)
+- Blog: [YC Blog](https://www.ycombinator.com/blog)

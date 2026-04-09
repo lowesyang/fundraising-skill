@@ -30,7 +30,8 @@ Step 5: /pitch                — Practice with simulated VCs, get feedback
          ↓
     Investor feedback loop: refine strategy/deck → pitch again
          ↓
-Step 6: /deal-room            — Multi-VC process simulation (full fundraise)
+Step 6: /due-diligence        — Prepare for investor DD (data, compliance, legal)
+Step 7: /deal-room            — Multi-VC process simulation (full fundraise)
 ```
 
 ## Onboarding
@@ -47,7 +48,8 @@ When a user first triggers any fundraising command, show this orientation before
 > | 3 | `/fundraising-stage` | Create an execution plan (optional) |
 > | 4 | `/pitch-deck` | Build your pitch deck outline |
 > | 5 | `/pitch` | Practice pitching to simulated VCs |
-> | 6 | `/deal-room` | Multi-VC fundraising process simulation |
+> | 6 | `/due-diligence` | Prepare for investor due diligence |
+> | 7 | `/deal-room` | Multi-VC fundraising process simulation |
 >
 > **Start here:** Run `/before-fundraising` to assess your fundraising readiness.
 
@@ -450,8 +452,8 @@ meeting — not a generic interview. Each VC should feel distinctly different.
    Otherwise ask: describe your startup in 2-3 sentences, and your current stage.
 
 2. **Present VC selection** via AskUserQuestion, filtered by stage:
-   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis)
-   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil)
+   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)
+   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil, Peter Thiel, Marc Andreessen, Reid Hoffman)
    - Growth: Tiger Global
 
 3. **Load the selected VC's profile** from `references/vc-profiles/`. Read the appropriate tier file

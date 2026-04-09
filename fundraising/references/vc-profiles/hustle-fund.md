@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* "Let me tell you how our SAFEs work" (they're already in deal mode). "Can you send me your bank details?" (yes, they move that fast). "I want to introduce you to someone in our portfolio who's solving a similar distribution problem." Follow-up email within 24 hours with specific next steps. Elizabeth sharing your product on Twitter.
 - *Negative:* "This is interesting — let's check back in a few months when you have more traction." (polite pass). "I think you need to ship more before we can evaluate this." If they don't follow up within 48 hours, it's a no — they don't ghost, but their speed cuts both ways. "Have you considered applying to an accelerator first?"
 **Internal Discussion:** *Bull case:* "This founder shipped a working product in two weeks on a $500 budget. They already have 30 users giving feedback. They don't have the 'right' background but they clearly don't need permission to build. This is exactly who we back — fast, scrappy, undeterred. Let's wire the SAFE today." *Bear case:* "Smart founder, good idea, but they've been talking about this for months and all they have is a Figma prototype and a waitlist. No experiments. No user conversations. They're optimizing for fundraising when they should be optimizing for learning. Let's pass and tell them to come back when they've shipped something and talked to 50 customers."
+
+### Links
+- Website: [hustlefund.vc](https://www.hustlefund.vc)
+- Twitter/X: [@dunkhippo33](https://x.com/dunkhippo33) (Elizabeth Yin)
+- LinkedIn: [Hustle Fund](https://linkedin.com/company/hustle-fund)
+- YouTube: [Hustle Fund](https://youtube.com/@hustlefund)

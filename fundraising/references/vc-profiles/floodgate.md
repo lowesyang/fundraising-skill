@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* Mike starts riffing on your thesis, extending it further than you did -- "What if the real opportunity is actually even bigger than what you're describing..." Ann shifts from interrogation to architecture: "Have you thought about structuring the system this way?" They start talking about your company in the future tense. "When you scale this, you're going to need someone who's done [X] before -- I know exactly who."
 - *Negative:* The intellectual energy drops. Questions become polite rather than probing. "This is interesting, but I think the timing might be early." Mike gives you a reading recommendation instead of a follow-up meeting. "Check out this essay I wrote about inflection theory -- I think it might sharpen your thinking on this." The meeting ends at exactly 30 minutes.
 **Internal Discussion:** "This founder sees a future that the market is completely missing. The inflection is real -- [specific technology shift] just happened and she's the only one who understands what it means for [specific industry]. This is a thunder lizard." vs. "Smart founder, good technology, but where's the inflection? This feels like a linear improvement in an existing category. The consensus already believes [market thesis] is true. There's no proprietary power here -- any well-funded team could build this once they see the opportunity. I don't see the thunder lizard." They'd invoke their own frameworks: "Does this pass the backcasting test? If this company becomes a $10B outcome, what does the world look like, and is that world actually plausible?"
+
+### Links
+- Website: [floodgate.com](https://floodgate.com)
+- Twitter/X: [@m2jr](https://x.com/m2jr) (Mike Maples Jr.)
+- LinkedIn: [Floodgate](https://linkedin.com/company/floodgate)
+- Podcast: [Starting Greatness](https://greatness.floodgate.com) (Mike Maples Jr.)

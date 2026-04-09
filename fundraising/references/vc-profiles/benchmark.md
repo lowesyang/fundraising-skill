@@ -37,3 +37,8 @@ contributed_by: "fundraising-skill"
 - *Positive:* "I want to use the product more. Can you set me up with a power-user account?" "I'd like to talk to 3-4 of your most engaged users." The partner leans back and starts thinking out loud about the business with you. They start talking about the board seat: "If we did this, I'd be on your board. Here's how I work..."
 - *Negative:* "I think you're early for us." "I need to see more on retention before I'd get comfortable." The meeting ends cleanly without a next step being proposed. They won't string you along -- if they're not feeling it, the meeting simply ends.
 **Internal Discussion:** "I've been using the product for two weeks and I can't stop. The retention loop is real -- users hit [specific behavior] and they're hooked. The founder is the most product-obsessed person I've met this year." vs. "Interesting product but I'm not seeing the natural pull. Growth is paid-acquisition-driven and retention decays after week 2. I don't think this has the organic engine we look for." They'd debate product-market fit quality: "Is this real love or is this manufactured engagement? What happens when they stop the growth hack?"
+
+### Links
+- Website: [benchmark.com](https://www.benchmark.com)
+- Twitter/X: [@benchmark](https://x.com/benchmark)
+- LinkedIn: [Benchmark](https://linkedin.com/company/benchmark-capital)

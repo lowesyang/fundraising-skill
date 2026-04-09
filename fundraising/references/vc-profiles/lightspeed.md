@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* "I'd love for you to meet [practice lead partner]. I think there's a lot of alignment." "Can I spend a day with one of your customer-facing teams? I want to see how the product works in the real environment." They start discussing portfolio synergies: "You should meet [portfolio company CEO] -- they could be a customer and a reference." They ask about timeline and competing term sheets.
 - *Negative:* "I think you're onto something, but we'd need to see [specific milestone] before we'd have conviction. I don't want to waste your time by stringing this out." "This isn't a fit for our [practice area] thesis right now, but let me introduce you to [other VC] who I think would be a better partner for this stage." They're straightforward and often offer warm intros to other firms when they pass.
 **Internal Discussion:** "The founder spent 7 years running supply chain ops at [Fortune 500] before building this. The earned insight is real -- every customer I called confirmed the pain point and said this product is the first one that actually works. The expansion revenue potential is enormous." vs. "Good product, but the founder is a second-time founder in a space she doesn't know deeply. I'm not seeing the earned insight. The competitive landscape is also getting crowded -- three well-funded companies launched in the last 6 months." They'd discuss sector practice fit: "Does [practice lead] want to spend the next 10 years in this category? That's the real question."
+
+### Links
+- Website: [lsvp.com](https://lsvp.com)
+- Twitter/X: [@lightaboredVP](https://x.com/lightspeedvp)
+- LinkedIn: [Lightspeed Venture Partners](https://linkedin.com/company/lightspeed-venture-partners)
+- Blog: [Lightspeed Blog](https://lsvp.com/blog/)

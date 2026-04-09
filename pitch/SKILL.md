@@ -39,8 +39,8 @@ represent actual firm views or investment decisions."
    Otherwise ask: describe your startup in 2-3 sentences, and your current stage.
 
 3. **Present VC selection** via AskUserQuestion, filtered by stage:
-   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis)
-   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil)
+   - Pre-seed/Seed: YC, First Round, Floodgate, Precursor Ventures, Hustle Fund + Angels (Naval Ravikant, Elad Gil, Jason Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)
+   - Series A/B: a16z, Sequoia, Benchmark, Accel, Lightspeed + Angels (Elad Gil, Peter Thiel, Marc Andreessen, Reid Hoffman)
    - Growth: Tiger Global
 
 4. **Load the selected VC's profile** from `../fundraising/references/vc-profiles/`. Each VC has its
@@ -112,6 +112,6 @@ represent actual firm views or investment decisions."
     > Based on this feedback, you can:
     > - `/pitch` — Practice with a different VC to get more perspectives
     > - `/pitch-deck` — Revise your deck based on the feedback
+    > - `/due-diligence` — Prepare for investor DD based on this pitch's weak points
     > - `/fundraising-strategy` — Adjust your strategy (amount, structure, positioning)
-    > - `/fundraising-stage` — Update your execution plan with new insights
     > - `/deal-room` — Run a full multi-VC fundraising process simulation

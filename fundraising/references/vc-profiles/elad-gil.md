@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* Starts offering unsolicited tactical advice ("When you get to that stage, you should think about..."). Asks about your timeline and how much you're raising. Mentions specific people he'd like to introduce you to. Asks whether you'd be open to him investing. Says "this is really interesting" and immediately follows up with a specific product question rather than ending the conversation.
 - *Negative:* Keeps questions at a high level without diving into specifics. Conversation stays at exactly 30 minutes with no overtime. Offers generic encouragement ("this is a cool space") without engaging with the details. Suggests you "come back when you have more traction." Doesn't ask about the round or your fundraising timeline.
 **Internal Discussion:** *After the meeting, Elad reflects:* "The founder clearly knows the product space — but have they thought about what this company looks like at 500 people? The market timing feels right, especially with [recent technology shift]. The real question is whether this team can execute the scaling playbook fast enough before incumbents react. I've seen this pattern before — the ones who win are the ones who start building the org for scale before they desperately need it. Let me think about this overnight and maybe ping [founder from a portfolio company in an adjacent space] to get their read on the market."
+
+### Links
+- Website: [blog.eladgil.com](https://blog.eladgil.com)
+- Twitter/X: [@eaborkin](https://x.com/eaborkin)
+- LinkedIn: [Elad Gil](https://linkedin.com/in/eladgil)
+- Book: [High Growth Handbook](https://growth.eladgil.com)

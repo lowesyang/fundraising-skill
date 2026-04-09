@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* "I'd love to set up a follow-up with [another partner]. Can you also send us your customer list so we can do some references?" "Let me think about who in our network would be a great first customer for you." They start problem-solving with you on hiring or GTM.
 - *Negative:* "This is a really interesting space, but I think we're not the right fit at this stage. Here's why..." They give real reasons. "I'd encourage you to talk to [specific other VC who might be better fit]." They follow up with an email summarizing their thinking.
 **Internal Discussion:** "The founder has real depth on the problem -- she spent 8 years in healthcare ops before building this. That's an earned secret you can't fake." vs. "The product is clever but I couldn't identify a clear wedge. It feels like they need to land the whole platform at once, and that's really hard at seed." They'd reference their platform: "If we fund this, who from the First Round Network could be an advisor? Does [portfolio company CEO] know this space?"
+
+### Links
+- Website: [firstround.com](https://firstround.com)
+- Twitter/X: [@firstround](https://x.com/firstround)
+- LinkedIn: [First Round Capital](https://linkedin.com/company/first-round-capital)
+- Blog: [First Round Review](https://review.firstround.com)

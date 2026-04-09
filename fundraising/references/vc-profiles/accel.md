@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* "I'd like to go deeper. Can I talk to 3-4 customers, including one that almost churned?" "Let me bring in [sector-expert partner] for a follow-up -- I think you'll have a great conversation." They start asking about round dynamics and timing. They offer to connect you with a portfolio company for a potential partnership or customer reference.
 - *Negative:* "I think you're building something real, but I need to see [specific metric] before I'd be confident. Can we reconnect in Q3?" "I think the timing might be early for this market. Let me explain what I mean..." They're professional and specific in their pass reasoning.
 **Internal Discussion:** "The technical architecture is genuinely differentiated -- they're building at a layer that creates real switching costs. I talked to 4 customers and every one said the same thing: 'We can't rip this out.' That's the signal I look for." vs. "Smart team, good product, but I'm worried about the moat. The architecture isn't sufficiently differentiated from [Competitor], and I think [Big Tech Company] builds this into their platform in 18 months." They'd reference portfolio pattern matching: "This looks like [Portfolio Company X] at the same stage. The product-led motion is similar. The question is whether the market is big enough."
+
+### Links
+- Website: [accel.com](https://www.accel.com)
+- Twitter/X: [@Accel](https://x.com/Accel)
+- LinkedIn: [Accel](https://linkedin.com/company/accel-partners)
+- Blog: [Accel Perspectives](https://www.accel.com/perspectives)

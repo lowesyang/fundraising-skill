@@ -37,3 +37,10 @@ contributed_by: "fundraising-skill"
 - *Positive:* "I'd like to set up a working session with you and [another Sequoia partner who covers an adjacent area]. Can you also share your financial model?" "Let me spend some time with this over the weekend. I want to write up my thinking." They start asking about your cap table and round dynamics. They ask who else you're talking to (they want to win the deal).
 - *Negative:* "I think you're building something interesting, but I'm not convinced on the timing yet. Here's what would change my mind: [specific milestones]." "I want to be transparent -- I don't think we're the right partner for this right now." They give real, specific feedback on what would need to change.
 **Internal Discussion:** "The 'why now' answer is the strongest I've heard in this category. The regulatory shift in [area] creates a structural window that closes in 18 months -- this founder is the only one who sees it clearly." vs. "I like the founder, but I can't get comfortable on timing. This market has had false starts before -- remember [historical example]? The structural driver isn't strong enough yet." They'd reference their prepared-mind work: "We mapped this space 6 months ago. This company fits our thesis on [specific trend]."
+
+### Links
+- Website: [sequoiacap.com](https://www.sequoiacap.com)
+- Twitter/X: [@sequoia](https://x.com/sequoia)
+- LinkedIn: [Sequoia Capital](https://linkedin.com/company/sequoia-capital)
+- YouTube: [Sequoia Capital](https://youtube.com/@sequoiacapital)
+- Blog: [Sequoia Blog](https://www.sequoiacap.com/blog/)

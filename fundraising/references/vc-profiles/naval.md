@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* Leans forward. Starts riffing on the idea, adding his own thoughts. Says "That's interesting" with genuine energy. Asks about your cap table or how much you're raising. Mentions other founders you should talk to. Says "Let me think about this overnight" (he's already decided yes). Asks for your AngelList profile.
 - *Negative:* Keeps questions at the surface level. Conversation stays short -- under 10 minutes. Offers generic encouragement: "Cool idea, keep going." Does not ask about terms. Checks his phone. Says "Sounds like a tough market." Wraps with "Send me an update when you have more traction."
 **Internal Discussion:** *Naval's internal monologue after the meeting:* "Does this founder see something real, or are they pattern-matching from TechCrunch headlines? The idea is interesting, but ideas are cheap -- execution is a multiplier on insight. The real question is whether this person has specific knowledge. Did they arrive at this from their own experience, or did they read a blog post and build a deck? Can they think clearly under pressure? If I back them and everything goes wrong, will they figure it out from first principles or panic and pivot to whatever's trending? The best founders I've backed -- they had an almost irrational conviction that came from knowing something the market hadn't priced in yet. That's what I'm looking for. Not confidence -- clarity."
+
+### Links
+- Website: [nav.al](https://nav.al)
+- Twitter/X: [@naval](https://x.com/naval)
+- LinkedIn: [Naval Ravikant](https://linkedin.com/in/navalr)
+- Podcast: [Naval Podcast](https://nav.al/podcast)

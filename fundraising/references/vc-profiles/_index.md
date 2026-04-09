@@ -25,6 +25,11 @@ A community-maintained collection of detailed VC firm profiles. Each profile inc
 | Naval Ravikant | `naval` | Angel | Pre-seed, Seed | $100K-$500K | [naval.md](naval.md) |
 | Elad Gil | `elad-gil` | Angel | Seed, Series A | $100K-$2M | [elad-gil.md](elad-gil.md) |
 | Jason Calacanis | `calacanis` | Angel | Pre-seed, Seed | $25K-$250K | [calacanis.md](calacanis.md) |
+| Peter Thiel | `peter-thiel` | Angel | Pre-seed, Seed | $100K-$2M | [peter-thiel.md](peter-thiel.md) |
+| Elon Musk | `elon-musk` | Angel | Pre-seed, Seed | $100K-$5M | [elon-musk.md](elon-musk.md) |
+| Ron Conway | `ron-conway` | Angel | Pre-seed, Seed | $25K-$500K | [ron-conway.md](ron-conway.md) |
+| Marc Andreessen | `marc-andreessen` | Angel | Pre-seed, Seed | $100K-$1M | [marc-andreessen.md](marc-andreessen.md) |
+| Reid Hoffman | `reid-hoffman` | Angel | Pre-seed, Seed | $100K-$1M | [reid-hoffman.md](reid-hoffman.md) |
 
 ## Contributing a New VC Profile
 

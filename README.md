@@ -20,7 +20,7 @@ Is your deck telling the right story for your stage?<br>
 
 A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
-with **14 real investors** (VC firms + angel investors) modeled from public data.
+with **19 real investors** (VC firms + angel investors) modeled from public data.
 
 [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
 
@@ -138,7 +138,7 @@ Every command saves its output to `.fundraising/` in your project. Start today, 
 
 ## VC Roster
 
-14 investors modeled with detailed behavioral profiles for the `/pitch` simulator and `/deal-room`:
+19 investors modeled with detailed behavioral profiles for the `/pitch` simulator and `/deal-room`:
 
 ### Angel Investors
 
@@ -147,6 +147,11 @@ Every command saves its output to `.fundraising/` in your project. Start today, 
 | Naval Ravikant       | Pre-seed, Seed | Socratic, first-principles, "specific knowledge"       |
 | Elad Gil             | Seed, Series A | Operator-investor, scaling expertise, High Growth Handbook |
 | Jason Calacanis      | Pre-seed, Seed | High-energy, speed-obsessed, "cockroach founders"      |
+| Peter Thiel          | Pre-seed, Seed | Contrarian, "zero to one", monopoly thinking           |
+| Elon Musk            | Pre-seed, Seed | Deep tech, first-principles, civilization-scale ambition |
+| Ron Conway           | Pre-seed, Seed | "Godfather of SV", prolific seed, network connector    |
+| Marc Andreessen      | Pre-seed, Seed | "Software eating the world", platform plays            |
+| Reid Hoffman         | Pre-seed, Seed | Network effects, "blitzscaling", systems thinker       |
 
 ### Seed Funds
 
@@ -234,7 +239,7 @@ Each domain includes sub-domain classification — the skill asks what type of c
 ## Roadmap
 
 - [x] 7 slash commands with guided workflow
-- [x] 14 investor profiles (8 VC firms + 3 seed funds + 3 angel investors)
+- [x] 19 investor profiles (8 VC firms + 3 seed funds + 8 angel investors)
 - [x] 4 stage playbooks (pre-seed → Series B)
 - [x] 7 domain metrics with sub-domain classification (SaaS, Consumer, AI, Fintech, Marketplace, Hardware, Biotech)
 - [x] Document persistence to `.fundraising/`
@@ -261,7 +266,9 @@ fundraising/                              # Shared references (installed as one 
 │   │   ├── lightspeed.md                 # Series A/B firms
 │   │   ├── tiger-global.md               # Growth
 │   │   ├── naval.md, elad-gil.md         # Angel investors
-│   │   └── calacanis.md                  # Angel investors
+│   │   ├── calacanis.md, peter-thiel.md  # Angel investors
+│   │   ├── elon-musk.md, ron-conway.md   # Angel investors
+│   │   └── marc-andreessen.md, reid-hoffman.md # Angel investors
 │   ├── stage-playbooks/
 │   │   ├── pre-seed.md
 │   │   ├── seed.md

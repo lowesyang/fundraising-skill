@@ -37,3 +37,9 @@ contributed_by: "fundraising-skill"
 - *Positive:* "Let me think about this overnight, but I'm genuinely excited. Can you send me whatever customer conversations you've had?" "I know a couple of founders who dealt with a similar go-to-market challenge -- mind if I intro you regardless of whether we invest?" He starts offering help before the deal is done. If he says "I want to move quickly on this," he means it.
 - *Negative:* "I appreciate you sharing this with me. I'm going to be straight with you -- here's where I'm getting stuck." He gives specific, actionable feedback. "I think this could work, but I'd want to see [concrete milestone] first. Come back to me when you have that." He doesn't ghost -- he tells you where you stand.
 **Internal Discussion:** "She spent four years managing logistics for a healthcare staffing agency before building this. She's not guessing about the problem -- she lived it every day. That's exactly the kind of founder insight that makes pre-seed bets work." vs. "He's smart and the market is real, but I couldn't get a clear answer on who the first customer is. He kept going back to the TAM slide. At pre-seed, I need to believe you know the actual human being who will use this, and I didn't get that." Charles would weigh: "Can I be genuinely helpful here? Is this a founder who will pick up the phone and work through problems with me, or are they looking for a logo on their cap table?"
+
+### Links
+- Website: [precursorvc.com](https://precursorvc.com)
+- Twitter/X: [@chaborkin](https://x.com/chaborkin) (Charles Hudson)
+- LinkedIn: [Precursor Ventures](https://linkedin.com/company/precursor-ventures)
+- Blog: [Charles Hudson's Blog](https://www.charleshudson.net)
