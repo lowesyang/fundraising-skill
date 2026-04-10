@@ -150,6 +150,142 @@ Running multiple strategies in parallel? Create comparison scenarios: `acme-seed
 
 ---
 
+## Example: a seed round, start to finish
+
+A realistic walkthrough. Acme is an AI coding assistant startup, 14 months in, $18K MRR, thinking about raising seed. Here's what working through the skill looks like.
+
+```text
+You:    I'm thinking about raising a seed round. $18K MRR, 22% MoM for 4 months,
+        B2B AI coding assistant, 3-person team.
+
+You:    /before-fundraising
+Claude: [asks: team backgrounds, product stage, why now, runway left]
+
+You:    Co-founder and I are ex-Stripe infra eng, 6 years each. Product
+        launched 8 months ago. 9 months of runway.
+
+Claude: VERDICT: RAISE NOW (with caveats)
+        • Team credentials: GREEN (ex-Stripe infra closes seed checks)
+        • Traction: YELLOW-GREEN ($18K MRR + 22% MoM is PMF signal)
+        • Timing: GREEN (9 months runway — raise before you need it)
+        CAVEAT: Your 22% MoM is 4 months old. Seed investors want 6+.
+        You have 6-8 weeks to either extend the growth streak or start
+        now and use live metrics in the pitch.
+        [saves Readiness Assessment to acme-seed/playbook.md]
+
+You:    /product-metrics
+Claude: [pulls MRR, growth rate, churn, cohort retention, LTV/CAC]
+        SaaS / Developer Tools grading:
+        🟢 MRR growth: 22% MoM (benchmark 15%+)
+        🟢 Gross margin: 78% (benchmark 70%+)
+        🟡 Churn: 4.2% monthly (benchmark <3%)
+        🔴 LTV/CAC: 1.8 (benchmark 3+)
+        LEAD WITH: growth rate. ADDRESS PROACTIVELY: LTV/CAC — you need
+        to frame the payback period story before an investor raises it.
+        [appends Product Metrics section to playbook]
+
+You:    /fundraising-strategy
+Claude: Raise target: $2.5M on $12M post (SAFE, uncapped-with-discount
+        won't fly at your traction — use capped SAFE or priced round).
+        18-month runway gets you to ~$80K MRR with current growth. That's
+        a credible Series A setup.
+        Dilution: ~17%. Use of funds: 2 senior eng hires (55%), GTM
+        experimentation (25%), runway buffer (20%).
+        [appends Fundraising Strategy section to playbook]
+
+You:    /fundraising-stage
+Claude: [builds week-by-week execution plan]
+        Tier 1 (dream targets, 3 VCs): First Round, Felicis, Lux Capital
+        Tier 2 (strong fit, 5 VCs): Floodgate, Precursor, Hustle Fund, ...
+        Tier 3 (warmups, 4 VCs): ...
+        Week 1-2: warm up with Tier 3. Week 3-5: Tier 2. Week 5-6: Tier 1
+        with competitive signals from Tier 2 interest.
+        [appends Execution Plan to playbook]
+
+You:    /pitch-deck
+Claude: Seed-stage structure, 11 slides. Populated with your actual data.
+        [generates slide-by-slide outline with real metrics, team credentials,
+         ICP, pricing, GTM, projections]
+        STRONG: traction slide (22% MoM chart, 78% margin), team slide
+        (ex-Stripe infra is a closer at seed).
+        WEAK: market slide needs bottom-up TAM — you cited $40B dev tools,
+        which every VC has heard. Try 4.5M professional developers ×
+        $200/year realistic ACV = $900M serviceable.
+        GAP: no competition slide. Add one. Cursor/Copilot will come up.
+        [appends Pitch Deck Outline to playbook]
+
+You:    /pitch sequoia
+Claude: [spawns sub-agent with Sequoia profile + your deck outline. Sub-agent
+         has no access to your metrics grades or strategy — only what
+         you actually say in the meeting and what's in the deck.]
+
+        VC: "Why now?"
+You:    We hit a tipping point where LLMs are finally good enough to
+        refactor across files without breaking tests...
+VC:     "Cursor does that today. What's your wedge?"
+You:    [6 more exchanges — you fumble the LTV/CAC question]
+
+Claude: VERDICT: FOLLOW-UP MEETING
+        Composite: 6.4
+        • Problem clarity: 7 — "tipping point" framing worked
+        • Market conviction: 5 — you conceded market to Cursor too fast
+        • Team: 8 — ex-Stripe credentials closed the team concern
+        • Traction: 7 — growth rate landed
+        • Ask: 5 — payback period answer was vague
+        [appends full transcript + feedback to playbook]
+        WHAT TO FIX BEFORE NEXT PITCH: (1) market — own a specific wedge
+        Cursor doesn't serve, (2) payback period — prepare the exact math.
+
+You:    [iterate: update deck, re-read the feedback, refine the wedge story]
+
+You:    /pitch a16z
+Claude: [different sub-agent, different questions, no memory of Sequoia]
+        VERDICT: FOLLOW-UP MEETING (7.1) — market answer landed this time.
+
+You:    /due-diligence
+Claude: Generating DD questions a16z will likely ask:
+        LEGAL: IP assignment for ex-Stripe work? Open-source licenses
+        in your training data?
+        DATA: Can you reconcile MRR across Stripe + HubSpot? Cohort
+        retention by acquisition channel?
+        COMPLIANCE: SOC 2 timeline? GDPR for EU customers?
+        UNIT ECONOMICS: Recalc LTV/CAC with blended CAC including
+        content/organic, not just paid.
+        [grades your current state 🟢🟡🔴, outputs data room checklist]
+        READINESS: 🟡 — 2 gaps to close before the DD call.
+
+You:    /deal-room
+Claude: [loads your Tier 1 + Tier 2 list from the execution plan]
+        Select 4 VCs for the Deal Room:
+        • First Round (warm intro via ex-Stripe colleague)
+        • Felicis
+        • Sequoia ← remembers your prior /pitch meeting
+        • a16z ← remembers your prior /pitch meeting
+
+        Week 1: First Round meeting. Score 7.3. FOLLOW-UP.
+        Week 2: Felicis. "Who else are you talking to?" You mention
+                First Round interest. Score 7.8. FOLLOW-UP.
+        Week 3: Sequoia follow-up. They reference your prior conversation:
+                "Last time you said tipping point, I wasn't sure. What's
+                the data now?" Score 7.5. FOLLOW-UP → TERM SHEET pending.
+        Week 4: a16z. Competitive signal from Sequoia + Felicis works.
+                Score 8.1. TERM SHEET: $3M on $14M post.
+
+        FINAL REPORT:
+        • 1 TERM SHEET (a16z — $3M @ $14M post)
+        • 2 FOLLOW-UPs pending (Sequoia, Felicis)
+        • 1 polite pass (First Round — too early for their current fund)
+        Pitch evolution: your market slide improved 4 → 8 across the
+        4 meetings. LTV/CAC answer went from hand-wave to specific math.
+        Recommendation: run Sequoia and Felicis follow-ups before
+        countering a16z. You likely have 5-7 days of leverage.
+        [writes final report + appends Deal Room summary to playbook]
+```
+
+Total time for the full loop above: 2-4 hours of active work spread over however many days you need. The playbook persists across sessions, so you can stop after `/pitch` on Monday and resume at `/due-diligence` on Friday without losing context.
+
+---
+
 ## VC Roster
 
 41 investors across 5 tiers, available in the `/pitch` simulator and `/deal-room`. The skill filters the roster by stage so you only see relevant options.
