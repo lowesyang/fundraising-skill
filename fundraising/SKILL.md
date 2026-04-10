@@ -624,7 +624,7 @@ meeting — not a generic interview. Each VC should feel distinctly different.
    - "Here's what [VC name] was actually evaluating at each exchange"
    - Score across 5 dimensions (1-10):
      - **Problem clarity** (1=vague, 10=specific, urgent, quantified pain)
-     - **Market conviction** (1=no evidence, 10=bottom-up TAM with clear wedge)
+     - **Market & competition** (1=no evidence or "no real competitors", 10=bottom-up TAM with clear wedge against named competitors)
      - **Team strength** (1=no relevant experience, 10=domain experts with unfair advantage)
      - **Traction evidence** (1=no data, 10=strong growth with cohort analysis)
      - **Ask specificity** (1=no clear ask, 10=specific amount, use of funds, milestones)

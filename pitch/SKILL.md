@@ -77,6 +77,32 @@ represent actual firm views or investment decisions."
    - Any section of the playbook the founder would not send to an investor
    - The founder's background or anything not in the deck or said aloud during the pitch
 
+   **Required competitive probing.** At least one VC turn during the Q&A phase must be a
+   competitive question. The sub-agent should raise this naturally at whatever point is
+   appropriate given the VC's behavioral style. The exact question depends on the category
+   inferred from the founder's pitch:
+
+   - **AI coding assistant** → "How do you compare to Cursor and GitHub Copilot? What
+     specifically do you do that they don't, and why can't they just ship it next quarter?"
+   - **Foundation model** → "Where are you on the frontier vs. GPT-5, Claude, and Gemini?
+     What's your position on cost, context, reasoning, tool use, and safety?"
+   - **AI agent platform** → "Why not just use LangChain / the Anthropic Agent SDK?
+     What's the wedge?"
+   - **Vertical AI SaaS** → "Why won't Salesforce/HubSpot/ServiceNow just ship this feature?
+     And how are you different from [the AI-native entrant]?"
+   - **Dev tools / infra** → "What's your competitive position vs. [incumbent] and the
+     open-source alternative?"
+   - **Consumer** → "Why would users switch from [dominant incumbent]?"
+   - **Fintech** → "Why wouldn't a customer just use Stripe / an existing neobank?"
+   - **Marketplace** → "How do you unlock liquidity when [incumbent] already has both sides?"
+   - **Generic fallback** (category unclear) → "Who do you see as your main competition,
+     and what's your specific moat against them?"
+
+   If the founder names a specific competitor the sub-agent hasn't brought up, the sub-agent
+   should probe that comparison in detail. If the founder evades ("we don't really have
+   competitors"), the sub-agent should push back pointedly — every good VC knows that's a
+   red flag.
+
    **Conversation loop:**
    Each time the founder sends a message, pass [VC profile + cold-start instruction +
    conversation history] to the sub-agent and relay its response as the VC's reply.
@@ -99,7 +125,7 @@ represent actual firm views or investment decisions."
    - "Here's what [VC name] was actually evaluating at each exchange"
    - Score across 5 dimensions (1-10):
      - **Problem clarity** (1=vague, 10=specific, urgent, quantified pain)
-     - **Market conviction** (1=no evidence, 10=bottom-up TAM with clear wedge)
+     - **Market & competition** (1=no evidence or "no real competitors", 10=bottom-up TAM with clear wedge against named competitors and a credible answer to "why won't [incumbent] just build this?")
      - **Team strength** (1=no relevant experience, 10=domain experts with unfair advantage)
      - **Traction evidence** (1=no data, 10=strong growth with cohort analysis)
      - **Ask specificity** (1=no clear ask, 10=specific amount, use of funds, milestones)
@@ -131,7 +157,7 @@ represent actual firm views or investment decisions."
    patterns. Generate 5-8 specific DD questions that this VC would likely ask if they proceed,
    tailored to the startup's domain and stage. For example:
    - If traction was scored low: "Expect requests for cohort retention data (M1/M0, M3/M0 curves)"
-   - If market conviction was weak: "They'll ask for bottom-up TAM with customer-level math"
+   - If market & competition was weak: "They'll ask for a detailed competitive teardown against [named competitors] plus a written answer to 'why won't [incumbent] just build this?'"
    - If team strength was questioned: "Prepare for deep reference checks on technical leadership"
    - If the ask was vague: "They'll want a detailed use-of-funds model with milestone mapping"
    

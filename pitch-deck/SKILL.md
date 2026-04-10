@@ -100,6 +100,28 @@ This command is **Step 4** of the fundraising workflow:
    If team info is missing or thin: ask for each person's relevant background specifically.
    "Strong engineering team" and "serial entrepreneur" do not belong in a deck without evidence.
 
+   **Competitive landscape (required at all stages):**
+   - Who are the 3-5 most relevant competitors, including incumbents and well-funded startups?
+     Be honest — the VC has already heard of them.
+   - For each: what do they do well, what do they do badly, and where do they leave a gap
+     you exploit?
+   - What specific dimension do you win on? (speed, cost, quality, trust, distribution,
+     data, workflow fit, regulatory positioning, etc.)
+   - Category-specific prompts — if the founder hasn't named obvious comparables, ask directly:
+     - **AI coding assistant** → how do you compare to Cursor, GitHub Copilot, Cline, Windsurf?
+     - **Foundation model** → how do you compare to GPT-4/5, Claude, Gemini, Llama, DeepSeek?
+       What's your position on cost, latency, context window, reasoning, tool use, safety?
+     - **AI agent platform / framework** → Anthropic Agent SDK, LangChain, CrewAI, AutoGen
+     - **Vertical AI SaaS** → incumbent SaaS (Salesforce, HubSpot, ServiceNow) + AI-native entrants
+     - **Dev tools / infra** → incumbents in the space + the "good enough" open-source option
+     - **Consumer social** → the dominant incumbent + why users would switch
+     - **Fintech** → both neobanks/incumbents and the "just use Stripe" counterargument
+     - **Marketplace** → both sides' current options and why liquidity shifts
+   - The VC will ask some version of "why won't [incumbent] just build this?" Have an answer.
+
+   If missing or evasive: do not skip. Ask directly. A founder who can't name their competitors
+   either hasn't done the homework (fatal at seed+) or is hiding the comparison (worse).
+
    **From "Fundraising Strategy" section (if run):**
    - Target raise amount, round structure, use-of-funds breakdown, milestones this round proves
 
@@ -134,6 +156,27 @@ This command is **Step 4** of the fundraising workflow:
    they can execute this specific thing? Include domain expertise, prior exits, relevant
    industry relationships, and technical depth. At pre-seed this slide carries the most weight
    in the deck — give it proportionally more space.
+
+   **Competition slide:** required at all stages. Use a comparison table, not a 2×2 matrix
+   (2×2 positioning charts are widely seen as a cop-out). List the 3-5 real competitors and
+   score each across 4-6 dimensions that matter for your category. Be honest where competitors
+   win — selective framing looks dishonest and the VC will catch it.
+
+   Pick dimensions the founder actually wins on plus 1-2 the founder loses on (for credibility).
+   Example dimension sets by category:
+   - **AI coding assistant** (vs. Cursor, Copilot, Cline, Windsurf): multi-file reasoning
+     accuracy, codebase context size, latency, enterprise deployment, on-prem support, price
+   - **Foundation model** (vs. GPT, Claude, Gemini, Llama): benchmark scores (name the
+     benchmarks), context window, tool use reliability, cost per million tokens, latency,
+     self-hostable
+   - **Vertical AI SaaS** (vs. incumbent SaaS + AI-native startups): domain accuracy,
+     workflow integration, switching cost, data ownership, pricing
+   - **Dev infra** (vs. incumbent + open source): performance, operational cost,
+     debugging/observability, managed vs. self-host, ecosystem
+
+   End the slide with one sentence on why you win overall — the specific wedge nobody else
+   can copy quickly, and why. "We have a better UX" is not a wedge. "We built the only tool
+   that indexes monorepos over 10M lines in under 60s" is.
 
    **Ask slide:** populate with the exact amount, round structure (SAFE/priced), use-of-funds
    breakdown by category, and the specific milestones that spending is meant to prove.
@@ -172,7 +215,7 @@ This command is **Step 4** of the fundraising workflow:
 
 **Slide count:** 8–10
 
-**Narrative arc:** Problem → Target Customer → Solution/Product → Market → Why Now → Team → Ask
+**Narrative arc:** Problem → Target Customer → Solution/Product → Market → Why Now → Competition → Team → Ask
 
 **Slide breakdown:**
 
@@ -183,11 +226,12 @@ This command is **Step 4** of the fundraising workflow:
 | Solution / Product | What the product does, the core mechanism, what makes it different | A prototype or early demo screenshot > a diagram |
 | Market | TAM/SAM with bottom-up sizing; why this market, why now | Cite a structural shift (regulation, technology, behavior) |
 | Why Now | What changed in the last 2–3 years that makes this the right time | Missing this slide is a common pre-seed mistake |
+| Competition | 3-5 named competitors, honest dimension-by-dimension comparison, your specific wedge | See Competition slide guidance in Step 5 |
 | Team | Each founder's specific credential relevant to this problem | See Team note below |
 | Ask | Amount, structure (SAFE/convertible), use-of-funds, first milestone | |
 
-**Required:** Problem, Target Customer, Team, Ask
-**Optional:** Competition, Advisors, Product demo
+**Required:** Problem, Target Customer, Competition, Team, Ask
+**Optional:** Advisors, Product demo
 
 **Business model:** One sentence on the intended pricing model is sufficient ("subscription, $X/seat/month"). Investors don't expect a proven model at pre-seed, but no mention of monetization signals the founder hasn't thought about it.
 
@@ -205,7 +249,7 @@ This command is **Step 4** of the fundraising workflow:
 
 **Slide count:** 10–12
 
-**Narrative arc:** Problem → Target Customer → Solution/Product → Market → Traction → Business Model → GTM → Team → Ask
+**Narrative arc:** Problem → Target Customer → Solution/Product → Market → Traction → Business Model → GTM → Competition → Team → Ask
 
 **Slide breakdown:**
 
@@ -218,11 +262,12 @@ This command is **Step 4** of the fundraising workflow:
 | Traction | Growth chart (MoM), active users/ARR, retention cohort if available | See Traction note below |
 | Business Model | Pricing model, current price point, ACV or ARPU, gross margin if known | Show the unit; don't just name the model |
 | GTM | Primary acquisition channel(s), CAC directionally, what's working | Even "founder-led sales" is a valid GTM if it's honest |
+| Competition | 3-5 named competitors, dimension-by-dimension comparison, your wedge | See Competition slide guidance in Step 5 |
 | Team | Credentials + what they've built/sold/operated | |
 | Ask | Amount, structure, use-of-funds, 18-month milestones | |
 
-**Required:** Problem, Target Customer, Traction, Business Model, Team, Ask
-**Optional:** Competition, Why Now, Revenue projection (directional 12-month)
+**Required:** Problem, Target Customer, Traction, Business Model, Competition, Team, Ask
+**Optional:** Why Now, Revenue projection (directional 12-month)
 
 **Revenue projections:** A directional 12-month revenue target with one or two key assumptions is appropriate at seed if the business already has revenue. Present it as a scenario ("at current growth rate and planned AE hire, we expect $X ARR by [date]"), not a precision forecast.
 
@@ -258,7 +303,7 @@ This command is **Step 4** of the fundraising workflow:
 | Revenue Projections | 36-month revenue forecast with key assumptions visible | |
 | Ask | Amount, structure, use-of-funds by category, milestones this round proves | |
 
-**Required:** Traction (growth + retention cohorts), Unit Economics, GTM, Revenue Projections (36-month), Team, Ask
+**Required:** Traction (growth + retention cohorts), Unit Economics, GTM, Competition, Revenue Projections (36-month), Team, Ask
 **Optional:** Product roadmap, Customer case study
 
 **Revenue projections note:** Show a 36-month forecast with 3–5 key assumptions (e.g., AE hiring plan, quota attainment %, ACV target, churn assumption). Investors don't expect precision — they want to see if you understand the levers of your business. A hockey-stick with no assumptions is worse than a conservative model with clear logic.
