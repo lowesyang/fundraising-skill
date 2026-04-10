@@ -31,7 +31,8 @@ This command is **Step 3** (optional) of the fundraising workflow:
    (format in `fundraising/SKILL.md`). If multiple playbooks, ask which to use.
 
 2. **Use context from playbook** (stage, strategy, target amount, structure).
-   If not available, ask for the essentials.
+   If not available, collect conversationally per the Interaction Rules in `fundraising/SKILL.md` —
+   one question at a time: stage → target raise amount → round structure → target close timeline.
 
 3. **Load the stage playbook** from `../fundraising/references/stage-playbooks/`.
 

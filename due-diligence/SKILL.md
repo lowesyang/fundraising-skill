@@ -133,13 +133,26 @@ This command is **Step 6** of the fundraising workflow:
 
 ### Phase 3 — Interactive Q&A
 
-6. **Present questions category by category.** For each category:
-   - Show the questions
-   - Let the founder respond (answer, "not ready", or "skip")
-   - Grade each response:
-     - 🟢 **Ready** — answer is complete, data exists, document available
-     - 🟡 **Partial** — answer exists but incomplete, needs more detail or documentation
-     - 🔴 **Not ready** — no answer, no data, or significant gap
+6. **Walk through questions category by category, one question at a time.**
+
+   Interaction rule (see `fundraising/SKILL.md`): do not dump all 4+ questions in a category
+   at once. For each category:
+
+   1. Briefly announce the category ("Now: data integrity and metrics.")
+   2. Ask the founder ONE question from that category
+   3. Wait for the answer ("yes, we have M1-M6 cohorts in Looker" / "partial, only M1-M3"
+      / "not ready")
+   4. Grade silently and move to the next question in the category
+   5. When the category is done, give a short summary of that category's grade before moving
+      to the next category
+
+   Grading:
+   - 🟢 **Ready** — answer is complete, data exists, document available
+   - 🟡 **Partial** — answer exists but incomplete, needs more detail or documentation
+   - 🔴 **Not ready** — no answer, no data, or significant gap
+
+   If the founder says "skip this category" or "I already covered this in [prior command]",
+   respect that and move on. The goal is a diagnostic conversation, not an interrogation.
 
 7. **Flag deal-blocking gaps immediately.** If any 🔴 item is in Category E (compliance) or
    Category F (legal/IP), warn: "This is a potential deal-blocker. Most VCs will pause DD
