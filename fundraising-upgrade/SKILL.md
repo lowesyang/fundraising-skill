@@ -18,7 +18,7 @@ Upgrades the fundraising skill to the latest release from GitHub.
 Run the update check script to compare local vs remote version:
 
 ```bash
-_UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check 2>/dev/null || echo "" )
+_UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check --force 2>/dev/null || echo "" )
 ```
 
 Parse the output:

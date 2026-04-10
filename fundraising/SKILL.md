@@ -57,14 +57,21 @@ Then proceed to the requested command.
 
 ## Version Check
 
-Before starting any command, silently run the update check:
+**Every command must run this check before doing anything else.** This is how users find
+out about new releases. Do not skip it.
 
 ```bash
 _UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check 2>/dev/null || echo "" )
 ```
 
-- If output contains `UPGRADE_AVAILABLE <old> <new>`:
-  Ask the user via AskUserQuestion before proceeding:
+This is a **passive** check: it uses a 30-minute cache to avoid hitting GitHub on every
+single command invocation, so a newly-published release is discovered within 30 minutes
+at most. For explicit user commands like `/fundraising-upgrade`, pass `--force` to bypass
+the cache entirely and get a real-time answer.
+
+Parse the output:
+
+- **`UPGRADE_AVAILABLE <old> <new>`** — Ask the user via AskUserQuestion before proceeding:
   > fundraising-skill v{new} is available (you have v{old}).
   >
   > 1. **Upgrade now**
@@ -76,12 +83,14 @@ _UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check 2>/dev/null ||
   - Option 3: Write a skip marker (`touch ~/.fundraising-skill/skip-session`), continue.
     The script won't ask again for 4 hours.
 
-- If output contains `AUTO_UPGRADE <old> <new>`:
-  User previously chose "Enable auto-upgrade." Skip the prompt. Silently run the upgrade,
-  then continue with the original command.
+- **`AUTO_UPGRADE <old> <new>`** — User previously chose "Enable auto-upgrade." Skip the
+  prompt. Silently run the upgrade, then continue with the original command.
 
-- If output contains `JUST_UPGRADED`: show the "What's New" summary from CHANGELOG.md.
-- If empty or error: skip silently. Never block the user's command for an update check.
+- **`JUST_UPGRADED <old> <new>`** — User just finished an upgrade. Show the "What's New"
+  summary from `CHANGELOG.md` for the new version.
+
+- **Empty or error** — Skip silently. Never block the user's command for a failed update
+  check. Common reasons: network offline, GitHub rate limit, cache hit with UP_TO_DATE.
 
 ## Interaction Rules (apply to every command)
 
