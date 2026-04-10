@@ -35,6 +35,13 @@ This command is **Step 4** of the fundraising workflow:
    Pull the following from the playbook. For each item not found, ask the founder directly
    before proceeding — the deck cannot be built without this information.
 
+   **Follow the Interaction Rules in `fundraising/SKILL.md`: ask one question at a time.**
+   Do not paste the whole section list below into a single message. Walk through the sections
+   in order, and for each section ask the founder about any missing fields conversationally —
+   one question per turn, waiting for the answer before moving on. If the playbook already
+   has most of a section, skip to the missing bits. The goal is a back-and-forth data
+   collection, not a 20-question form dump.
+
    **Problem & Product (required at all stages):**
    - What specific pain does this solve? Be concrete: who feels it, how often, and what's the
      current workaround? A vague "inefficiency in the market" is not a pain point.

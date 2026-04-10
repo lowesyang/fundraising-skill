@@ -48,7 +48,8 @@ represent actual firm views or investment decisions."
    the Deal Room."
 
 2. **Use context from playbook** if available (startup description, stage, deck outline, strategy).
-   Otherwise ask: describe your startup in 2-3 sentences, your current stage, and target raise amount.
+   If missing, collect it conversationally per the Interaction Rules in `fundraising/SKILL.md` —
+   ask stage first, then description, then raise target. One question at a time.
 
 3. **VC Selection** — present the stage-filtered VC roster via AskUserQuestion and ask the
    founder to pick **3-5 VCs** for their fundraising process:

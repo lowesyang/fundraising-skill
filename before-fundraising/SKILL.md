@@ -70,43 +70,46 @@ This command is **Step 0** of the fundraising workflow:
    - **Multiple playbooks found (scenario comparison):** list them (format in `fundraising/SKILL.md`)
      and ask which to use; then apply options 1-4 to the selected scenario.
 
-2. **Gather stage** — first ask a single question:
-   - What stage are you at? (show user-facing labels from Stage Taxonomy)
+**Interaction rule for steps 2-4: ask ONE question per turn.** Do not dump a form or a numbered
+list of 5+ questions at the founder in a single message. For each field, ask the single question,
+wait for the answer, acknowledge briefly, and move to the next. This is a conversation, not a
+survey. The only exception is tightly-related pairs that share an answer (e.g., "what's your
+burn and runway?") — those can go together. Skip any field that was already answered by prior
+conversation context, playbook content, or an earlier turn.
 
-3. **Gather project profile** — once the stage is known, collect the project's basic identity.
-   Adapt the required fields to the stage so early founders aren't burdened with questions
-   that don't apply yet, while later-stage founders provide the detail investors expect.
+2. **Ask for stage** — a single question:
+   "What stage are you at?" (show user-facing labels from Stage Taxonomy as options via
+   AskUserQuestion)
 
-   **All stages (required):**
-   | Field | Description | Example |
-   |-------|-------------|---------|
-   | Company / project name | Working name or registered name | "Acme Monitor" |
-   | One-line description | What does it do, for whom? | "API uptime monitoring for DevOps teams" |
-   | Domain / industry | SaaS, Consumer, AI/ML, Fintech, Marketplace, Hardware, Biotech, Other | "B2B SaaS" |
-   | Problem statement | What pain are you solving? 1-2 sentences. | "DevOps teams waste hours debugging API outages because existing tools lack real-time root-cause analysis." |
-   | Target customer | Who pays / who uses? | "Mid-market engineering teams (50-500 employees)" |
+3. **Gather project profile** — one field at a time. Adapt which fields you ask based on the
+   stage (early-stage founders get a shorter list; later-stage founders provide the detail
+   investors expect). For each field below, ask the question, wait for the answer, then move on.
+   Skip any field you can already infer from context.
 
-   **Seed and above — add:**
-   | Field | Description |
-   |-------|-------------|
-   | Team size & key roles | Headcount and whether you have technical, product, and GTM leads |
-   | Geography / market | Primary market region |
+   **All stages — ask in this order:**
+   1. Company or project name
+   2. One-line description: "What does it do, and for whom?"
+   3. Domain: "What domain? SaaS / Consumer / AI/ML / Fintech / Marketplace / Hardware / Biotech / Other"
+   4. Problem: "What specific pain are you solving? 1-2 sentences."
+   5. Target customer: "Who pays, and who uses it?"
 
-   **Series A and above — add:**
-   | Field | Description |
-   |-------|-------------|
-   | Legal entity & incorporation | Where incorporated, entity type |
-   | Key competitors | 2-3 closest competitors by name |
+   **Seed and above — also ask:**
+   6. Team: "How many people on the team, and who leads eng, product, and GTM?"
+   7. Geography: "What's your primary market?"
 
-   Present these as a simple form the founder fills in. Do NOT proceed until the required fields
-   are answered — the assessment needs this context to be useful. If any required field is blank
-   or too vague (e.g., "a tech company"), ask the founder to be more specific.
+   **Series A and above — also ask:**
+   8. Legal entity: "Where are you incorporated, and what type of entity?"
+   9. Competitors: "Who are your 2-3 closest competitors?"
 
-4. **Gather fundraising context** — after the profile is complete, ask:
-   - Have you raised before? If so, what round, how much, from whom?
-   - What's your total funding raised to date?
-   - Who are your current investors (if any)?
-   - Has your product launched? Do you have real users?
+   If any answer is too vague ("a tech company", "SMBs"), ask one clarifying follow-up before
+   moving to the next field. Do not proceed to step 4 until all required fields for this stage
+   have been answered with real specifics.
+
+4. **Gather fundraising context** — still one question at a time.
+   1. "Have you raised before? If yes, what round(s), how much, from whom, and when?"
+      (this one can be answered in a single reply since it's tightly related)
+   2. "What's your current monthly burn, and how much runway do you have left?"
+   3. "Has your product launched? Do you have real users today?"
 
 5. **Branch based on product launch status:**
 

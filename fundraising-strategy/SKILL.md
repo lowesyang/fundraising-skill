@@ -27,7 +27,8 @@ This command is **Step 2** of the fundraising workflow:
    welcome back greeting (format in `fundraising/SKILL.md`). If multiple playbooks, ask which to use.
 
 2. **Use context from playbook** if available (stage, domain, metrics, prior verdicts).
-   Otherwise ask: current stage, burn rate, runway, and growth targets.
+   If missing, collect conversationally per the Interaction Rules in `fundraising/SKILL.md` —
+   one question at a time: stage → burn rate → runway → growth targets.
 
 3. **Evaluate three strategic dimensions:**
 

@@ -38,7 +38,8 @@ represent actual firm views or investment decisions."
    If multiple playbooks, ask which to use.
 
 2. **Use context from playbook** if available (startup description, stage, deck outline).
-   Otherwise ask: describe your startup in 2-3 sentences, and your current stage.
+   If missing, collect it conversationally per the Interaction Rules in `fundraising/SKILL.md` —
+   ask stage first, then a brief startup description. One question at a time.
 
 3. **Present VC selection** via AskUserQuestion, filtered by stage:
    - Pre-seed/Seed: YC, First Round, Floodgate, Precursor, Hustle Fund, Lux Capital, Radical Ventures, 500 Global, Felicis + Angels (Naval, Elad Gil, Calacanis, Peter Thiel, Elon Musk, Ron Conway, Marc Andreessen, Reid Hoffman)

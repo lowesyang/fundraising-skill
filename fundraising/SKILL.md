@@ -83,6 +83,32 @@ _UPD=$( ~/.claude/skills/fundraising/bin/fundraising-update-check 2>/dev/null ||
 - If output contains `JUST_UPGRADED`: show the "What's New" summary from CHANGELOG.md.
 - If empty or error: skip silently. Never block the user's command for an update check.
 
+## Interaction Rules (apply to every command)
+
+**Ask one question at a time.** Do not dump a numbered form or a list of 5+ questions at the
+founder in a single message. For each piece of information you need, ask the single question,
+wait for the answer, acknowledge briefly, then ask the next one. Fundraising prep is a
+conversation, not a survey.
+
+- Tightly-related pairs that share one answer may be combined (e.g., "what's your burn and
+  runway?", "what round and when?"). Keep these rare — if in doubt, split.
+- Skip any field already answered by prior conversation context, the playbook, or earlier
+  turns in the current session. Never re-ask for data you already have.
+- For multi-step data collection (readiness profile, metrics, competitors, team, etc.),
+  progress through the fields conversationally. Brief acknowledgments ("Got it.", "OK.") are
+  fine but don't summarize what the user just said back to them.
+- Use `AskUserQuestion` when there's a short list of discrete options (stage, domain, round
+  type, VC selection). Use a plain question for open-ended answers.
+- If a founder's answer is too vague ("a tech company", "SMBs", "growing fast"), ask one
+  clarifying follow-up before moving on. Don't stack clarifications.
+- Long questionnaires (e.g., 15+ metric questions in `/product-metrics`) should be broken
+  into logical chunks of 3-5 related questions, each chunk asked conversationally, not dumped
+  as one form.
+
+The exception: the final verdict/output of each command IS a long structured document.
+That's fine — structured output is good when you're delivering results. The rule applies
+to data collection, not to the assessment itself.
+
 ## Stage Taxonomy
 
 All commands use this single taxonomy:
