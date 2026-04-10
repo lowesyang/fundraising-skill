@@ -22,7 +22,7 @@ A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
 with **41 real investors** (VC firms, angel investors, and strategic/corporate investors) modeled from public data.
 
-[Who It's For](#who-needs-this-skill) · [Why Use This](#why-you-should-use-this) · [vs. FA](#how-this-differs-from-a-financial-advisor-fa) · [Install](#install) · [Commands](#commands) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster)
+[Who It's For](#who-needs-this-skill) · [Why Use This](#why-you-should-use-this-skill) · [vs. FA](#how-this-differs-from-a-financial-advisor-fa) · [Install](#install) · [Commands](#commands) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster)
 
 </div>
 
@@ -39,7 +39,7 @@ with **41 real investors** (VC firms, angel investors, and strategic/corporate i
 
 ---
 
-## Why You Should Use This
+## Why You Should Use This Skill
 
 A seed round takes 3-6 months. Series A takes 4-9. You'll have 40+ investor conversations. The clock runs against your bank account the whole time, and most founders lose weeks to avoidable mistakes: pitching too early, sending a generic deck to every VC, fumbling predictable questions, scrambling for a data room the moment someone says "we're interested."
 
