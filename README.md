@@ -22,9 +22,29 @@ A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
 with **41 real investors** (VC firms, angel investors, and strategic/corporate investors) modeled from public data.
 
-[Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
+[Why It's Hard](#why-fundraising-is-hard) · [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
 
 </div>
+
+---
+
+## Why Fundraising Is Hard
+
+A seed round takes most founders 3-6 months. A Series A takes 4-9. The clock runs against your bank account the entire time. You'll have 40+ investor conversations. Most of them will be polite and end in silence. A few will turn into real meetings. One or two, if you're lucky, will become term sheets.
+
+Along the way, a lot goes wrong. Not because founders are bad at their companies, but because fundraising is a different job than building. Most common failure modes:
+
+- **Raising too early.** Walking in with a deck before the product has real users, burning weeks of precious network goodwill on pitches that were always going to be "too early." Every VC you talk to before you're ready is one you can't re-approach when you are.
+- **Wrong metrics, wrong stage.** Presenting Series A numbers at a seed pitch, or vice versa. VCs silently filter you out and move on.
+- **Pitching the same deck to everyone.** a16z cares about a different story than Benchmark. Sequoia opens every meeting with "why now?" YC wants the number on slide one. A generic deck underperforms a tailored one in every direction.
+- **Vague answers to predictable questions.** "Why now?" "What's your moat?" "Who else are you talking to?" "What's your CAC payback?" Every VC asks these. Fumbling any of them signals you haven't done the work.
+- **No preparation for due diligence.** The founder's reaction when a VC says "we're interested, can you send over your data room?" — scramble, panic, two-week delay, momentum lost.
+- **Running a linear process.** Meeting VCs one at a time with no competitive pressure. The best outcomes come from creating urgency, and that requires running multiple conversations in parallel with deliberate sequencing.
+- **Underestimating how much of this is practice.** Founders rehearse their pitch in their head and assume that counts. It doesn't. The only way to get good is to actually pitch — many times, to different personalities, under real pressure, with real feedback.
+
+The founders who raise well aren't smarter. They prepare more. They know what they're walking into, they've rehearsed the hard questions out loud, and they've built a real process instead of hoping for the best. This skill gives you the scaffolding to do that work without a fundraising mentor holding your hand.
+
+**Do the work before the meetings. Walk into every pitch knowing exactly what you're going to say and what they're going to ask.**
 
 ---
 
