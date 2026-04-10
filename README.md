@@ -22,49 +22,32 @@ A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
 with **41 real investors** (VC firms, angel investors, and strategic/corporate investors) modeled from public data.
 
-[Why It's Hard](#why-fundraising-is-hard) · [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
+[Why Use This](#why-you-should-use-this) · [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
 
 </div>
 
 ---
 
-## Why Fundraising Is Hard
+## Why You Should Use This
 
-A seed round takes most founders 3-6 months. A Series A takes 4-9. The clock runs against your bank account the entire time. You'll have 40+ investor conversations. Most of them will be polite and end in silence. A few will turn into real meetings. One or two, if you're lucky, will become term sheets.
+Raising a seed round takes 3-6 months. Series A takes 4-9. You'll have 40+ investor conversations. Most end in polite silence. One or two, if you're lucky, become term sheets. The clock runs against your bank account the entire time.
 
-Along the way, a lot goes wrong. Not because founders are bad at their companies, but because fundraising is a different job than building. Most common failure modes:
+Most founders lose weeks to avoidable mistakes:
 
-- **Raising too early.** Walking in with a deck before the product has real users, burning weeks of precious network goodwill on pitches that were always going to be "too early." Every VC you talk to before you're ready is one you can't re-approach when you are.
-- **Wrong metrics, wrong stage.** Presenting Series A numbers at a seed pitch, or vice versa. VCs silently filter you out and move on.
-- **Pitching the same deck to everyone.** a16z cares about a different story than Benchmark. Sequoia opens every meeting with "why now?" YC wants the number on slide one. A generic deck underperforms a tailored one in every direction.
-- **Vague answers to predictable questions.** "Why now?" "What's your moat?" "Who else are you talking to?" "What's your CAC payback?" Every VC asks these. Fumbling any of them signals you haven't done the work.
-- **No preparation for due diligence.** The founder's reaction when a VC says "we're interested, can you send over your data room?" — scramble, panic, two-week delay, momentum lost.
-- **Running a linear process.** Meeting VCs one at a time with no competitive pressure. The best outcomes come from creating urgency, and that requires running multiple conversations in parallel with deliberate sequencing.
-- **Underestimating how much of this is practice.** Founders rehearse their pitch in their head and assume that counts. It doesn't. The only way to get good is to actually pitch — many times, to different personalities, under real pressure, with real feedback.
+- Raising before the product has real users, burning network goodwill on meetings that were always going to be "too early"
+- Pitching the same deck to every VC, when a16z, Sequoia, and Benchmark each need a different story
+- Fumbling predictable questions — "why now?", "what's your moat?", "what's your CAC payback?" — because rehearsing in your head isn't the same as answering out loud
+- Scrambling for a data room the moment a VC says "we're interested"
+- Running a linear process with no competitive pressure
 
-The founders who raise well aren't smarter. They prepare more. They know what they're walking into, they've rehearsed the hard questions out loud, and they've built a real process instead of hoping for the best. This skill gives you the scaffolding to do that work without a fundraising mentor holding your hand.
+The founders who raise well aren't smarter. They prepare more. This skill gives you the scaffolding to do that work without a fundraising mentor holding your hand:
 
-**Do the work before the meetings. Walk into every pitch knowing exactly what you're going to say and what they're going to ask.**
+1. **Honest readiness check.** `/before-fundraising` tells you whether to raise now or ship your MVP first. Saves you from wasting months chasing money you don't need yet.
+2. **Practice pitching to real VCs.** 41 investors with real behavioral profiles. Pitching a16z feels nothing like pitching Benchmark. Fumble the questions in simulation instead of in the room.
+3. **One skill, every stage.** From pre-seed prototype to Series C+. Metrics, VCs, deck structure, and the story you tell all adapt to where you are.
+4. **A living playbook that builds as you go.** Every command appends to `.fundraising/{company}-{stage}/playbook.md` — company profile, metrics, strategy, pitch feedback, DD readiness, deal room results. One document, the whole story. Start today, pick up next week.
 
----
-
-## What Makes This Different
-
-**Fundraising should be as simple as cooking. Follow the recipe, one step at a time.**
-
-You wouldn't walk into a Michelin-star kitchen without a recipe. So why walk into a VC meeting without preparation? This skill breaks fundraising into 8 clear steps, like a recipe card. You don't need to be a "fundraising expert." Just follow the workflow.
-
-**Today, your AI helps you prepare. Tomorrow, your agent goes fundraising for you.**
-
-We built this for **founders who'd rather be building**. Indie hackers, solo devs, first-time founders, technical teams who know their product inside out but haven't memorized the VC playbook. You focus on building something people want. We handle the fundraising prep.
-
-1. **Honest advisor, hard questions first.** "Should you even be raising right now? Or should you ship your MVP first?" A good advisor saves you from wasting months chasing money you don't need yet.
-
-2. **Practice pitching to real VCs.** Each firm has its actual investment thesis, its partners' real behavioral styles, their known portfolio context. Pitching a16z feels nothing like pitching Benchmark. You'll know the difference before you walk in the room.
-
-3. **One skill, every stage.** Whether you're a solo dev with a prototype or a 20-person team prepping Series B, the metrics that matter, the VCs who care, the story you should tell all change. This skill adapts to where you actually are.
-
-4. **Your fundraising playbook builds as you go.** Each step appends to a single living document in `.fundraising/{company}-{stage}/playbook.md` — company profile, metrics, strategy, pitch feedback, strategy changes, DD readiness, deal room results. One document, the whole story. Come back tomorrow, next week, next month and pick up exactly where you left off.
+**Do the work before the meetings. Walk into every pitch knowing what you're going to say and what they're going to ask.**
 
 ---
 
