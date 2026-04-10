@@ -22,9 +22,22 @@ A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
 with **41 real investors** (VC firms, angel investors, and strategic/corporate investors) modeled from public data.
 
-[Why Use This](#why-you-should-use-this) · [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
+[Who It's For](#who-needs-this-skill) · [Why Use This](#why-you-should-use-this) · [Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
 
 </div>
+
+---
+
+## Who Needs This Skill
+
+- **First-time founders** who've never run a fundraise and don't have a mentor on speed dial
+- **Technical founders** who know their product cold but freeze on "why now?" and "what's your moat?"
+- **Solo founders and small teams** without a CFO, fundraising advisor, or ex-VC on the cap table
+- **Founders between rounds** who raised once on vibes and need to do it properly this time
+- **International founders** pitching US investors for the first time and unsure what the bar looks like
+- **Anyone preparing for a specific VC** and wondering how a16z's pitch differs from Sequoia's
+
+If you have a seasoned fundraising advisor running your round, you probably don't need this. If you don't, this skill is the closest thing to having one.
 
 ---
 
