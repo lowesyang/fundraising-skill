@@ -22,7 +22,7 @@ A full-lifecycle fundraising operating system for Claude Code —<br>
 from readiness assessment to hyper-realistic VC pitch simulations<br>
 with **41 real investors** (VC firms, angel investors, and strategic/corporate investors) modeled from public data.
 
-[Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
+[Install](#install) · [Commands](#commands) · [Workflow](#workflow) · [Example](#example-a-seed-round-start-to-finish) · [VC Roster](#vc-roster) · [How It Works](#how-it-works)
 
 </div>
 
