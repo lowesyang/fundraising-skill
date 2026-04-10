@@ -39,6 +39,23 @@ with **41 real investors** (VC firms, angel investors, and strategic/corporate i
 
 If you have a seasoned fundraising advisor running your round, you probably don't need this. If you don't, this skill is the closest thing to having one.
 
+### How This Differs From a Financial Advisor (FA)
+
+Financial advisors and placement agents are useful, especially at later stages. But they solve a different problem:
+
+| | Financial Advisor (FA) | This Skill |
+|---|---|---|
+| **What you pay** | 2-6% of the raise + monthly retainer + equity | Free |
+| **Best fit** | Series B+ and specialty rounds (healthcare, deep tech, infra) | Pre-seed through growth |
+| **Core value** | Investor introductions from their existing network | Preparation, practice, and process |
+| **Who runs the pitch** | You, after they book meetings | You, after rehearsing against 41 simulated VCs |
+| **Timeline** | Weeks to engage and brief them | Minutes to start |
+| **Feedback loop** | A handful of post-meeting debriefs | Unlimited pitch reps with per-VC scored debriefs |
+| **DD prep** | Often a separate workstream or not included | Built in (`/due-diligence`) |
+| **What they don't do** | Grade your metrics, rehearse your answers, build your deck | Make warm introductions |
+
+Use an FA when you need access to an investor network you don't have and can justify the fees. Use this skill to show up to those meetings (or your own) prepared enough that the FA has something to sell. They're complementary — an FA opens doors, this skill makes sure you don't waste the meetings on the other side of them.
+
 ---
 
 ## Why You Should Use This
