@@ -82,21 +82,72 @@ represent actual firm views or investment decisions."
    appropriate given the VC's behavioral style. The exact question depends on the category
    inferred from the founder's pitch:
 
-   - **AI coding assistant** → "How do you compare to Cursor and GitHub Copilot? What
-     specifically do you do that they don't, and why can't they just ship it next quarter?"
-   - **Foundation model** → "Where are you on the frontier vs. GPT-5, Claude, and Gemini?
-     What's your position on cost, context, reasoning, tool use, and safety?"
-   - **AI agent platform** → "Why not just use LangChain / the Anthropic Agent SDK?
+   **AI infra & platform**
+   - **Foundation model** → "Where are you on the frontier vs. GPT-5, Claude, Gemini, and
+     DeepSeek? What's your position on cost per million tokens, context, reasoning, and
+     tool use? Do you beat them on a specific benchmark I can verify?"
+   - **LLM inference / serving** → "How do you compare to Together, Fireworks, Groq, and
+     Modal on latency, throughput, and price? What's your wedge when hyperscalers are
+     racing to commoditize inference?"
+   - **Vector DB / retrieval** → "Why should a customer pick you over Pinecone, Weaviate,
+     Qdrant, or just shoving embeddings into Postgres with pgvector?"
+   - **LLM observability / eval** → "What's your story vs. LangSmith, Braintrust, Arize,
+     and Weights & Biases? What do you do that the default tool in a customer's stack doesn't?"
+   - **AI agent framework** → "Why not just use LangGraph or the Anthropic Agent SDK?
      What's the wedge?"
-   - **Vertical AI SaaS** → "Why won't Salesforce/HubSpot/ServiceNow just ship this feature?
-     And how are you different from [the AI-native entrant]?"
+   - **AI chips / hardware** → "What's your story vs. NVIDIA, Groq, and Cerebras?
+     On what workload do you win, and what's the customer switching cost?"
+
+   **AI applications (horizontal)**
+   - **AI coding assistant** → "How do you compare to Cursor, GitHub Copilot, Windsurf,
+     and Devin? What do you do that they don't, and why can't they just ship it next quarter?"
+   - **AI search** → "Why would a user pick you over Perplexity or ChatGPT Search?"
+   - **AI browser** → "What's your position vs. Arc/Dia, Perplexity Comet, and Chrome
+     plus extensions?"
+   - **AI notetaker / meeting assistant** → "How do you differentiate from Otter, Fireflies,
+     Granola, and Read AI? Why won't Zoom/Google Meet just ship this natively?"
+   - **AI inbox / email** → "What's your wedge against Superhuman, Shortwave, and now
+     Gmail with Gemini?"
+   - **Voice AI** → "How do you compare to ElevenLabs, Deepgram, Cartesia, and Vapi on
+     quality, latency, and cost?"
+   - **Image / video generation** → "How do you compare to Midjourney, Flux, Runway, Pika,
+     and Kling? What's your specific quality or workflow wedge?"
+
+   **AI applications (vertical)**
+   - **AI customer support** → "How are you different from Intercom Fin, Ada, Decagon,
+     and Sierra? What's your win rate in head-to-head bakeoffs?"
+   - **AI sales / revenue intelligence** → "Why should a customer pick you over Gong,
+     Clari, Outreach, or 11x?"
+   - **AI legal** → "How do you compare to Harvey, Spellbook, EvenUp, and Hebbia?
+     What's your specific wedge — a practice area, a workflow, a deployment model?"
+   - **AI medical scribe** → "Why you and not Abridge, Suki, Nabla, or Heidi? What
+     clinical specialty or EHR integration do you win on?"
+   - **AI finance / spend management** → "What's your wedge vs. Ramp, Brex, and Pilot?"
+   - **AI HR / recruiting** → "How are you different from Mercor, Paradox, or Eightfold?"
+   - **AI drug discovery** → "What's your position vs. Recursion, Isomorphic Labs, Insitro,
+     and Xaira? What specifically have you shown that they haven't?"
+   - **Vertical AI SaaS (generic)** → "Why won't the incumbent SaaS vendor in this space
+     (Salesforce, HubSpot, ServiceNow, etc.) just ship this feature? And how are you
+     different from [the named AI-native entrant]?"
+
+   **Deep tech & frontier**
+   - **Humanoid / embodied AI** → "How do you compare to Figure, 1X, Physical Intelligence,
+     and Skild? What specifically is your technical or GTM wedge?"
+   - **Autonomous driving** → "Why you and not Waymo, Tesla FSD, Wayve, or Aurora? What's
+     your specific ODD or deployment wedge?"
+   - **Defense tech** → "How are you different from Anduril, Shield AI, and Palantir?
+     What DoD program office is pulling you in?"
+   - **Climate / fusion / energy** → "What's your position vs. Commonwealth Fusion, Helion,
+     and Fervo? What's the timeline and capital profile?"
+
+   **Non-AI fallbacks**
    - **Dev tools / infra** → "What's your competitive position vs. [incumbent] and the
      open-source alternative?"
    - **Consumer** → "Why would users switch from [dominant incumbent]?"
    - **Fintech** → "Why wouldn't a customer just use Stripe / an existing neobank?"
    - **Marketplace** → "How do you unlock liquidity when [incumbent] already has both sides?"
-   - **Generic fallback** (category unclear) → "Who do you see as your main competition,
-     and what's your specific moat against them?"
+   - **Generic fallback** (category unclear or not listed) → "Who are the top 3 players in
+     your space today, and what's your specific moat against the leader?"
 
    If the founder names a specific competitor the sub-agent hasn't brought up, the sub-agent
    should probe that comparison in detail. If the founder evades ("we don't really have

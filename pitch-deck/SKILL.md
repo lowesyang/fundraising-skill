@@ -107,17 +107,70 @@ This command is **Step 4** of the fundraising workflow:
      you exploit?
    - What specific dimension do you win on? (speed, cost, quality, trust, distribution,
      data, workflow fit, regulatory positioning, etc.)
-   - Category-specific prompts — if the founder hasn't named obvious comparables, ask directly:
-     - **AI coding assistant** → how do you compare to Cursor, GitHub Copilot, Cline, Windsurf?
-     - **Foundation model** → how do you compare to GPT-4/5, Claude, Gemini, Llama, DeepSeek?
-       What's your position on cost, latency, context window, reasoning, tool use, safety?
-     - **AI agent platform / framework** → Anthropic Agent SDK, LangChain, CrewAI, AutoGen
-     - **Vertical AI SaaS** → incumbent SaaS (Salesforce, HubSpot, ServiceNow) + AI-native entrants
-     - **Dev tools / infra** → incumbents in the space + the "good enough" open-source option
+   - Category-specific prompts — if the founder hasn't named obvious comparables, ask directly.
+     Lists below are current top 3-6 players per category (2024-2026). Update as the market
+     evolves. The founder should be able to name most of the relevant row and explain where
+     they fit.
+
+     **AI infrastructure & platform**
+     - **Foundation model** → GPT-4/5, Claude, Gemini, Llama, DeepSeek, Mistral. Position on
+       cost, latency, context window, reasoning, tool use, safety, open-weights vs. closed
+     - **LLM inference / serving** → Together AI, Fireworks, Groq, Anyscale, Replicate, Modal, Baseten
+     - **Vector DB / retrieval** → Pinecone, Weaviate, Qdrant, Chroma, Milvus, Turbopuffer
+     - **LLM observability / eval** → LangSmith, Braintrust, Arize, Humanloop, Langfuse, Weights & Biases
+     - **AI agent framework** → Anthropic Agent SDK, LangChain/LangGraph, CrewAI, AutoGen, Mastra
+     - **AI chips / hardware** → NVIDIA, Groq, Cerebras, SambaNova, Tenstorrent, Etched
+     - **Fine-tuning / post-training platform** → OpenPipe, Together, Predibase, Modal
+
+     **AI applications (horizontal)**
+     - **AI coding assistant** → Cursor, GitHub Copilot, Cline, Windsurf, Zed, Continue, Devin
+     - **AI search engine** → Perplexity, ChatGPT Search, Google AI Overviews, You.com, Phind
+     - **AI browser** → Arc / Dia (Browser Company), Perplexity Comet, Opera Aria, Brave Leo
+     - **AI notetaker / meeting assistant** → Otter, Fireflies, Granola, Read AI, Krisp, tl;dv
+     - **AI inbox / email** → Superhuman, Shortwave, Notion Mail, Fyxer, SaneBox
+     - **Voice AI (TTS / STT / voice agents)** → ElevenLabs, Deepgram, Cartesia, Play.ai, Vapi, Retell
+     - **Image generation** → Midjourney, Flux, Ideogram, Stable Diffusion, DALL-E, Recraft
+     - **Video generation** → Runway, Pika, Luma, Kling, OpenAI Sora, Hailuo
+     - **AI writing / content** → Jasper, Copy.ai, Writer, Anthropic Artifacts
+     - **AI translation / localization** → DeepL, Lilt, Unbabel, Smartling
+
+     **AI applications (vertical)**
+     - **AI customer support** → Intercom Fin, Ada, Decagon, Sierra, Forethought, Parloa
+     - **AI sales / revenue intelligence** → Gong, Clari, 11x, Artisan, Outreach, Regie
+     - **AI legal** → Harvey, Spellbook, EvenUp, Ironclad, Hebbia, Eve Legal
+     - **AI medical scribe / clinical documentation** → Abridge, Suki, Nabla, Heidi Health, Freed, Commure, DeepScribe
+     - **AI finance / accounting / spend management** → Ramp, Brex, Pilot, Puzzle, Rillet, Digits
+     - **AI HR / recruiting** → Paradox, Eightfold, Mercor, Gem, Phenom
+     - **AI education** → Khan Academy Khanmigo, MagicSchool, Eureka Labs, Duolingo AI, Cognii
+     - **AI drug discovery / biotech** → Recursion, Isomorphic Labs, Insitro, InSilico Medicine, Xaira, Genesis Therapeutics
+     - **AI research / knowledge work** → Elicit, Consensus, Scite, Hebbia, Glean
+     - **AI data / analytics** → Hex, Mode, Sigma, Omni, Definite, Julius
+     - **AI creative tools** → Runway, Suno, Udio, Krea, Higgsfield
+     - **AI cybersecurity** → Dropzone, Prophet Security, Torq, 7AI, Expel
+     - **AI DevOps / SRE** → Resolve AI, Traversal, Cleric, Doctor Droid
+     - **Vertical AI SaaS (general)** → incumbent SaaS (Salesforce, HubSpot, ServiceNow) + AI-native entrants in the same space
+
+     **Deep tech & frontier**
+     - **Humanoid / embodied AI** → Figure, 1X, Physical Intelligence, Skild AI, Apptronik, Agility Robotics
+     - **Autonomous driving** → Waymo, Tesla FSD, Wayve, Aurora, Zoox, Pony.ai
+     - **Defense tech** → Anduril, Shield AI, Palantir, Helsing, Saronic
+     - **Climate / fusion / clean energy** → Commonwealth Fusion Systems, Helion, Fervo, Crusoe, TerraPower
+     - **Space** → SpaceX, Rocket Lab, Relativity, Varda, Stoke Space, K2 Space
+     - **Quantum computing** → IBM Quantum, IonQ, PsiQuantum, Rigetti, Atom Computing
+
+     **Non-AI categories**
+     - **Dev tools / infra** → incumbents + the "good enough" open-source option
      - **Consumer social** → the dominant incumbent + why users would switch
-     - **Fintech** → both neobanks/incumbents and the "just use Stripe" counterargument
+     - **Fintech / payments** → Stripe, Adyen, Checkout.com + relevant neobanks/vertical fintechs
      - **Marketplace** → both sides' current options and why liquidity shifts
+     - **Design tools** → Figma, Framer, Webflow, Canva, Adobe
+     - **Productivity / docs** → Notion, Coda, Linear, Craft, Obsidian
+     - **E-commerce platform** → Shopify, Amazon, Temu, Shein, TikTok Shop
+     - **Data infrastructure** → Snowflake, Databricks, Motherduck, ClickHouse
+
    - The VC will ask some version of "why won't [incumbent] just build this?" Have an answer.
+   - If the founder's category isn't listed above, ask them to name the top 3 players in their
+     space and the market leader they most often get compared to by customers.
 
    If missing or evasive: do not skip. Ask directly. A founder who can't name their competitors
    either hasn't done the homework (fatal at seed+) or is hiding the comparison (worse).
