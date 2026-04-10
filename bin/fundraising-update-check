@@ -9,7 +9,7 @@ REPO_RAW="https://raw.githubusercontent.com/lowesyang/fundraising-skill/main/VER
 STATE_DIR="$HOME/.fundraising-skill"
 CACHE_FILE="$STATE_DIR/last-update-check"
 UPGRADED_FILE="$STATE_DIR/just-upgraded-from"
-CACHE_TTL_MINUTES=60
+CACHE_TTL_MINUTES=30
 CONFIG_FILE="$STATE_DIR/config"
 SKIP_FILE="$STATE_DIR/skip-session"
 
@@ -43,14 +43,22 @@ if [ -z "$LOCAL_VER" ]; then
     exit 0  # No VERSION file, skip silently
 fi
 
-# Check cache
+# Check cache. Cache is invalidated if:
+#   1. It's older than CACHE_TTL_MINUTES
+#   2. The local version has changed since the cache was written (user upgraded)
+# Cache format: first line = local version at write time, second line = result
 if [ -f "$CACHE_FILE" ]; then
     CACHE_AGE=$(( ($(date +%s) - $(stat -f %m "$CACHE_FILE" 2>/dev/null || stat -c %Y "$CACHE_FILE" 2>/dev/null || echo 0)) / 60 ))
-    if [ "$CACHE_AGE" -lt "$CACHE_TTL_MINUTES" ]; then
-        # Cache is fresh, return cached result
-        CACHED=$(cat "$CACHE_FILE")
-        if [ "$CACHED" != "UP_TO_DATE" ]; then
-            echo "$CACHED"
+    CACHE_LOCAL_VER=$(sed -n '1p' "$CACHE_FILE" 2>/dev/null)
+    CACHED_RESULT=$(sed -n '2p' "$CACHE_FILE" 2>/dev/null)
+
+    # Backwards compat: old cache files are single-line and have no version fingerprint.
+    # Treat them as stale so they get rewritten in the new format.
+    if [ -z "$CACHED_RESULT" ] || [ -z "$CACHE_LOCAL_VER" ]; then
+        rm -f "$CACHE_FILE"
+    elif [ "$CACHE_AGE" -lt "$CACHE_TTL_MINUTES" ] && [ "$CACHE_LOCAL_VER" = "$LOCAL_VER" ]; then
+        if [ "$CACHED_RESULT" != "UP_TO_DATE" ]; then
+            echo "$CACHED_RESULT"
         fi
         exit 0
     fi
@@ -64,7 +72,7 @@ fi
 
 # Compare versions
 if [ "$LOCAL_VER" = "$REMOTE_VER" ]; then
-    echo "UP_TO_DATE" > "$CACHE_FILE"
+    printf '%s\nUP_TO_DATE\n' "$LOCAL_VER" > "$CACHE_FILE"
     exit 0
 fi
 
@@ -98,8 +106,8 @@ if [ "$NEEDS_UPGRADE" = true ]; then
     else
         RESULT="UPGRADE_AVAILABLE $LOCAL_VER $REMOTE_VER"
     fi
-    echo "$RESULT" > "$CACHE_FILE"
+    printf '%s\n%s\n' "$LOCAL_VER" "$RESULT" > "$CACHE_FILE"
     echo "$RESULT"
 else
-    echo "UP_TO_DATE" > "$CACHE_FILE"
+    printf '%s\nUP_TO_DATE\n' "$LOCAL_VER" > "$CACHE_FILE"
 fi
