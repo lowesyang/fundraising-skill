@@ -1,5 +1,28 @@
 # Changelog
 
+## 0.1.1 (2026-04-10)
+
+**Interaction model fix**
+- All 8 commands now ask one question at a time instead of dumping multi-field forms. New top-level "Interaction Rules" section in `fundraising/SKILL.md` applies globally.
+- `/before-fundraising`: profile and fundraising context collected as sequential single-field questions, with stage-specific field lists
+- `/product-metrics`: metrics collected in logical chunks of 2-4 related items per domain (e.g., SaaS: revenue & growth → retention → unit economics → efficiency)
+- `/due-diligence`: DD questions walked through one at a time per category, with per-category grade summaries
+- `/pitch-deck`, `/pitch`, `/deal-room`, `/fundraising-strategy`, `/fundraising-stage`: replaced batch-question shorthand with explicit references to the Interaction Rules
+
+**Competitive analysis**
+- `/pitch-deck` step 2 now requires a "Competitive landscape" extraction with category-specific prompts (AI coding, foundation models, agent frameworks, vertical SaaS, dev infra, consumer, fintech, marketplace, and more)
+- Step 5 adds a dedicated Competition slide guidance block: comparison table (not 2×2 matrix), 4-6 honest dimensions including some the founder loses on, explicit wedge statement
+- Competition promoted from optional to required at pre-seed, seed, and Series A stages
+- Expanded category coverage to 35+ verticals with top 3-6 market leaders per category (2024-2026 snapshot): AI infra, horizontal AI apps, vertical AI, deep tech, non-AI categories
+- `/pitch` sub-agent must ask at least one competitive question during Q&A, with category-specific defaults; pushes back on "we don't really have competitors" framing
+- 5-dimension scoring: "Market conviction" renamed to "Market & competition" with explicit competitive clarity in the rubric
+
+**README overhaul**
+- New sections: "Who Needs This Skill" (6 user personas), "Why You Should Use This Skill" (tightened failure-mode summary + 4 value props), "How This Differs From a Financial Advisor (FA)" (comparison table)
+- New "Example: a seed round, start to finish" walkthrough showing a realistic Acme → a16z term sheet run through all 8 commands
+- VC Roster extracted to dedicated `VC-ROSTER.md`; README keeps a 5-tier summary table
+- Writing style guide in `CONTRIBUTING.md`: avoid em-dashes as connective tissue, avoid "not X but Y" framing, prefer concrete over abstract
+
 ## 0.1.0 (2026-04-10)
 
 Initial public release. Full-lifecycle fundraising operating system for Claude Code.
